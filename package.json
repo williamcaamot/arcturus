@@ -9,8 +9,8 @@
     "install:frontend": "cd frontend && npm install --include=dev",
     "build": "cd frontend && npx vite build",
     "start": "cd server && node server.js",
-    "dev": "concurrently npm:dev:frontend npm:dev:backend",
-    "dev:frontend": "npx vite",
+    "dev": "concurrently \"npm:dev:frontend\" \"npm:dev:backend\"",
+    "dev:frontend": "cd frontend && npx vite",
     "dev:backend": "cd backend && npx nodemon server.js"
   },
   "keywords": [],
