@@ -6,7 +6,7 @@
   "scripts": {
     "postinstall": "npm run install:frontend && npm run install:backend",
     "install:backend": "cd backend && npm install --include=dev",
-    "install:frontend": "cd frontend && npm install",
+    "install:frontend": "cd frontend && npm install --include=dev",
     "build": "cd frontend && npx vite build",
     "start": "cd server && node server.js"
   },
