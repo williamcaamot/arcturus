@@ -1,3 +1,4 @@
+import Navigation from './components/navigation/Navigation.tsx'
 import Router from './route/Router'
 
 function App() {
@@ -5,6 +6,7 @@ function App() {
   return (
       <div> 
        <Router/>
+       <Navigation/>
       </div>
   )
 }
