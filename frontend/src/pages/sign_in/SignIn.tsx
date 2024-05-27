@@ -3,26 +3,31 @@ import "./styles/signIn.css";
 const SignIn = () => {
     return (
         <div className="signInContainer">
+
+            <div className="signInHeader">
+            <h1>FLEXR</h1>
+            </div>
+
             <div className="signInLogo">
-                <h1>LOGO HERE</h1>
-                <br />
-                <h2 style={{ margin: 0 }}>Welcome Darwin</h2>
+               <img src="" alt="" className="signInLogo" />
             </div>
-            <div className="signInBoxes">
-                <p>Facebook</p>
-            </div>
-            <div className="signInBoxes">
-                <p>Microsoft</p>
-            </div>
-            <div className="signInBoxes">
-                <p>Google</p>
-            </div>
-            <div className="signInBoxes">
-                <p>Apple</p>
-            </div>
-            <div className="signInBoxes">
-                <p>Email</p>
-            </div>
+
+            <button className="signInBoxes">
+              <p>Continue with Apple</p>
+            </button>
+
+            <button className="signInBoxes">
+                <p>Continue with Facebook</p>
+            </button>
+
+            <button className="signInBoxes">
+                <p>Continue with Google</p>
+            </button>
+
+            <button className="signInBoxes">
+                <p>Register new user</p>
+            </button>
+
         </div>
     );
 };

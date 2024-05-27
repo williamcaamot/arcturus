@@ -5,6 +5,7 @@ body {
     height: 100vh;
     padding: 0;
     margin: 0;
+  
 }
 
 .container {
@@ -20,32 +21,63 @@ p {
     font-size: 16px;
 }
 
+.signInHeader {
+    display: flex;
+    text-align: center;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+
+}
+
+.signInHeader h1 {
+    color: var(--Dark-Green, #246656);
+    text-align: center;
+    font-family: Koulen;
+    font-size: 70px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    margin-bottom: 0;
+}
+
 .signInContainer {
     display: flex;
     flex-direction: column;
     gap: 20px;
     padding: 18px 18px;
-    min-width: 390px;
-    min-height: 844px;
     width: 100%;
     height: 100%;
-    border: 1px solid red;
+    justify-content: center;
+    align-items: center;
+    border: 2px  solid var(--Dark-Green, #246656);
+    border-radius: 10px;
+    background: var(--Background, #FAFAFA);
+    height: 844px;
+    width: 390px;
 }
+
 .signInLogo {
     display: flex;
-        flex-direction: column;
-
-    gap: 12px;
-    border: 1px solid red;
-    align-items: center;
-    padding: 18px 0px;
+    width: 250px;
+    height: 250px;
+    flex-shrink: 0;
+    border-radius: 150px;
+    background: var(--Orange, #FF6D4D);
+    margin-bottom: 10%;
 }
 
 .signInBoxes{
-    display: ;
-    gap: 5px;
-    border: 1px solid red;
+    display: flex;
+    width: 345px;
+    height: 56px;
+    padding: 1px 47.5px 1px 48.5px;
+    justify-content: center;
     align-items: center;
-    padding: 6px 10px;
-
+    flex-shrink: 0;
+    border: 1px solid black;
+    border-radius: 30px;
+    background: none; 
+    cursor: pointer;
 }
