@@ -34,12 +34,13 @@ p {
 .signInHeader h1 {
     color: var(--Dark-Green, #246656);
     text-align: center;
-    font-family: Koulen;
+    font-family: Koulen, sans-serif;
     font-size: 70px;
     font-style: normal;
-    font-weight: 400;
+    font-weight: 600;
     line-height: normal;
     margin-bottom: 0;
+    letter-spacing: -6px; 
 }
 
 .signInContainer {
