@@ -67,10 +67,13 @@ p {
     justify-content: center;
     align-items: center;
     flex-shrink: 0;
-    border: 1px solid black;
-    border-radius: 30px;
+    border-radius: 30px;   
+    border: none;                     
     background: none; 
     cursor: pointer;
+}
+.signInBoxes p {
+    font-size: 21px; 
 }
 
 .signInBoxes.appleBtn {
@@ -101,7 +104,7 @@ p {
     font-style: normal;
     font-weight: 500;
     line-height: normal;
-
+    border: 1px solid #E6E6E5;
 }
 
 .signInBoxes.newUserBtn {
