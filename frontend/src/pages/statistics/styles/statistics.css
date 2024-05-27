@@ -74,6 +74,7 @@
     justify-content: center;
     height: auto;
     margin-top: 2vh;
+    margin-bottom: 5vh;
     overflow: auto; 
 }
 
@@ -122,7 +123,8 @@
 }
 
 .backBtn img {
-    width: 25px; 
-    height: 25px; 
+    width: 30px; 
+    height: 38px; 
+    
 
 }
