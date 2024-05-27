@@ -4,11 +4,9 @@
     align-items: center;
     gap: 2vh;
     padding: 18px 18px;
-   
     border-radius: 10px;
     background: var(--Background, #FAFAFA);
     height: auto;
-
     position: relative; 
     overflow: auto;
 }
@@ -57,7 +55,7 @@
     gap: 2vh;
     align-items: center;
     justify-content: center;
-    width: 100%;
+ 
     height: auto; 
     margin-top: 20px;
 }
@@ -99,6 +97,7 @@
     font-style: normal;
     font-weight: 400;
     line-height: 100%;
+    margin-right: 10px;
 }
 
 .infoBox img {
