@@ -59,16 +59,6 @@ p {
     width: 390px;
 }
 
-.signInLogo {
-    display: flex;
-    width: 250px;
-    height: 250px;
-    flex-shrink: 0;
-    border-radius: 150px;
-    background: var(--Orange, #FF6D4D);
-    margin-bottom: 10%;
-}
-
 .signInBoxes{
     display: flex;
     width: 345px;
@@ -81,4 +71,62 @@ p {
     border-radius: 30px;
     background: none; 
     cursor: pointer;
+}
+
+.signInBoxes.appleBtn {
+    background-color: #000;
+    color: var(--Background, #FAFAFA);
+    font-family: Roboto;
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+.signInBoxes.facebookBtn {
+    background: #1877F2;   
+    color: var(--Background, #FAFAFA);
+    font-family: Roboto;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+.signInBoxes.googleBtn {
+    background: #FAFAFA;  
+    color: rgba(0, 0, 0, 0.54);
+    font-family: Roboto;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+
+}
+
+.signInBoxes.newUserBtn {
+    background-color: var(--Dark-Green, #246656);
+    color: #FFF;
+text-align: center;
+font-family: Roboto;
+font-size: 20px;
+font-style: normal;
+font-weight: 500;
+line-height: normal;
+}
+
+.signInLogo {
+    display: flex;
+    width: 250px;
+    height: 250px;
+    flex-shrink: 0;
+    border-radius: 150px;
+    background: var(--Orange, #FF6D4D);
+    margin-bottom: 10%;
+}
+
+.logo {
+    width: 25px;
+    height: 25px;
+    margin-right: 10px;
 }
