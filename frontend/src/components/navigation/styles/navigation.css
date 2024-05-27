@@ -16,3 +16,11 @@
     cursor: pointer;
     text-align: center;
   }
+
+  @media (min-width: 600px) {
+    .navigation {
+        justify-content: center;
+        max-width: 600px;
+        margin: 0 auto;
+    }
+}
