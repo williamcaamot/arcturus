@@ -8,7 +8,10 @@
     "install:backend": "cd backend && npm install --include=dev",
     "install:frontend": "cd frontend && npm install --include=dev",
     "build": "cd frontend && npx vite build",
-    "start": "cd server && node server.js"
+    "start": "cd server && node server.js",
+    "dev": "concurrently npm:dev:server npm:dev:backend",
+    "dev:frontend": "",
+    "dev:backend": ""
   },
   "keywords": [],
   "author": "",
