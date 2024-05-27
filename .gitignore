@@ -24,3 +24,4 @@ dist-ssr
 *.sw?
 *.iml
 /backend/.env
+/backend/.env
