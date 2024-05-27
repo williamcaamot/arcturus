@@ -8,7 +8,7 @@ const LandingPage = () => {
                 <h2 style={{ margin: 0 }}>Welcome Darwin</h2>
             </div>
             <div className='landingStatsCont'>
-                <img src='../../../public/images/statsCircle.png' alt='statsPlaceholder' className='tmpStatsImg' />
+                <img src='/images/statsCircle.png' alt='statsPlaceholder' className='tmpStatsImg' />
                 <div className='landingPeriodCheckCont'>
                     <div>
                         <input type='checkbox' id='lastWeek' className='landingSearchBar' />
