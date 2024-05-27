@@ -23,7 +23,7 @@ p {
 .landingContainer {
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 16px;
     padding: 18px 18px;
     width: 390px;
     max-height: 844px;
@@ -38,7 +38,7 @@ p {
     display: flex;
     gap: 12px;
     align-items: center;
-
+    padding-top: 20px;
 }
 
 .landingWelcomeProfilePicture {
