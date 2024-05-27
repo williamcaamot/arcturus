@@ -2,17 +2,15 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 20px;
+    gap: 2vh;
     padding: 18px 18px;
-    width: 100%;
-    height: 100%;
-    border: 2px  solid var(--Dark-Green, #246656);
+   
     border-radius: 10px;
     background: var(--Background, #FAFAFA);
     height: auto;
-    width: 390px;
-    position: relative; 
 
+    position: relative; 
+    overflow: auto;
 }
 
 .centerContent {
@@ -20,7 +18,7 @@
     flex-direction: column;
     align-items: center;
     width: 100%;
-    margin-top: 40px
+    margin-top: 5vh;
 }
 
 .statsHeader {
@@ -56,11 +54,11 @@
 
 .statsCircleBox {
     display: flex;
-    gap: 20px;
+    gap: 2vh;
     align-items: center;
     justify-content: center;
     width: 100%;
-    height: 100%;
+    height: auto; 
     margin-top: 20px;
 }
 
@@ -74,9 +72,8 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    width: 100%;
-    height: 100%;
-    margin-top: 30px;
+    height: auto;
+    margin-top: 2vh;
     overflow: auto; 
 }
 
@@ -84,12 +81,12 @@
     display: flex;
     flex-direction: row; 
     align-items: center; 
-    width: 346px;
-    height: 117px;
+    width: 90vw; 
+    height: 13vh;
     flex-shrink: 0; 
-    border-radius: 15px;
+    border-radius: 3vh;
     background: var(--Background-Grey, #F2F2F2);
-    margin: 10px;
+    margin: 1.5vh;
     
 
 }
@@ -120,7 +117,7 @@
 .backBtn button {
     background: none;
     border-radius: 10px; 
-    border: 1 solid rgb(0, 0, 0);
+    border: none;
 
 }
 

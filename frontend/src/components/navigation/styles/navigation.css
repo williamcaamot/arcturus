@@ -3,7 +3,7 @@
     justify-content: space-around;
     position: fixed;
     bottom: 0;
-    width: 100%;
+    width: 100vw;
     background-color: #2E2E2E;
     padding: 20px 0;
     box-sizing: border-box;
