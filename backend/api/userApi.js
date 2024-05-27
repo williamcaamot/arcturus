@@ -6,8 +6,5 @@ export function userAPI(mongoClient){
     router.get("", async(req, res)=>{
         res.json({message:"Hello world"});
     })
-
     return router;
-
-
 }
