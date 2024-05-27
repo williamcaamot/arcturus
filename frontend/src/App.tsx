@@ -1,17 +1,12 @@
-import { useState } from 'react'
-import Router from './components/Router'
+import Router from './route/Router'
 
 function App() {
-  const [count, setCount] = useState(0)
-//console.log('App.tsx')
+
   return (
     <>
-      <div>
- 
-       
+      <div> 
        <Router/>
       </div>
-     
     </>
   )
 }
