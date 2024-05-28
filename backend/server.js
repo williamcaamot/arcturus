@@ -2,7 +2,7 @@ import express from "express";
 import { MongoClient } from "mongodb";
 import dotenv from "dotenv";
 import { createProxyMiddleware} from "http-proxy-middleware";
-import {userAPI} from "./api/userApi.js";
+import {userAPI} from "./api/userAPI.js";
 import { fileURLToPath } from 'url';
 import { dirname, join } from 'path';
 import {exerciseAPI} from "./api/exerciseAPI.js";
@@ -23,6 +23,8 @@ app.use(bodyParser.json({limit: '1mb'}))
 app.use("/api/v1/user", userAPI(mongoClient))
 app.use("/api/v1/workouts", workoutAPI(mongoClient))
 app.use("/api/v1/exercises", exerciseAPI(mongoClient))
+
+
 
 
 
