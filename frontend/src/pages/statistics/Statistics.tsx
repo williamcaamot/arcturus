@@ -4,8 +4,24 @@ import Lifter from '../../../public/images/Lifter.png';
 import Runner from '../../../public/images/Runner.png';
 import Dancer from '../../../public/images/dancer.png';
 import Trophy from '../../../public/images/Trophy.png';
+import WorkoutService from "../../services/WorkoutService.ts";
+import {useEffect} from "react";
 
 const Statistics = () => {
+
+    async function fetchUser(){
+        const users = await WorkoutService.getWorkouts();
+        console.log(users)
+    }
+
+
+    useEffect(() => {
+        fetchUser();
+    }, []);
+
+
+
+
     return (
         <div className="statisticsContainer">
             <div className="backBtn">
