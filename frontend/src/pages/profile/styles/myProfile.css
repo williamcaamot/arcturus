@@ -51,6 +51,7 @@
     align-items: center;
     width: auto;
     height: auto;
+    position: relative;
 }
 
 .headerContent h1 {
@@ -63,15 +64,17 @@
     color: var(--Text, #180202);
     text-align: center;
     font-family: Koulen;
-    font-size: 50px;
+    font-size: 8vw;
     font-style: normal;
     font-weight: 600;
     line-height: 120%; 
+    white-space: nowrap;
 }
 
 
+
 .headerContent svg {
-    width: 221px;
+    width: 50vw;
     margin-top: -20px;
     flex-shrink: 0;
     stroke-width: 4px;
@@ -88,7 +91,7 @@
 }
 
 .profileSettings{
-    width: 340px;
+    width: 100%;
     height: 319px;
     flex-shrink: 0;
     border-radius: 20px;
@@ -98,7 +101,7 @@
 .profileHighlights {
     display: flex;
     flex-direction: column; 
-    align-items: flex-start;
+    align-items: center;
     gap: 10px;
     width: 100%;
     height: auto;
@@ -116,6 +119,9 @@
 
 .profileHighlights h3 {
     align-self: flex-start; 
+    margin-top: 0;
+    margin-left: 0;
+    margin-bottom: 30px;
 }
 
 
@@ -124,6 +130,7 @@
     flex-direction: row;
     justify-content: center;
     align-items: center;
+    
 }
 
 .highlightBox {
@@ -137,7 +144,8 @@
     fill: var(--Background, #FFF);
     stroke-width: 3px;
     stroke: var(--Dark-Green, #246656);
-    margin: 0 10px; 
+    margin-left: 20px;
+    margin-right: 20px;
 }
 
 .highlightBox h4, .highlightBox p {

@@ -12,7 +12,7 @@ const Navigation = () => {
         <button className="nav-button" onClick={() => navigateTo('/SignIn')}>Sign In</button>
         <button className="nav-button" onClick={() => navigateTo('/Statistics')}>Stats</button>
         <button className="nav-button" onClick={() => navigateTo('/Test3')}>Test3</button>
-        <button className="nav-button" onClick={() => navigateTo('/Test4')}>Test4</button>
+        <button className="nav-button" onClick={() => navigateTo('/MyProfile')}>My Profile</button>
       </div>
     );
   };
