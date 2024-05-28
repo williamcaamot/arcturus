@@ -1,4 +1,5 @@
 import './styles/landingPage.css';
+import {useEffect} from "react";
 
 const LandingPage = () => {
     const workouts = [
@@ -72,6 +73,23 @@ const LandingPage = () => {
             image: 'https://via.placeholder.com/200',
         },
     ];
+
+
+    async function tryFetch(){
+        try{
+            const res = await fetch("/api/v1/user");
+            const data = await res.json();
+            console.log(data);
+        }catch (e) {
+
+        }
+
+    }
+
+    useEffect(() => {
+        tryFetch()
+    }, []);
+
 
     return (
         <div className='landingContainer'>
