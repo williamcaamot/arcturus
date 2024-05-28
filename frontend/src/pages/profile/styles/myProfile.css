@@ -67,7 +67,7 @@
     color: var(--Text, #180202);
     text-align: center;
     font-family: Koulen;
-    font-size: 8vw;
+    font-size: 2em;
     font-style: normal;
     font-weight: 600;
     line-height: 120%; 
@@ -78,6 +78,7 @@
 
 .headerContent svg {
     width: 50vw;
+    max-width: 350px; 
     margin-top: -10px;
     flex-shrink: 0;
     stroke-width: 4px;
@@ -85,12 +86,41 @@
 }
 
 .profileHeader img {
-    width: 117px;
-    height: 117px;
+    position: relative;
+    width: 110px;
+    height: 110px; 
     flex-shrink: 0;
     fill: url(<path-to-image>) lightgray -19.158px -3.848px / 127.82% 128.788% no-repeat;
     stroke-width: 5px;
     stroke: var(--Text, #180202);
+    display: block;
+    margin: auto;
+}
+
+.profilePic{
+    display: flex;
+    flex-direction: column;
+    align-items:flex-end;
+    justify-content:end;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    margin-top: 20px;
+}
+
+.changePicBtn {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    flex-shrink: 0;
+    fill: var(--Text, #180202);
+    border: none;
+    background-color: transparent;
+}
+.changePicBtn img {
+    width: 25px;
+    height: 25px;
+
 }
 
 .profileSettings{
@@ -247,4 +277,13 @@ letter-spacing: 0.95px;
 
 .settingsBtns button:last-child::after {
     display: none;
+}
+
+@media (min-width: 600px) {
+    .profileContainer {
+        justify-content: center;
+        max-width: 600px;
+        max-height: 1000px;
+        margin: 0 auto;
+    }
 }

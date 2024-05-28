@@ -12,6 +12,7 @@ import notificationsIcon from "../../../public/images/notificationsIcon.png";
 import timeSpentIcon from "../../../public/images/highlightTimeIcon.png";
 import kgsLiftedIcon from "../../../public/images/HighlightKgIcon.png";
 import calsBurnedIcon from "../../../public/images/highlightCalsIcon.png";
+import editIcon from "../../../public/images/editBtn.png";
 
 
 const Statistics = () => {
@@ -51,11 +52,17 @@ const Statistics = () => {
                         />
                     </svg>
                 </div>
+                <div className="profilePic">
                 <img
                     src="https://www.w3schools.com/howto/img_avatar.png"
                     alt="Avatar"
                     className="landingWelcomeProfilePicture"
                 />
+                <button className="changePicBtn">
+                    <img src={editIcon} alt="editIconButton" />
+                </button>
+                </div>
+             
             </div>
             <div className="centerContent">
                 <div className="profileHighlights">
