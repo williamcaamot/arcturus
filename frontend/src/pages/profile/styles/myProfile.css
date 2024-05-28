@@ -1,3 +1,6 @@
+
+/* Main container */
+
 .profileContainer {
     display: flex;
     flex-direction: column;
@@ -13,15 +16,8 @@
     box-sizing: border-box;
 }
 
-.centerContent {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-    margin-top: 0.5vh;
-    position: relative;
-    z-index: 1;
-}
+
+/* BackButton */
 
 .backBtn {
     position: absolute; 
@@ -40,6 +36,10 @@
     width: 30px; 
     height: 38px; 
 }
+
+
+/* Profile header */
+
 .profileHeader {
     display: flex;
     flex-direction: row;
@@ -90,11 +90,12 @@
     width: 110px;
     height: 110px; 
     flex-shrink: 0;
-    fill: url(<path-to-image>) lightgray -19.158px -3.848px / 127.82% 128.788% no-repeat;
     stroke-width: 5px;
     stroke: var(--Text, #180202);
     display: block;
     margin: auto;
+    border: 7px solid black;
+    border-radius: 50%;
 }
 
 .profilePic{
@@ -116,22 +117,32 @@
     fill: var(--Text, #180202);
     border: none;
     background-color: transparent;
+    bottom: 15px;
+    right: 15px;
 }
+
 .changePicBtn img {
-    width: 25px;
-    height: 25px;
-
+    width: 20px;
+    height: 20px;
 }
 
-.profileSettings{
+
+/* Center content */
+
+
+.centerContent {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     width: 100%;
-    height: 400px;
-    flex-shrink: 0;
-    border-radius: 20px;
-    border: 3px solid var(--Light-Grey, #E6E6E5);
-    background: var(--Background, #FFF);
-    margin-bottom: 60px;
+    margin-top: 0.5vh;
+    position: relative;
+    z-index: 1;
 }
+
+
+/* Highlights */
+
 .profileHighlights {
     display: flex;
     flex-direction: column; 
@@ -218,6 +229,21 @@ letter-spacing: 0.95px;
     flex-shrink: 0; 
 }
 
+
+
+/* Profile Settings & buttons */
+
+.profileSettings{
+    width: 100%;
+    height: 400px;
+    flex-shrink: 0;
+    border-radius: 20px;
+    border: 3px solid var(--Light-Grey, #E6E6E5);
+    background: var(--Background, #FFF);
+    margin-bottom: 60px;
+}
+
+
 .settingsBtns{
     display: flex;
     flex-direction: column;
@@ -278,6 +304,10 @@ letter-spacing: 0.95px;
 .settingsBtns button:last-child::after {
     display: none;
 }
+
+
+
+/* Media */
 
 @media (min-width: 600px) {
     .profileContainer {
