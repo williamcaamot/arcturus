@@ -1,0 +1,31 @@
+.profileContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2vh;
+    padding: 18px 18px;
+    border-radius: 10px;
+    background: var(--Background, #FAFAFA);
+    height: auto;
+    position: relative; 
+    overflow: auto;
+}
+.backBtn {
+    border: none;
+    border: none;
+    position: absolute; 
+    top: 40px; 
+    left: 30px;
+}
+
+.backBtn button {
+    background: none;
+    border-radius: 10px; 
+    border: none;
+
+}
+
+.backBtn img {
+    width: 30px; 
+    height: 38px; 
+}
