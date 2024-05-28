@@ -1,26 +1,37 @@
 .navigation {
-    display: flex;
-    justify-content: space-around;
-    position: fixed;
-    bottom: 0;
-    width: 100vw;
-    background-color: #2E2E2E;
-    padding: 20px 0;
-    box-sizing: border-box;
+  display: flex;
+  justify-content: space-around;
+  position: fixed;
+  bottom: 0;
+  left: 0; 
+  right: 0;
+  width: 100%;
+  background: var(--Text, #180202);
+  padding: 25px 0;
+  box-sizing: border-box;
+  z-index: 9999;
   }
   
+  .navigation img {
+  width: 30px;
+  height: 30px;
+  flex: 1;
+  }
+
+
   .nav-button {
-    color: white;
-    background: none;
-    border: none;
-    cursor: pointer;
-    text-align: center;
+  color: white;
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-align: center;
+  flex: 1;
   }
 
   @media (min-width: 600px) {
-    .navigation {
-        justify-content: center;
-        max-width: 600px;
-        margin: 0 auto;
-    }
+  .navigation {
+    justify-content: center;
+    max-width: 600px;
+    margin: 0 auto;
+  }
 }
