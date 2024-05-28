@@ -1,19 +1,20 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import "./styles/myProfile.css";
 import backArrow from "../../../public/images/backArrow.png";
-import WorkoutService from "../../services/WorkoutService";
+import WorkoutService from "../../services/WorkoutService.ts";
+
 
 const Statistics = () => {
-    const [workouts, setWorkouts] = useState(null);
+     
+    async function fetchUser() {
+         const users = await WorkoutService.getWorkouts();
+         console.log(users);
+     }
 
-    useEffect(() => {
-        const fetchWorkouts = async () => {
-            const response = await WorkoutService.getWorkouts();
-            setWorkouts(response.data);
-        };
+     useEffect(() => {
+         fetchUser();
+     }, []);
 
-        fetchWorkouts();
-    }, []);
 
     return (
         <div className="profileContainer">
@@ -21,10 +22,104 @@ const Statistics = () => {
                 <button>
                     <img src={backArrow} alt="Back" />
                 </button>
-                <div>
-                    <p>From API:</p>
-                    <p>{workouts && JSON.stringify(workouts, null, 2)}</p>
+            </div>
+            <div className="profileHeader">
+                <div className="headerContent">
+                    <h1>MY PROFILE</h1>
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="225"
+                        height="4"
+                        viewBox="0 0 225 4"
+                        fill="none"
+                    >
+                        <path
+                            d="M2 2H223"
+                            stroke="#FF6D4D"
+                            stroke-width="4"
+                            stroke-linecap="round"
+                        />
+                    </svg>
                 </div>
+                <img
+                    src="https://www.w3schools.com/howto/img_avatar.png"
+                    alt="Avatar"
+                    className="landingWelcomeProfilePicture"
+                />
+            </div>
+            <div className="centerContent">
+                <div className="profileHighlights">
+                    <h3>MY HIGHLIGHTS</h3>
+                    <div className="highlightCircle">
+                        <div className="highlightBox">
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="70"
+                                height="70"
+                                viewBox="0 0 70 70"
+                                fill="none"
+                            >
+                                <circle
+                                    cx="35"
+                                    cy="35"
+                                    r="33.5"
+                                    fill="white"
+                                    stroke="#246656"
+                                    stroke-width="3"
+                                />
+                            </svg>
+                            <h4>TIME SPENT</h4>
+                            <p>46 hrs 12 min</p>
+                        </div>
+                        <div className="highlightBox">
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="70"
+                                height="70"
+                                viewBox="0 0 70 70"
+                                fill="none"
+                            >
+                                <circle
+                                    cx="35"
+                                    cy="35"
+                                    r="33.5"
+                                    fill="white"
+                                    stroke="#246656"
+                                    stroke-width="3"
+                                />
+                            </svg>
+                            <h4>TIME SPENT</h4>
+                            <p>46 hrs 12 min</p>
+                        </div>
+                        <div className="highlightBox">
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="70"
+                                height="70"
+                                viewBox="0 0 70 70"
+                                fill="none"
+                            >
+                                <circle
+                                    cx="35"
+                                    cy="35"
+                                    r="33.5"
+                                    fill="white"
+                                    stroke="#246656"
+                                    stroke-width="3"
+                                />
+                            </svg>
+                            <h4>TIME SPENT</h4>
+                            <p>46 hrs 12 min</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div className="profileSettings">
+                    <div className="landingWelcomeCont"></div>
+                </div>
+            </div>
+            <div>
+                <p>From API:</p>
             </div>
         </div>
     );
