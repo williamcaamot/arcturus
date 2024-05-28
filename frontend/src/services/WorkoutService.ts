@@ -2,7 +2,7 @@ import axios from 'axios';
 
 const WorkoutService = (() => {
 
-    const workoutEndpoint = 'http://localhost:3000/api/v1';
+    const workoutEndpoint = '/api/v1';
 
 
     const getWorkouts = async () => {
