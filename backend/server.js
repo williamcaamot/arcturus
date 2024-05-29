@@ -1,10 +1,10 @@
 import express from "express";
-import { MongoClient } from "mongodb";
+import {MongoClient} from "mongodb";
 import dotenv from "dotenv";
-import { createProxyMiddleware} from "http-proxy-middleware";
+import {createProxyMiddleware} from "http-proxy-middleware";
 import {userAPI} from "./api/userAPI.js";
-import { fileURLToPath } from 'url';
-import { dirname, join } from 'path';
+import {fileURLToPath} from 'url';
+import {dirname, join} from 'path';
 import {exerciseAPI} from "./api/exerciseAPI.js";
 import {workoutAPI} from "./api/workoutAPI.js";
 import bodyParser from "body-parser";
@@ -23,13 +23,6 @@ app.use(bodyParser.json({limit: '1mb'}))
 app.use("/api/v1/user", userAPI(mongoClient))
 app.use("/api/v1/workouts", workoutAPI(mongoClient))
 app.use("/api/v1/exercises", exerciseAPI(mongoClient))
-
-
-
-
-
-
-
 
 
 // Middleware to handle requests that are not API relevant (keep this at bottom, want to first handle anything that has to do with API)
@@ -61,7 +54,11 @@ mongoClient.connect()
 
 
 // Run server
+const actualPort = process.env.PORT || port;
 app.listen(process.env.PORT || port, () => {
     const actualPort = process.env.PORT || port;
+    console.log("-------------------------------------------------------------------------------------");
     console.log("Server is running on port " + actualPort);
-}) ;
+    console.log(`ACCESS FRONTEND ON localhost:${actualPort} FOR API CALLS TO WORK`)
+    console.log("-------------------------------------------------------------------------------------");
+});
