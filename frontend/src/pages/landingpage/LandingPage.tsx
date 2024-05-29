@@ -1,3 +1,4 @@
+import Navigation from '../../components/navigation/Navigation';
 import './styles/landingPage.css';
 import {useEffect} from "react";
 
@@ -168,6 +169,7 @@ const LandingPage = () => {
                     ))}
                 </div>
             </div>
+            <Navigation/>
         </div>
     );
 };

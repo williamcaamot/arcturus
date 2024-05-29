@@ -13,6 +13,7 @@ import timeSpentIcon from "../../../public/images/highlightTimeIcon.png";
 import kgsLiftedIcon from "../../../public/images/HighlightKgIcon.png";
 import calsBurnedIcon from "../../../public/images/highlightCalsIcon.png";
 import editIcon from "../../../public/images/editBtn.png";
+import Navigation from "../../components/navigation/Navigation.tsx";
 
 
 const Statistics = () => {
@@ -194,6 +195,7 @@ const Statistics = () => {
                     </div>
                 </div>
             </div>
+            <Navigation/>
         </div>
     );
 };
