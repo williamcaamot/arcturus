@@ -6,7 +6,8 @@
     width: 100%;
     height: 100%;
     border-radius: 10px;
-    background: var(--Background, #FFF);
+    background: var(--Background, #FFF);  
+    margin-bottom: 15vh;
 }
 
 /* Header */
@@ -25,7 +26,7 @@
     color: var(--Dark-Green, #246656);
     text-align: center;
     font-family: Koulen;
-    font-size: 60px;
+    font-size: 55px;
     font-style: normal;
     font-weight: 600;
     line-height: 100%; /* 60px */
@@ -44,9 +45,9 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    width: 80vw;
+    width: 100%;
     height: 100%;
-    margin-top: 5vh;
+    margin-top: 8vh;
 }
 
 .inputBoxes input{
@@ -71,6 +72,7 @@
     flex-direction: row;
     align-items: center;
     justify-content: center;
+    
 
 }
 
@@ -96,6 +98,53 @@
 }
 .inputBoxes input:-moz-placeholder { /* Firefox 18- */
     padding-left: 20px;
+}
+
+/* Tags */
+
+.tagBoxes {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    flex-wrap: wrap; 
+    width: 100%; 
+    margin: 0 auto;
+}
+
+.tagBox {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 70px; 
+    width: auto;
+    padding: 0 10px;
+    height: 3vh;
+    margin-top: 5vh;
+    margin-right: 10px;
+    border-radius: 30px;
+    color: var(--White, #ffffff);
+    background: var(--Dark-Green, #246656);
+}
+
+/* Button */
+
+.createProfileBtn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 284px;
+    height: 60px;
+    margin-top: 8vh;
+    border-radius: 30px;
+    background: var(--Black, #000000);
+    color: var(--White, #ffffff);
+    font-family: Akshar;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: 1px;
 }
 
 /* Media */
