@@ -56,5 +56,11 @@ mongoClient.connect()
 // Run server
 app.listen(process.env.PORT || port, () => {
     const actualPort = process.env.PORT || port;
-    console.log("Server is running on port " + actualPort);
+    app.listen(process.env.PORT || port, () => {
+        const actualPort = process.env.PORT || port;
+        console.log("-------------------------------------------------------------------------------------");
+        console.log("Server is running on port " + actualPort);
+        console.log(`ACCESS FRONTEND ON localhost:${actualPort} FOR API CALLS TO WORK`)
+        console.log("-------------------------------------------------------------------------------------");
+    }) ;
 }) ;
