@@ -1,6 +1,8 @@
 import "./styles/signIn.css";
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
+import flexrHeader from '../../../public/images/flexrHeader.png';
+import flexrLogo from '../../../public/images/Flexr-logo-green-black.png';
 import appleLogo from '../../../public/images/appleLogo3.png';
 import facebookLogo from '../../../public/images/facebookLogo.png';
 import googleLogo from '../../../public/images/googleLogo.png';
@@ -11,8 +13,8 @@ const SignIn: React.FC = () => {
 
     const navigate = useNavigate();
 
-    const navigateToFillPersonalInfo = () => {
-        navigate('/fillpersonalinfo');
+    const navigateToLogIn = () => {
+        navigate('/logIn');
     
     }
 
@@ -20,11 +22,12 @@ const SignIn: React.FC = () => {
         <div className="signInContainer">
 
             <div className="signInHeader">
-            <h1>FLEXR</h1>
+            {/* <h1>FLEXR</h1> */}
+            <img src={flexrHeader} alt="Flexr Header" />
             </div>
 
             <div className="signInLogo">
-               <img src="" alt="" className="signInLogo" />
+               <img src={flexrLogo} alt="" className="signInLogo" />
             </div>
 
             <button className="signInBoxes appleBtn">
@@ -42,7 +45,7 @@ const SignIn: React.FC = () => {
                 <p>Continue with Google</p>
             </button>
 
-            <button className="signInBoxes newUserBtn" onClick={navigateToFillPersonalInfo}>
+            <button className="signInBoxes newUserBtn" onClick={navigateToLogIn}>
             <img src={userIcon} alt="Google logo"  className="logo"/>
                 <p>Register new user</p>
 

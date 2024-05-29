@@ -1,4 +1,5 @@
 import "./styles/fillPersonalInfo.css";
+import { useNavigate } from 'react-router-dom';
 import Country from '../../../../public/images/personaliaCountry.png';
 import Age from '../../../../public/images/personaliaAge.png';
 import Weight from '../../../../public/images/personaliaWeight.png';
@@ -10,11 +11,17 @@ import Excercise from '../../../../public/images/personaliaExcercise.png';
 
 const FillPersonalInfo= () => {
 
+    const navigate = useNavigate();
+
+    const navigateToProfile = () => {
+        navigate('/MyProfile');
+    
+    }
+
     return (
         <div>
-            <div className="personaliaContainer">
-                <div className="headerBox">
-                <h1>GET STARTED</h1>
+            <div className="headerContent">
+                <h1>MY PROFILE</h1>
                 <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="225"
@@ -29,57 +36,6 @@ const FillPersonalInfo= () => {
                         stroke-linecap="round"
                     />
                 </svg>
-                </div>
-                <div className="inputBoxes">
-
-                    <div className="inputBox">
-                        <img src={Country} alt="Country logo" className="personaliaLogo" />
-                        <input type="text" placeholder="Name" />
-                    </div>
-
-                    <div className="inputBox">
-                        <img src={Country} alt="Country logo" className="personaliaLogo" />
-                        <input type="text" placeholder="Email" />
-                    </div>
-
-                    <div className="inputBox">
-                         <img src={Country} alt="Country logo" className="personaliaLogo" />
-                        <input type="text" placeholder="Password" />
-                    </div>
-
-                    <div className="inputBox">
-                    <img src={Country} alt="Country logo" className="personaliaLogo" />
-                        <input type="text" placeholder="Country" />
-                    </div>
-
-                    <div className="inputBox">
-                        <img src={Age} alt="Age logo" className="personaliaLogo" />
-                        <input type="text" placeholder="Age" />
-                    </div>
-
-                    <div className="inputBox">
-                        <img src={Weight} alt="Weight logo" className="personaliaLogo" />
-                        <input type="text" placeholder="Weight" />
-                    </div>
-
-                    <div className="inputBox">
-                        <img src={Height} alt="Height logo" className="personaliaLogo" />
-                        <input type="text" placeholder="Height" />
-                    </div>
-
-                    <div className="inputBox">
-                        <img src={Gender} alt="Gender logo" className="personaliaLogo" />
-                        <input type="text" placeholder="Gender" />
-                    </div>
-
-                    <div className="inputBox">
-                        <img src={Excercise} alt="Excercise logo" className="personaliaLogo" />
-                        <input type="text" placeholder="Excercise" />
-                    </div>
-                    <div>
-                </div>
-               
-            </div>
             </div>
         </div>
     );
