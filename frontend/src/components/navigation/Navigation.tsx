@@ -23,7 +23,7 @@ const Navigation = () => {
         
         <button className="nav-button" onClick={() => navigateTo('/SignIn')}>Sign In</button>
         
-        <button className="nav-button" onClick={() => navigateTo('')}>
+        <button className="nav-button" onClick={() => navigateTo('/Workouts')}>
           <img src={navWorkouts} alt="Workouts" />
         </button>
         
