@@ -26,12 +26,6 @@ app.use("/api/v1/exercises", exerciseAPI(mongoClient))
 
 
 
-
-
-
-
-
-
 // Middleware to handle requests that are not API relevant (keep this at bottom, want to first handle anything that has to do with API)
 if (process.env.NODE_ENV === 'production') {
     // Serve static files from the Vite build directory in production
@@ -45,13 +39,12 @@ if (process.env.NODE_ENV === 'production') {
     app.use(
         '/',
         createProxyMiddleware({
-            target: 'http://localhost:5173',
+            target: 'http://localhost:3000', 
             changeOrigin: true,
             ws: true,
         })
     );
 }
-
 
 // Connect to MongoDB
 mongoClient.connect()
@@ -63,5 +56,11 @@ mongoClient.connect()
 // Run server
 app.listen(process.env.PORT || port, () => {
     const actualPort = process.env.PORT || port;
-    console.log("Server is running on port " + actualPort);
+    app.listen(process.env.PORT || port, () => {
+        const actualPort = process.env.PORT || port;
+        console.log("-------------------------------------------------------------------------------------");
+        console.log("Server is running on port " + actualPort);
+        console.log(`ACCESS FRONTEND ON localhost:${actualPort} FOR API CALLS TO WORK`)
+        console.log("-------------------------------------------------------------------------------------");
+    }) ;
 }) ;

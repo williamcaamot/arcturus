@@ -1,11 +1,21 @@
 import "./styles/signIn.css";
+import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import appleLogo from '../../../public/images/appleLogo3.png';
 import facebookLogo from '../../../public/images/facebookLogo.png';
 import googleLogo from '../../../public/images/googleLogo.png';
 import userIcon from '../../../public/images/userIcon2.png';
 
 
-const SignIn = () => {
+const SignIn: React.FC = () => {
+
+    const navigate = useNavigate();
+
+    const navigateToFillPersonalInfo = () => {
+        navigate('/fillpersonalinfo');
+    
+    }
+
     return (
         <div className="signInContainer">
 
@@ -32,9 +42,10 @@ const SignIn = () => {
                 <p>Continue with Google</p>
             </button>
 
-            <button className="signInBoxes newUserBtn">
+            <button className="signInBoxes newUserBtn" onClick={navigateToFillPersonalInfo}>
             <img src={userIcon} alt="Google logo"  className="logo"/>
                 <p>Register new user</p>
+
             </button>
 
         </div>
