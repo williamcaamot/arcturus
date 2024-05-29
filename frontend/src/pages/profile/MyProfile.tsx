@@ -29,11 +29,6 @@ const Statistics = () => {
 
     return (
         <div className="profileContainer">
-            <div className="backBtn">
-                <button>
-                    <img src={backArrow} alt="Back" />
-                </button>
-            </div>
             <div className="profileHeader">
                 <div className="headerContent">
                     <h1>MY PROFILE</h1>
