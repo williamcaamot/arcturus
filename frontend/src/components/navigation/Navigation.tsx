@@ -1,4 +1,3 @@
-import React from 'react';
 import './styles/navigation.css';
 import navProfile from "../../../public/images/navProfile.png";
 import navHome from "../../../public/images/navHome.png";
@@ -13,7 +12,7 @@ const Navigation = () => {
   
     return (
       <div className="navigation">
-        <button className="nav-button" onClick={() => navigateTo('/')}>
+        <button className="nav-button" onClick={() => navigateTo('/landingPage')}>
           <img src={navHome} alt="Home"  />
         </button>
 
@@ -21,7 +20,7 @@ const Navigation = () => {
           <img src={navStats} alt="Stats" />
         </button>
         
-        <button className="nav-button" onClick={() => navigateTo('/SignIn')}>Sign In</button>
+        <button className="nav-button" onClick={() => navigateTo('/')}>Start Workout/signIn</button>
         
         <button className="nav-button" onClick={() => navigateTo('')}>
           <img src={navWorkouts} alt="Workouts" />

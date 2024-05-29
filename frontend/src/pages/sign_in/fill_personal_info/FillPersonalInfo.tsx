@@ -1,11 +1,12 @@
 import "./styles/fillPersonalInfo.css";
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
 import Country from '../../../../public/images/personaliaCountry.png';
 import Age from '../../../../public/images/personaliaAge.png';
 import Weight from '../../../../public/images/personaliaWeight.png';
 import Height from '../../../../public/images/personaliaHeight.png';
 import Gender  from '../../../../public/images/personaliaGender.png';
 import Excercise from '../../../../public/images/personaliaExcercise.png';
+import Navigation from "../../../components/navigation/Navigation";
 
 
 
@@ -14,8 +15,8 @@ const FillPersonalInfo= () => {
     const navigate = useNavigate();
 
     const navigateToProfile = () => {
-        navigate('/MyProfile');
-    
+    navigate('/MyProfile');
+
     }
 
     return (

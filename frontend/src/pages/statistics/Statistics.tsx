@@ -6,6 +6,7 @@ import Dancer from '../../../public/images/dancer.png';
 import Trophy from '../../../public/images/Trophy.png';
 import WorkoutService from "../../services/WorkoutService.ts";
 import {useEffect} from "react";
+import Navigation from "../../components/navigation/Navigation.tsx";
 
 const Statistics = () => {
 
@@ -60,9 +61,11 @@ const Statistics = () => {
             </div>
             </div>
 
-            
+            <Navigation/>
         </div>
+        
     );
+    
 };
 
 export default Statistics;

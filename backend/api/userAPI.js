@@ -1,6 +1,6 @@
 import express from "express";
 
-export function userAPI(mongoClient){
+export function userAPI(db){
     const router = express.Router();
 
     router.get("", async(req, res)=>{
