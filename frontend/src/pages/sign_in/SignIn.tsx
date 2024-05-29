@@ -11,8 +11,8 @@ const SignIn: React.FC = () => {
 
     const navigate = useNavigate();
 
-    const navigateToFillPersonalInfo = () => {
-        navigate('/fillpersonalinfo');
+    const navigateToLogIn = () => {
+        navigate('/logIn');
     
     }
 
@@ -42,7 +42,7 @@ const SignIn: React.FC = () => {
                 <p>Continue with Google</p>
             </button>
 
-            <button className="signInBoxes newUserBtn" onClick={navigateToFillPersonalInfo}>
+            <button className="signInBoxes newUserBtn" onClick={navigateToLogIn}>
             <img src={userIcon} alt="Google logo"  className="logo"/>
                 <p>Register new user</p>
 

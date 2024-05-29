@@ -1,4 +1,5 @@
 import "./styles/fillPersonalInfo.css";
+import { useNavigate } from 'react-router-dom';
 import Country from '../../../../public/images/personaliaCountry.png';
 import Age from '../../../../public/images/personaliaAge.png';
 import Weight from '../../../../public/images/personaliaWeight.png';
@@ -9,6 +10,13 @@ import Excercise from '../../../../public/images/personaliaExcercise.png';
 
 
 const FillPersonalInfo= () => {
+
+    const navigate = useNavigate();
+
+    const navigateToProfile = () => {
+        navigate('/MyProfile');
+    
+    }
 
     return (
         <div>
@@ -128,7 +136,7 @@ const FillPersonalInfo= () => {
                         </div>
                         <div>
                             <div>
-                                <button className="createProfileBtn">
+                                <button className="createProfileBtn" onClick={navigateToProfile}>
                                     Create Profile
                                 </button>
                             </div>
