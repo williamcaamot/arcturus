@@ -17,12 +17,13 @@ dotenv.config();
 const app = express();
 const port = 3000;
 const mongoClient = new MongoClient(process.env.MONGODB_CONNECTION_STRING);
+const db = mongoClient.db("flexr");
 
 app.use(bodyParser.json({limit: '1mb'}))
 
-app.use("/api/v1/user", userAPI(mongoClient))
-app.use("/api/v1/workouts", workoutAPI(mongoClient))
-app.use("/api/v1/exercises", exerciseAPI(mongoClient))
+app.use("/api/v1/user", userAPI(db))
+app.use("/api/v1/workouts", workoutAPI(db))
+app.use("/api/v1/exercises", exerciseAPI(db))
 
 
 // Middleware to handle requests that are not API relevant (keep this at bottom, want to first handle anything that has to do with API)
@@ -46,19 +47,19 @@ if (process.env.NODE_ENV === 'production') {
 }
 
 
-// Connect to MongoDB
-mongoClient.connect()
-    .then(() => console.log('Connected successfully to MongoDB'))
-    .catch(err => console.error('Connection to MongoDB failed', err))
-    .finally(() => mongoClient.close());
-
-
-// Run server
+// Connect to MongoDB & Start server
+// Only starting server after mongodb is connected, or else server crashes if server gets hit with request before connected to mongodb
 const actualPort = process.env.PORT || port;
-app.listen(process.env.PORT || port, () => {
-    const actualPort = process.env.PORT || port;
-    console.log("-------------------------------------------------------------------------------------");
-    console.log("Server is running on port " + actualPort);
-    console.log(`ACCESS FRONTEND ON localhost:${actualPort} FOR API CALLS TO WORK`)
-    console.log("-------------------------------------------------------------------------------------");
-});
+let server;
+await mongoClient.connect().then(() => {
+    console.log("MongoDB connected, now trying to start server");
+
+    server = app.listen(process.env.PORT || port, () => {
+        const actualPort = process.env.PORT || port;
+        console.log("-------------------------------------------------------------------------------------");
+        console.log("Server is running on port " + actualPort);
+        console.log(`ACCESS FRONTEND ON localhost:${actualPort} FOR API CALLS TO WORK`)
+        console.log("-------------------------------------------------------------------------------------");
+    })
+
+}).catch(err => console.error('Connection to MongoDB failed', err))
