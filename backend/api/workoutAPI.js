@@ -1,6 +1,6 @@
 import express from "express";
 
-export function workoutAPI(mongoClient){
+export function workoutAPI(db){
     const router = express.Router();
 
 
