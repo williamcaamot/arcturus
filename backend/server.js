@@ -1,5 +1,11 @@
 import express from "express";
+<<<<<<< Updated upstream
 import {MongoClient} from "mongodb";
+=======
+import { MongoClient } from "mongodb";
+import { ExpressAuth } from "@auth/express";
+import Facebook from "@auth/express/providers/facebook";
+>>>>>>> Stashed changes
 import dotenv from "dotenv";
 import {createProxyMiddleware} from "http-proxy-middleware";
 import {userAPI} from "./api/userAPI.js";
@@ -17,6 +23,10 @@ dotenv.config();
 const app = express();
 const port = 3000;
 const mongoClient = new MongoClient(process.env.MONGODB_CONNECTION_STRING);
+
+// if app is served through proxy, trust proxy to allow HTTPS packets to be detected
+app.set("trust proxy", true);
+app.use("/auth/*", ExpressAuth({ providers: [ Facebook ] }));
 
 app.use(bodyParser.json({limit: '1mb'}))
 
