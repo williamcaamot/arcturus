@@ -1,16 +1,23 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import LandingPage from "../pages/landingpage/LandingPage";
+import NotFoundPage from "../pages/NotFoundPage";
+import SignIn from "../pages/sign_in/SignIn";
+import Statistics from "../pages/statistics/Statistics";
+import Profile from "../pages/profile/MyProfile";
 
 
 
 const Router = () => {
     return (
-    <BrowserRouter>
-        <Routes>
-            <Route path="/" element={<LandingPage />} />
-         
-        </Routes>
-    </BrowserRouter>
+        <BrowserRouter>
+            <Routes>
+                <Route path="/" element={<LandingPage />} />
+                <Route path="/SignIn" element={<SignIn />} />
+                <Route path="/Statistics" element={<Statistics />} />
+                <Route path="/MyProfile" element={<Profile />} />
+                <Route path="*" element={<NotFoundPage />} />
+            </Routes>
+        </BrowserRouter>
     );
 };
 

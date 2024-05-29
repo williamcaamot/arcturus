@@ -1,63 +1,37 @@
-body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    padding: 0;
-    margin: 0;
-}
-
-.container {
-    text-align: center;
-}
-
-h1 {
-    font-size: 24px;
-    font-weight: bold;
-}
-
-p {
-    font-size: 16px;
-}
-
 .landingContainer {
     display: flex;
     flex-direction: column;
-    gap: 16px;
-    padding: 18px 18px;
-    width: 390px;
-    max-height: 844px;
-    max-width: 390px;
+    justify-content: center;
+    gap: 15px;
     width: 100%;
     height: 100%;
-    border: 1px solid black;
-    border-radius: 10px;
+    padding: 5px; 
+    box-sizing: border-box;
 }
 
 .landingWelcomeCont {
     display: flex;
+    padding-top: 15px;
     gap: 12px;
     align-items: center;
-    padding-top: 20px;
 }
 
 .landingWelcomeProfilePicture {
-    width: 40px;
-    height: 40px;
+    width: 13%;
+    height: 13%;
     border-radius: 50%;
 }
 
 .tmpStatsImg {
-    width: 200px;
-    height: 200px;
-
+    width: 55%;
+    height: 55%;
 }
 
 .landingStatsCont {
     display: flex;
     gap: 12px;
     align-items: center;
-    padding: 18px 0px;
+    padding: 0px 0px;
 }
 
 .landingPeriodCheckCont {
@@ -157,4 +131,13 @@ p {
     display: flex;
     flex-direction: column;
     height: 100%;
+}
+
+@media (min-width: 600px) {
+    .landingContainer {
+        justify-content: center;
+        max-width: 600px;
+        max-height: 1000px;
+        margin: 0 auto;
+    }
 }
