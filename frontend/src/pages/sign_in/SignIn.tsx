@@ -5,6 +5,7 @@ import appleLogo from '../../../public/images/appleLogo3.png';
 import facebookLogo from '../../../public/images/facebookLogo.png';
 import googleLogo from '../../../public/images/googleLogo.png';
 import userIcon from '../../../public/images/userIcon2.png';
+import GoogleSigninButton from "./GoogleSigninButton.tsx";
 
 
 const SignIn: React.FC = () => {
@@ -41,6 +42,8 @@ const SignIn: React.FC = () => {
                 <img src={googleLogo} alt="Google logo"  className="logo"/>
                 <p>Continue with Google</p>
             </button>
+
+            <GoogleSigninButton/>
 
             <button className="signInBoxes newUserBtn" onClick={navigateToFillPersonalInfo}>
             <img src={userIcon} alt="Google logo"  className="logo"/>
