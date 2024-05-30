@@ -9,6 +9,9 @@ import userIcon from '../../../public/images/userIcon2.png';
 
 const SignIn: React.FC = () => {
 
+    const handleFBSignIn = async () => {
+        window.location.href = "http://localhost:3000/auth/facebook";
+    }
     const navigate = useNavigate();
 
     const navigateToFillPersonalInfo = () => {
@@ -18,36 +21,34 @@ const SignIn: React.FC = () => {
 
     return (
         <div className="signInContainer">
-
             <div className="signInHeader">
-            <h1>FLEXR</h1>
+                <h1>FLEXR</h1>
             </div>
 
             <div className="signInLogo">
-               <img src="" alt="" className="signInLogo" />
+                <img src="" alt="" className="signInLogo"/>
             </div>
 
             <button className="signInBoxes appleBtn">
-                <img src={appleLogo} alt="Apple logo" className="logo" />
+                <img src={appleLogo} alt="Apple logo" className="logo"/>
                 <p>Continue with Apple</p>
             </button>
 
-            <button className="signInBoxes facebookBtn">
-                <img src={facebookLogo} alt="Facebook logo" className="logo" />
+            <button className="signInBoxes facebookBtn" onClick={handleFBSignIn}>
+                <img src={facebookLogo} alt="Facebook logo" className="logo"/>
                 <p>Continue with Facebook</p>
             </button>
 
             <button className="signInBoxes googleBtn">
-                <img src={googleLogo} alt="Google logo"  className="logo"/>
+                <img src={googleLogo} alt="Google logo" className="logo"/>
                 <p>Continue with Google</p>
             </button>
 
             <button className="signInBoxes newUserBtn" onClick={navigateToFillPersonalInfo}>
-            <img src={userIcon} alt="Google logo"  className="logo"/>
+                <img src={userIcon} alt="Google logo" className="logo"/>
                 <p>Register new user</p>
 
             </button>
-
         </div>
     );
 };

@@ -1,11 +1,8 @@
 import express from "express";
-<<<<<<< Updated upstream
-import {MongoClient} from "mongodb";
-=======
 import { MongoClient } from "mongodb";
 import { ExpressAuth } from "@auth/express";
+import passport from "passport";
 import Facebook from "@auth/express/providers/facebook";
->>>>>>> Stashed changes
 import dotenv from "dotenv";
 import {createProxyMiddleware} from "http-proxy-middleware";
 import {userAPI} from "./api/userAPI.js";
@@ -14,6 +11,7 @@ import {dirname, join} from 'path';
 import {exerciseAPI} from "./api/exerciseAPI.js";
 import {workoutAPI} from "./api/workoutAPI.js";
 import bodyParser from "body-parser";
+import session from "express-session";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -24,9 +22,40 @@ const app = express();
 const port = 3000;
 const mongoClient = new MongoClient(process.env.MONGODB_CONNECTION_STRING);
 
+
 // if app is served through proxy, trust proxy to allow HTTPS packets to be detected
 app.set("trust proxy", true);
-app.use("/auth/*", ExpressAuth({ providers: [ Facebook ] }));
+
+// Session configuration
+app.use(session({
+    secret: process.env.SESSION_SECRET,
+    resave: false,
+    saveUninitialized: true,
+}));
+
+// Initialize Passport
+app.use(passport.initialize());
+app.use(passport.session());
+
+// Configure ExpressAuth with Facebook as a provider
+app.use("/auth/*", ExpressAuth({
+    providers: [
+        {
+            name: "facebook",
+            clientId: process.env.AUTH_FACEBOOK_ID,
+            clientSecret: process.env.AUTH_FACEBOOK_SECRET,
+            callbackUrl: "http://localhost:3000/auth/facebook/callback",
+            authorizationUrl: "https://www.facebook.com/v20.0/dialog/oauth",
+            tokenUrl: "https://graph.facebook.com/v20.0/oauth/access_token",
+            userInfoUrl: "https://graph.facebook.com/me",
+            scopes: ["email"],
+        },
+    ],
+    secret: process.env.AUTH_SECRET,
+    baseUrl: "http://localhost:3000",
+    trustHost: true,
+}))
+
 
 app.use(bodyParser.json({limit: '1mb'}))
 
