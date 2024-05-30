@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import './styles/workoutIndex.css';
 import Workouts from './workouts/Workouts';
 import Exercises from './exercises/Exercises';
+import Navigation from '../../components/navigation/Navigation';
 
 type Tab = 'WORKOUTS' | 'EXERCISES';
 
@@ -23,6 +24,7 @@ const WorkoutsIndex = () => {
 
             {activeTab === 'WORKOUTS' && <Workouts />}
             {activeTab === 'EXERCISES' && <Exercises />}
+            <Navigation/>
         </div>
     );
 };
