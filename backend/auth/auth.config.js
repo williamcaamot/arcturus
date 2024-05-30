@@ -1,12 +1,9 @@
 import Google from "@auth/express/providers/google"
 import dotenv from "dotenv";
 import {MongoDBAdapter} from "@auth/mongodb-adapter";
-import {MongoClient} from "mongodb";
+import clientPromise from "./clientPromise.js";
 
 dotenv.config()
-
-let client = new MongoClient(process.env.MONGODB_CONNECTION_STRING);
-let clientPromise = client.connect();
 
 
 export const authConfig = {

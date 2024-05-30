@@ -9,7 +9,7 @@ import {exerciseAPI} from "./api/exerciseAPI.js";
 import {workoutAPI} from "./api/workoutAPI.js";
 import bodyParser from "body-parser";
 import {ExpressAuth} from "@auth/express";
-import {authConfig} from "./auth.config.js";
+import {authConfig} from "./auth/auth.config.js";
 import {authenticatedUser, currentSession} from "./middleware/middleware.js";
 
 
@@ -34,10 +34,6 @@ app.use("/api/v1/user", userAPI(db))
 app.use("/api/v1/workouts", workoutAPI(db))
 app.use("/api/v1/exercises", exerciseAPI(db))
 
-app.get("/api/v1/protected", authenticatedUser, async (req, res) => {
-        res.json(res.locals.session)
-    },
-)
 
 
 // Middleware to handle requests that are not API relevant (keep this at bottom, want to first handle anything that has to do with API)

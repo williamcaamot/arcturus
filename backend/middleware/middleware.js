@@ -1,5 +1,5 @@
 import {getSession} from "@auth/express"
-import {authConfig} from "../auth.config.js";
+import {authConfig} from "../auth/auth.config.js";
 
 export async function authenticatedUser(req, res, next,) {
     const session =
