@@ -17,7 +17,6 @@ const GoogleSigninButton = () => {
         <form action={"/api/v1/auth/signin/google"} method={"POST"}>
             <input type="hidden" name="csrfToken"
                    value={csrfToken} />
-            <input type="hidden" name="callbackUrl"/>
                 <button type="submit">
                         Sign in with google (this button works)
                 </button>
