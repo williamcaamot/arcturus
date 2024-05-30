@@ -30,6 +30,7 @@ p {
     justify-content: center;
     align-items: center;
     flex-shrink: 0;
+    margin-top: 8vh;
 
 }
 
@@ -43,6 +44,12 @@ p {
     line-height: normal;
     margin-bottom: 0;
     letter-spacing: -6px; 
+}
+
+.signInHeader img {
+    width: 235px;
+    height: 80px;
+    flex-shrink: 0;
 }
 
 .signInContainer {
@@ -109,22 +116,19 @@ p {
 .signInBoxes.newUserBtn {
     background-color: var(--Dark-Green, #246656);
     color: #FFF;
-text-align: center;
-font-family: Roboto;
-font-size: 20px;
-font-style: normal;
-font-weight: 500;
-line-height: normal;
+    text-align: center;
+    font-family: Roboto;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
 }
 
 .signInLogo {
-    display: flex;
-    width: 250px;
-    height: 250px;
+    width: 221px;
+    height: 219px;
     flex-shrink: 0;
-    border-radius: 150px;
-    background: var(--Orange, #FF6D4D);
-    margin-bottom: 10%;
+    margin-bottom: 5vh;
 }
 
 .logo {

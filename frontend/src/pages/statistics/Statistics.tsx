@@ -6,6 +6,7 @@ import Dancer from '../../../public/images/dancer.png';
 import Trophy from '../../../public/images/Trophy.png';
 import WorkoutService from "../../services/WorkoutService.ts";
 import {useEffect} from "react";
+import Navigation from "../../components/navigation/Navigation.tsx";
 
 const Statistics = () => {
 
@@ -24,14 +25,7 @@ const Statistics = () => {
 
     return (
         <div className="statisticsContainer">
-            <div className="backBtn">
-                <button>
-                    <img src={backArrow} alt="Back" />
-                </button>
-            </div>
-
             <div className="centerContent">
-
                 <div className="statsHeader">
                     <h1>MY STATS</h1>
                     <svg xmlns="http://www.w3.org/2000/svg" width="132" height="4" viewBox="0 0 132 4" fill="none" className="line">
@@ -67,9 +61,11 @@ const Statistics = () => {
             </div>
             </div>
 
-            
+            <Navigation/>
         </div>
+        
     );
+    
 };
 
 export default Statistics;

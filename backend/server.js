@@ -1,10 +1,10 @@
 import express from "express";
-import { MongoClient } from "mongodb";
+import {MongoClient} from "mongodb";
 import dotenv from "dotenv";
-import { createProxyMiddleware} from "http-proxy-middleware";
+import {createProxyMiddleware} from "http-proxy-middleware";
 import {userAPI} from "./api/userAPI.js";
-import { fileURLToPath } from 'url';
-import { dirname, join } from 'path';
+import {fileURLToPath} from 'url';
+import {dirname, join} from 'path';
 import {exerciseAPI} from "./api/exerciseAPI.js";
 import {workoutAPI} from "./api/workoutAPI.js";
 import bodyParser from "body-parser";
@@ -17,19 +17,13 @@ dotenv.config();
 const app = express();
 const port = 3000;
 const mongoClient = new MongoClient(process.env.MONGODB_CONNECTION_STRING);
+const db = mongoClient.db("flexr");
 
 app.use(bodyParser.json({limit: '1mb'}))
 
-app.use("/api/v1/user", userAPI(mongoClient))
-app.use("/api/v1/workouts", workoutAPI(mongoClient))
-app.use("/api/v1/exercises", exerciseAPI(mongoClient))
-
-
-
-
-
-
-
+app.use("/api/v1/user", userAPI(db))
+app.use("/api/v1/workouts", workoutAPI(db))
+app.use("/api/v1/exercises", exerciseAPI(db))
 
 
 // Middleware to handle requests that are not API relevant (keep this at bottom, want to first handle anything that has to do with API)
@@ -53,15 +47,19 @@ if (process.env.NODE_ENV === 'production') {
 }
 
 
-// Connect to MongoDB
-mongoClient.connect()
-    .then(() => console.log('Connected successfully to MongoDB'))
-    .catch(err => console.error('Connection to MongoDB failed', err))
-    .finally(() => mongoClient.close());
+// Connect to MongoDB & Start server
+// Only starting server after mongodb is connected, or else server crashes if server gets hit with request before connected to mongodb
+const actualPort = process.env.PORT || port;
+let server;
+await mongoClient.connect().then(() => {
+    console.log("MongoDB connected, now trying to start server");
 
+    server = app.listen(process.env.PORT || port, () => {
+        const actualPort = process.env.PORT || port;
+        console.log("-------------------------------------------------------------------------------------");
+        console.log("Server is running on port " + actualPort);
+        console.log(`ACCESS FRONTEND ON localhost:${actualPort} FOR API CALLS TO WORK`)
+        console.log("-------------------------------------------------------------------------------------");
+    })
 
-// Run server
-app.listen(process.env.PORT || port, () => {
-    const actualPort = process.env.PORT || port;
-    console.log("Server is running on port " + actualPort);
-}) ;
+}).catch(err => console.error('Connection to MongoDB failed', err))

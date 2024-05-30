@@ -1,4 +1,3 @@
-import React from 'react';
 import './styles/navigation.css';
 import navProfile from "../../../public/images/navProfile.png";
 import navHome from "../../../public/images/navHome.png";
@@ -13,25 +12,31 @@ const Navigation = () => {
   
     return (
       <div className="navigation">
-        <button className="nav-button" onClick={() => navigateTo('/')}>
-          <img src={navHome} alt="Home"  />
-        </button>
+        <div className='left-Buttons'>
+          <button className="nav-button" onClick={() => navigateTo('/landingPage')}>
+            <img src={navHome} alt="Home"  />
+          </button>
+    
+          <button className="nav-button" onClick={() => navigateTo('/statistics')}>
+            <img src={navStats} alt="Stats" />
+          </button>
+        </div>
 
-        <button className="nav-button" onClick={() => navigateTo('/statistics')}>
-          <img src={navStats} alt="Stats" />
-        </button>
+          <button className="nav-circle-button" onClick={() => navigateTo('/')}>
+            Start Workout/signIn
+          </button>
         
-        <button className="nav-button" onClick={() => navigateTo('/SignIn')}>Sign In</button>
-        
-        <button className="nav-button" onClick={() => navigateTo('/Workouts')}>
-          <img src={navWorkouts} alt="Workouts" />
-        </button>
-        
-        <button className="nav-button" onClick={() => navigateTo('/MyProfile')}>
-          <img src={navProfile} alt="Profile" />
-        </button>
+        <div className='right-Buttons'>
+          <button className="nav-button" onClick={() => navigateTo('/Workouts')}>
+            <img src={navWorkouts} alt="Workouts" />
+          </button>
+
+          <button className="nav-button" onClick={() => navigateTo('/MyProfile')}>
+            <img src={navProfile} alt="Profile" />
+          </button> 
+        </div>
       </div>
     );
   };
-
+  
 export default Navigation;

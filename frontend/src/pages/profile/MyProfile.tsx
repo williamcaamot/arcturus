@@ -13,6 +13,7 @@ import timeSpentIcon from "../../../public/images/highlightTimeIcon.png";
 import kgsLiftedIcon from "../../../public/images/HighlightKgIcon.png";
 import calsBurnedIcon from "../../../public/images/highlightCalsIcon.png";
 import editIcon from "../../../public/images/editBtn.png";
+import Navigation from "../../components/navigation/Navigation.tsx";
 
 
 const Statistics = () => {
@@ -29,11 +30,6 @@ const Statistics = () => {
 
     return (
         <div className="profileContainer">
-            <div className="backBtn">
-                <button>
-                    <img src={backArrow} alt="Back" />
-                </button>
-            </div>
             <div className="profileHeader">
                 <div className="headerContent">
                     <h1>MY PROFILE</h1>
@@ -199,6 +195,7 @@ const Statistics = () => {
                     </div>
                 </div>
             </div>
+            <Navigation/>
         </div>
     );
 };
