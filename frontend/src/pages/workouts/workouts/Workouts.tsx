@@ -2,8 +2,13 @@ import './styles/workouts.css';
 import Badge from '../../../components/Badge';
 
 const WorkoutCard = () => {
+
+    const navigateTo = (path: string) => {
+        window.location.href = path;
+    };
+
     return (
-        <div className='workoutCardContainer'>
+        <div className='workoutCardContainer' role='button' tabIndex={0} onClick={() => navigateTo('/WorkoutDetails')} style={{cursor: 'pointer'}}>
             <div className='cardContainerLeft'>
                 <img src='https://via.placeholder.com/150' alt='workout' className='workoutCardImg' />
             </div>
@@ -73,6 +78,7 @@ const WorkoutCard = () => {
 };
 
 const Workouts = () => {
+
     return (
         <div className='workoutsContainer'>
             <WorkoutCard />

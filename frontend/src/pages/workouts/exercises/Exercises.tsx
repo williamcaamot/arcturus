@@ -1,7 +1,9 @@
 import './styles/exercise.css';
 import Badge from '../../../components/Badge';
 
-const ExerciseCard = () => {
+export const ExerciseCard = ({id} : {id?: string}) => {
+
+    console.log("To do find exercise by id: ", id);
 
     const navigateTo = (path: string) => {
         window.location.href = path;

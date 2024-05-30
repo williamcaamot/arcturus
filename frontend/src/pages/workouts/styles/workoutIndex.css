@@ -36,7 +36,7 @@
     font-weight: 600;
     color: #000;
     background-color: #f0f0f0;
-    border: 1px solid #000;
+    border: none;
     border-radius: 10px;
     cursor: pointer;
 }
@@ -51,8 +51,9 @@
     font-size: 1em;
     font-weight: 600;
     color: #000;
-    background-color: #adadadd7;
-    border: 2px solid #FF6D4D;
+    background-color: #f0f0f0;
+    border: none;
+    border-bottom: 2px solid #FF6D4D;
     border-radius: 10px;
     cursor: pointer;
 }

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import './styles/workoutIndex.css';
 import Workouts from './workouts/Workouts';
 import Exercises from './exercises/Exercises';
