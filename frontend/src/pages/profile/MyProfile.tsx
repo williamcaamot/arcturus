@@ -1,7 +1,5 @@
-import React, { useEffect } from "react";
+import {useEffect, useState} from "react";
 import "./styles/myProfile.css";
-import backArrow from "../../../public/images/backArrow.png";
-import WorkoutService from "../../services/WorkoutService.ts";
 import statsIcon from "../../../public/images/statsIcon.png";
 import accountSettingsIcon from "../../../public/images/settingsicon.png";
 import remindersIcon from "../../../public/images/reminderIcon.png";
@@ -13,14 +11,17 @@ import timeSpentIcon from "../../../public/images/highlightTimeIcon.png";
 import kgsLiftedIcon from "../../../public/images/HighlightKgIcon.png";
 import calsBurnedIcon from "../../../public/images/highlightCalsIcon.png";
 import editIcon from "../../../public/images/editBtn.png";
-import Navigation from "../../components/navigation/Navigation.tsx";
+import axios from "axios";
 
 
 const Statistics = () => {
+
+    const [user, setUser] = useState()
      
     async function fetchUser() {
-         const users = await WorkoutService.getWorkouts();
-         console.log(users);
+         const {data} = await axios.get("/api/v1/user")
+         console.log(data);
+         setUser(data.user)
      }
 
      useEffect(() => {
@@ -32,7 +33,7 @@ const Statistics = () => {
         <div className="profileContainer">
             <div className="profileHeader">
                 <div className="headerContent">
-                    <h1>MY PROFILE</h1>
+                    <h1>MY PROFILE {user && <span>{user.name}</span>}</h1>
                     <svg
                         xmlns="http://www.w3.org/2000/svg"
                         width="225"
@@ -43,8 +44,8 @@ const Statistics = () => {
                         <path
                             d="M2 2H223"
                             stroke="#FF6D4D"
-                            stroke-width="4"
-                            stroke-linecap="round"
+                            strokeWidth="4"
+                            strokeLinecap="round"
                         />
                     </svg>
                 </div>
@@ -78,7 +79,7 @@ const Statistics = () => {
                                     r="33.5"
                                     fill="white"
                                     stroke="#246656"
-                                    stroke-width="3"
+                                    strokeWidth="3"
                                 />
                             </svg>
                             <img src={timeSpentIcon} alt="timeSpentIcon" />
@@ -100,7 +101,7 @@ const Statistics = () => {
                                     r="33.5"
                                     fill="white"
                                     stroke="#246656"
-                                    stroke-width="3"
+                                    strokeWidth="3"
                                 />
                             </svg>
                             <img src={kgsLiftedIcon} alt="kgsLiftedIcon" />
@@ -122,7 +123,7 @@ const Statistics = () => {
                                     r="33.5"
                                     fill="white"
                                     stroke="#246656"
-                                    stroke-width="3"
+                                    strokeWidth="3"
                                 />
                             </svg>
                             <img src={calsBurnedIcon} alt="calsBurnedIcon" />
@@ -140,7 +141,7 @@ const Statistics = () => {
                         <img src={statsIcon} alt="statsIcon" />
                         <p>My Stats</p>
                         <svg xmlns="http://www.w3.org/2000/svg" width="13" height="17" viewBox="0 0 13 17" fill="none">
-                            <path d="M1 1L11 9.26531L1 16" stroke="#180202" stroke-width="2"/>
+                            <path d="M1 1L11 9.26531L1 16" stroke="#180202" strokeWidth="2"/>
                         </svg>
                     </button>
 
@@ -148,7 +149,7 @@ const Statistics = () => {
                         <img src={accountSettingsIcon} alt="accountSettingsIcon" />
                         <p>Account Settings</p>
                         <svg xmlns="http://www.w3.org/2000/svg" width="13" height="17" viewBox="0 0 13 17" fill="none">
-                            <path d="M1 1L11 9.26531L1 16" stroke="#180202" stroke-width="2"/>
+                            <path d="M1 1L11 9.26531L1 16" stroke="#180202" strokeWidth="2"/>
                         </svg>
                     </button>
 
@@ -156,7 +157,7 @@ const Statistics = () => {
                         <img src={remindersIcon} alt="remindersIcon" />
                         <p>Reminders</p>
                         <svg xmlns="http://www.w3.org/2000/svg" width="13" height="17" viewBox="0 0 13 17" fill="none">
-                            <path d="M1 1L11 9.26531L1 16" stroke="#180202" stroke-width="2"/>
+                            <path d="M1 1L11 9.26531L1 16" stroke="#180202" strokeWidth="2"/>
                         </svg>
                     </button>
 
@@ -164,7 +165,7 @@ const Statistics = () => {
                         <img src={privacyPolicyIcon} alt="privacyPolicyIcon" />
                         <p>Privacy Policy</p>
                         <svg xmlns="http://www.w3.org/2000/svg" width="13" height="17" viewBox="0 0 13 17" fill="none">
-                            <path d="M1 1L11 9.26531L1 16" stroke="#180202" stroke-width="2"/>
+                            <path d="M1 1L11 9.26531L1 16" stroke="#180202" strokeWidth="2"/>
                         </svg>
                     </button>
 
@@ -172,7 +173,7 @@ const Statistics = () => {
                         <img src={tCIcon} alt="tCIcon" />
                         <p>Terms & Conditions</p>
                         <svg xmlns="http://www.w3.org/2000/svg" width="13" height="17" viewBox="0 0 13 17" fill="none">
-                            <path d="M1 1L11 9.26531L1 16" stroke="#180202" stroke-width="2"/>
+                            <path d="M1 1L11 9.26531L1 16" stroke="#180202" strokeWidth="2"/>
                         </svg>
                     </button>
 
@@ -180,7 +181,7 @@ const Statistics = () => {
                         <img src={updatesIcon} alt="updatesIcon" />
                         <p>Updates</p>
                         <svg xmlns="http://www.w3.org/2000/svg" width="13" height="17" viewBox="0 0 13 17" fill="none">
-                            <path d="M1 1L11 9.26531L1 16" stroke="#180202" stroke-width="2"/>
+                            <path d="M1 1L11 9.26531L1 16" stroke="#180202" strokeWidth="2"/>
                         </svg>
                     </button>
 
@@ -188,14 +189,13 @@ const Statistics = () => {
                         <img src={notificationsIcon} alt="notificationsIcon" />
                         <p>Notifications</p>
                         <svg xmlns="http://www.w3.org/2000/svg" width="13" height="17" viewBox="0 0 13 17" fill="none">
-                            <path d="M1 1L11 9.26531L1 16" stroke="#180202" stroke-width="2"/>
+                            <path d="M1 1L11 9.26531L1 16" stroke="#180202" strokeWidth="2"/>
                         </svg>
                     </button>
                     
                     </div>
                 </div>
             </div>
-            <Navigation/>
         </div>
     );
 };
