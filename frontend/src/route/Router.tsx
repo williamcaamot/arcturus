@@ -26,7 +26,6 @@ const Router = () => {
                 <Route path="/WorkoutDetails" element={<WorkoutDetails />} />
                 <Route path="/MyProfile" element={<Profile />} />
                 <Route path="*" element={<NotFoundPage />} />
-
             </Routes>
         </BrowserRouter>
     );

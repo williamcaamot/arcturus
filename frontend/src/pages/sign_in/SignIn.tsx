@@ -8,6 +8,7 @@ import facebookLogo from '../../../public/images/facebookLogo.png';
 import googleLogo from '../../../public/images/googleLogo.png';
 import userIcon from '../../../public/images/userIcon2.png';
 import GoogleSigninButton from "./GoogleSigninButton.tsx";
+import SignoutButton from "./SignoutButton.tsx";
 
 
 const SignIn: React.FC = () => {
@@ -54,6 +55,7 @@ const SignIn: React.FC = () => {
             </button>
             */}
 
+            <SignoutButton/>
         </div>
     );
 };
