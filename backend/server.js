@@ -8,6 +8,10 @@ import {dirname, join} from 'path';
 import {exerciseAPI} from "./api/exerciseAPI.js";
 import {workoutAPI} from "./api/workoutAPI.js";
 import bodyParser from "body-parser";
+import {ExpressAuth} from "@auth/express";
+import {authConfig} from "./auth/auth.config.js";
+import {authenticatedUser, currentSession} from "./middleware/middleware.js";
+
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -17,13 +21,19 @@ dotenv.config();
 const app = express();
 const port = 3000;
 const mongoClient = new MongoClient(process.env.MONGODB_CONNECTION_STRING);
-const db = mongoClient.db("flexr");
-
 app.use(bodyParser.json({limit: '1mb'}))
+
+const db = mongoClient.db("flexr");
+app.set('trust proxy', true)
+app.use(currentSession)
+
+
+app.use("/api/v1/auth/*", ExpressAuth(authConfig))
 
 app.use("/api/v1/user", userAPI(db))
 app.use("/api/v1/workouts", workoutAPI(db))
 app.use("/api/v1/exercises", exerciseAPI(db))
+
 
 
 // Middleware to handle requests that are not API relevant (keep this at bottom, want to first handle anything that has to do with API)
