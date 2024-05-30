@@ -9,6 +9,7 @@ import flexrLogo from '../../../public/images/Flexr-logo-green-black.png';
 //import userIcon from '../../../public/images/userIcon2.png';
 import GoogleSigninButton from "./GoogleSigninButton.tsx";
 import SignoutButton from "./SignoutButton.tsx";
+import FacebookSigninButton from "./FacebookSigninButton.tsx";
 
 
 const SignIn: React.FC = () => {
@@ -46,7 +47,7 @@ const SignIn: React.FC = () => {
                 <p>Continue with Facebook</p>
             </button>
             */}
-
+            <FacebookSigninButton/>
             <GoogleSigninButton/>
 
             {/*

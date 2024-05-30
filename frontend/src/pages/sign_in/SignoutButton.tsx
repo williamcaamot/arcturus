@@ -1,6 +1,6 @@
 import {useEffect, useState} from "react";
 
-const GoogleSigninButton = () => {
+const SignoutButton = () => {
     const [csrfToken, setCsrfToken] = useState()
 
     async function fetchCsrfToken(){
@@ -27,4 +27,4 @@ const GoogleSigninButton = () => {
 };
 
 
-export default GoogleSigninButton;
+export default SignoutButton;
