@@ -113,7 +113,7 @@ p {
     border: 1px solid #E6E6E5;
 }
 
-.signInBoxes.newUserBtn {
+.signInBoxes.signUpBtn {
     background-color: var(--Dark-Green, #246656);
     color: #FFF;
     text-align: center;

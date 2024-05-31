@@ -10,6 +10,7 @@ import flexrLogo from '../../../public/images/Flexr-logo-green-black.png';
 import GoogleSigninButton from "./GoogleSigninButton.tsx";
 import SignoutButton from "./SignoutButton.tsx";
 import FacebookSigninButton from "./FacebookSigninButton.tsx";
+import SignUpButton from "./SignUpButton.tsx";
 
 
 const SignIn: React.FC = () => {
@@ -58,6 +59,10 @@ const SignIn: React.FC = () => {
             */}
 
             <SignoutButton/>
+            <SignUpButton/>
+
+            
+
         </div>
     );
 };
