@@ -18,7 +18,7 @@ const SignoutButton = () => {
     <input type="hidden" name="csrfToken"
     value={csrfToken} />
 
-    <button type="submit" className={"signInBoxes signoutBtn"}>
+    <button type="submit" className={"signInBoxes signOutBtn"}>
         <p>Sign Out</p>
     </button>
     </form>

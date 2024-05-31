@@ -12,15 +12,11 @@ const SignUpButton = () => {
       
     return (
         <>
-            <div className="signInBoxes">
-                <button
-                    className={"signInBoxes signUpBtn"}
-                    onClick={navigateToLogIn}
-                >
-                    <p>LOG IN/SIGN UP
-                    </p>
+            <form>
+                <button type="submit" className={"signInBoxes loginBtn"} onClick={navigateToLogIn}>
+                    <p>LOG IN/SIGN UP</p>
                 </button>
-            </div>
+            </form>
         </>
     );
 };
