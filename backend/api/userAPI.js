@@ -1,10 +1,14 @@
 import express from "express";
+import {authenticatedUser} from "../middleware/middleware.js";
 
 export function userAPI(db){
     const router = express.Router();
 
-    router.get("", async(req, res)=>{
-        res.json({message:"Hello world"});
-    })
+    router.get("", authenticatedUser, async (req, res) => {
+            res.json(res.locals.session)
+        },
+    )
+
+
     return router;
 }

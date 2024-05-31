@@ -27,7 +27,7 @@ const Navigation = () => {
           </button>
         
         <div className='right-Buttons'>
-          <button className="nav-button" onClick={() => navigateTo('')}>
+          <button className="nav-button" onClick={() => navigateTo('/Workouts')}>
             <img src={navWorkouts} alt="Workouts" />
           </button>
 
