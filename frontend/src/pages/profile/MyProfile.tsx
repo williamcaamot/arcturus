@@ -12,6 +12,7 @@ import kgsLiftedIcon from "../../../public/images/HighlightKgIcon.png";
 import calsBurnedIcon from "../../../public/images/highlightCalsIcon.png";
 import editIcon from "../../../public/images/editBtn.png";
 import axios from "axios";
+import Navigation from "../../components/navigation/Navigation";
 
 
 const Statistics = () => {
@@ -196,7 +197,7 @@ const Statistics = () => {
                     </div>
                 </div>
             </div>
-            <Navigation/>
+            <Navigation/>        
         </div>
     );
 };

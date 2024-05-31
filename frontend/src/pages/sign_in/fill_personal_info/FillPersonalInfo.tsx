@@ -47,7 +47,10 @@ const FillPersonalInfo= () => {
                                 alt="Country logo"
                                 className="personaliaLogo"
                             />
-                            <input type="text" placeholder="Name" />
+                            <input
+                                type="text"
+                                placeholder="Name / coming soon"
+                            />
                         </div>
 
                         <div className="inputBox">
@@ -56,7 +59,10 @@ const FillPersonalInfo= () => {
                                 alt="Country logo"
                                 className="personaliaLogo"
                             />
-                            <input type="text" placeholder="Email" />
+                            <input
+                                type="text"
+                                placeholder="Email / coming soon"
+                            />
                         </div>
 
                         <div className="inputBox">
@@ -65,7 +71,10 @@ const FillPersonalInfo= () => {
                                 alt="Country logo"
                                 className="personaliaLogo"
                             />
-                            <input type="text" placeholder="Password" />
+                            <input
+                                type="text"
+                                placeholder="Password / coming soon"
+                            />
                         </div>
 
                         <div className="inputBox">
@@ -137,7 +146,10 @@ const FillPersonalInfo= () => {
                         </div>
                         <div>
                             <div>
-                                <button className="createProfileBtn" onClick={navigateToProfile}>
+                                <button
+                                    className="createProfileBtn"
+                                    onClick={navigateToProfile}
+                                >
                                     Create Profile
                                 </button>
                             </div>
