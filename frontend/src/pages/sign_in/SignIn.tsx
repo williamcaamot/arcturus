@@ -58,8 +58,9 @@ const SignIn: React.FC = () => {
             </button>
             */}
 
-            <SignoutButton/>
             <SignUpButton/>
+            <br />
+            <SignoutButton/>
 
             
 
