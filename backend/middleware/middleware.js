@@ -16,6 +16,22 @@ export async function authenticatedUser(req, res, next,) {
 
 export async function currentSession(req, res, next,) {
     const session = (await getSession(req, authConfig)) ?? undefined
-    res.locals.session = session
+    req.session = session
     return next()
+}
+
+export function userinfoMiddleware(db) {
+    return async (req, res, next) => {
+        try {
+            if (req.session) {
+                const userCollection = await db.collection("users");
+
+                const user = await userCollection.findOne({email: req.session.user.email});
+                req.user = user;
+            }
+        } catch (e) {
+            console.log(e)
+        }
+        next();
+    };
 }

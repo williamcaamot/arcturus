@@ -60,5 +60,8 @@
     display: flex;
     align-items: center;
     gap: 10px;
+}
 
+.cardContainerLeft > img {
+    width: 100px;
 }

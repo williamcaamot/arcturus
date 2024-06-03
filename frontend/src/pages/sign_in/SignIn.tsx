@@ -1,5 +1,5 @@
 import "./styles/signIn.css";
-import React from 'react';
+import React, {useContext, useEffect} from 'react';
 //import { useNavigate } from 'react-router-dom';
 import flexrHeader from '../../../public/images/flexrHeader.png';
 import flexrLogo from '../../../public/images/Flexr-logo-green-black.png';
@@ -11,17 +11,21 @@ import GoogleSigninButton from "./GoogleSigninButton.tsx";
 import SignoutButton from "./SignoutButton.tsx";
 import FacebookSigninButton from "./FacebookSigninButton.tsx";
 import SignUpButton from "./SignUpButton.tsx";
+import {UserContext} from "../../App.tsx";
+import {useNavigate} from "react-router-dom";
 
 
 const SignIn: React.FC = () => {
-    /*
+
+    const {user} = useContext(UserContext);
     const navigate = useNavigate();
 
-    const navigateToLogIn = () => {
-        navigate('/logIn');
-    
-    }
-    */
+
+    useEffect(() => {
+        if(user){
+            navigate("/my-profile")
+        }
+    }, [user]);
 
     return (
         <div className="signInContainer">
@@ -48,8 +52,9 @@ const SignIn: React.FC = () => {
                 <p>Continue with Facebook</p>
             </button>
             */}
-            <FacebookSigninButton/>
             <GoogleSigninButton/>
+            <FacebookSigninButton/>
+            <SignUpButton/>
 
             {/*
             <button className="signInBoxes newUserBtn" onClick={navigateToLogIn}>
@@ -58,9 +63,8 @@ const SignIn: React.FC = () => {
             </button>
             */}
 
-            <SignUpButton/>
+
             <br />
-            <SignoutButton/>
 
             
 

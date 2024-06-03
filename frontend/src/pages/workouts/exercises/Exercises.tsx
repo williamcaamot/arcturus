@@ -1,23 +1,39 @@
 import './styles/exercise.css';
 import Badge from '../../../components/Badge';
+import { useEffect, useState } from 'react';
+import WorkoutService from '../../../services/WorkoutService';
+import {useNavigate} from "react-router-dom";
 
-export const ExerciseCard = ({id} : {id?: string}) => {
+export interface Exercise {
+    id: string;
+    Exercise_Name: string;
+    Description_URL: string;
+    Exercise_Image: string;
+    muscle_gp_sdetails: string;
+    muscle_gp: string;
+    equipment_details: string;
+    Equipment: string;
+    Rating: string;
+    Description: string;
+}
 
-    console.log("To do find exercise by id: ", id);
+export const ExerciseCard = ({exercise } : {exercise: Exercise }) => {
+
+    const navigate = useNavigate();
 
     const navigateTo = (path: string) => {
-        window.location.href = path;
+        navigate(path)
       };
 
 
     return (
-        <div className='exerciseCardContainer' role='button' tabIndex={0} onClick={() => navigateTo('/ExerciseDetails')} style={{cursor: 'pointer'}}>
+        <div className='exerciseCardContainer' role='button' tabIndex={0} onClick={() => navigateTo('/exercise-details')} style={{cursor: 'pointer'}}>
             <div className='cardContainerLeft'>
-                <img src='https://via.placeholder.com/150' alt='exercise' className='exerciseCardImg' />
+                {exercise.Exercise_Image.length > 0 ? <img src={exercise.Exercise_Image} alt='exercise' className='exerciseCardImg' /> : <img src='https://via.placeholder.com/150' alt='exercise' className='exerciseCardImg' />}
             </div>
             <div className='exerciseCardContainerRight'>
                 <div className='exerciseCardTitle'>
-                    <h3>Flat bench press</h3>
+                    <h3>{exercise.Exercise_Name}</h3>
                 </div>
                 <div className='exerciseCardDetails'>
                     <span>
@@ -38,9 +54,9 @@ export const ExerciseCard = ({id} : {id?: string}) => {
                     </span>
                 </div>
                 <div className='exerciseCardTags'>
-                    <Badge label='Strength' />
-                    <Badge label='Advanced' />
-                    <Badge label='Back' backgroundColor='#53B39E' textColor='black'/>
+                    {exercise.muscle_gp && <Badge label={exercise.muscle_gp} />}
+                    {exercise.Equipment && <Badge label={exercise.Equipment} />}
+                    {exercise.Description && <Badge label={exercise.Description} />}
                 </div>
             </div>
         </div>
@@ -48,15 +64,23 @@ export const ExerciseCard = ({id} : {id?: string}) => {
 };
 
 const Exercises = () => {
+    const [exercises, setExercises] = useState<Exercise[]>([]);
+
+    async function fetchExercises(){
+        const exerciseData = await WorkoutService.getExercises();
+        setExercises(exerciseData.data);
+    }
+
+    useEffect(() => {
+        fetchExercises();
+    }, []);
+
+    console.log(exercises)
     return (
         <div className='exerciseContainer'>
-            <ExerciseCard />
-            <ExerciseCard />
-            <ExerciseCard />
-            <ExerciseCard />
-            <ExerciseCard />
-            <ExerciseCard />
-            <ExerciseCard />
+            {exercises.map((e) => (
+                <ExerciseCard exercise={e}/>
+            ))}
         </div>
     );
 };

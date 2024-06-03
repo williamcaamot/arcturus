@@ -1,14 +1,17 @@
 import './styles/workouts.css';
 import Badge from '../../../components/Badge';
+import {useNavigate} from "react-router-dom";
 
 const WorkoutCard = () => {
 
+    const navigate = useNavigate();
+
     const navigateTo = (path: string) => {
-        window.location.href = path;
+        navigate(path);
     };
 
     return (
-        <div className='workoutCardContainer' role='button' tabIndex={0} onClick={() => navigateTo('/WorkoutDetails')} style={{cursor: 'pointer'}}>
+        <div className='workoutCardContainer' role='button' tabIndex={0} onClick={() => navigateTo('/workout-details')} style={{cursor: 'pointer'}}>
             <div className='cardContainerLeft'>
                 <img src='https://via.placeholder.com/150' alt='workout' className='workoutCardImg' />
             </div>

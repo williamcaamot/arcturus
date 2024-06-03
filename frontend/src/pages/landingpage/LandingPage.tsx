@@ -120,7 +120,7 @@ const LandingPage = () => {
                 </div>
             </div>
             <div className='landingAvgStatsCont'>
-                <h4 style={{ margin: 0 }}>Avgerage stats</h4>
+                <h4 style={{ margin: 0 }}>Average stats</h4>
                 <div className='landingAvgStatsInnerCont'>
                     <div className='avgStatsLeft'>
                         <span>
@@ -138,7 +138,7 @@ const LandingPage = () => {
                     </div>
                     <hr className='dividerDiv'></hr>
                     <div className='avgStatsRight'>
-                        <h3 style={{ margin: 0 }}>44 day streak</h3>
+                        <h3 style={{ margin: 0 }}>44 day streak 🔥</h3>
                     </div>
                 </div>
             </div>

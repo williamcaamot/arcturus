@@ -17,14 +17,14 @@ const Router = () => {
         <BrowserRouter>
             <Routes>
                 <Route path="/" element={<SignIn />} />
-                <Route path="/landingPage" element={<LandingPage />} />
-                <Route path="/LogIn" element={<LogIn />} />
-                <Route path="/fillpersonalinfo" element={<PersonalInfo />} /> 
-                <Route path="/Statistics" element={<Statistics />} />
-                <Route path="/Workouts" element={<WorkoutsIndex />} />
-                <Route path="/ExerciseDetails" element={<ExerciseDetails />} />
-                <Route path="/WorkoutDetails" element={<WorkoutDetails />} />
-                <Route path="/MyProfile" element={<Profile />} />
+                <Route path="/landing-page" element={<LandingPage />} />
+                <Route path="/login" element={<LogIn />} />
+                <Route path="/fill-personal-info" element={<PersonalInfo />} />
+                <Route path="/statistics" element={<Statistics />} />
+                <Route path="/workouts" element={<WorkoutsIndex />} />
+                <Route path="/exercise-details" element={<ExerciseDetails />} />
+                <Route path="/workout-details" element={<WorkoutDetails />} />
+                <Route path="/my-profile" element={<Profile />} />
                 <Route path="*" element={<NotFoundPage />} />
             </Routes>
         </BrowserRouter>

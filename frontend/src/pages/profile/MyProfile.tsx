@@ -1,4 +1,4 @@
-import {useEffect, useState} from "react";
+import {useContext, useEffect, useState} from "react";
 import "./styles/myProfile.css";
 import statsIcon from "../../../public/images/statsIcon.png";
 import accountSettingsIcon from "../../../public/images/settingsicon.png";
@@ -13,21 +13,27 @@ import calsBurnedIcon from "../../../public/images/highlightCalsIcon.png";
 import editIcon from "../../../public/images/editBtn.png";
 import axios from "axios";
 import Navigation from "../../components/navigation/Navigation";
+import SignoutButton from "../sign_in/SignoutButton.tsx";
+import {UserContext} from "../../App.tsx";
+import {useNavigate} from "react-router-dom";
 
 
 const Statistics = () => {
 
-    const [user, setUser] = useState()
+    const {user} = useContext(UserContext);
      
-    async function fetchUser() {
-         const {data} = await axios.get("/api/v1/user")
-         console.log(data);
-         setUser(data.user)
+     async function fetchWorkouts(){
+        const {data} = await axios.get("/api/v1/workouts");
      }
 
      useEffect(() => {
-         fetchUser();
+         fetchWorkouts()
      }, []);
+
+     const navigate = useNavigate();
+    if(!user){
+        navigate("/")
+    }
 
 
     return (
@@ -60,7 +66,7 @@ const Statistics = () => {
                     <img src={editIcon} alt="editIconButton" />
                 </button>
                 </div>
-             
+
             </div>
             <div className="centerContent">
                 <div className="profileHighlights">
@@ -193,12 +199,16 @@ const Statistics = () => {
                             <path d="M1 1L11 9.26531L1 16" stroke="#180202" strokeWidth="2"/>
                         </svg>
                     </button>
-                    
+
                     </div>
+
                 </div>
+                <SignoutButton/>
+
             </div>
-            <Navigation/>        
+            <Navigation/>
         </div>
+
     );
 };
 
