@@ -13,7 +13,7 @@ const Navigation = () => {
     return (
       <div className="navigation">
         <div className='left-Buttons'>
-          <button className="nav-button" onClick={() => navigateTo('/landingPage')}>
+          <button className="nav-button" onClick={() => navigateTo('/landing-page')}>
             <img src={navHome} alt="Home"  />
           </button>
     
@@ -27,11 +27,11 @@ const Navigation = () => {
           </button>
         
         <div className='right-Buttons'>
-          <button className="nav-button" onClick={() => navigateTo('/Workouts')}>
+          <button className="nav-button" onClick={() => navigateTo('/workouts')}>
             <img src={navWorkouts} alt="Workouts" />
           </button>
 
-          <button className="nav-button" onClick={() => navigateTo('/MyProfile')}>
+          <button className="nav-button" onClick={() => navigateTo('/my-profile')}>
             <img src={navProfile} alt="Profile" />
           </button> 
         </div>
