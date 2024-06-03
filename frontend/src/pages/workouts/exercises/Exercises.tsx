@@ -27,7 +27,7 @@ export const ExerciseCard = ({exercise } : {exercise: Exercise }) => {
 
 
     return (
-        <div className='exerciseCardContainer' role='button' tabIndex={0} onClick={() => navigateTo('/ExerciseDetails')} style={{cursor: 'pointer'}}>
+        <div className='exerciseCardContainer' role='button' tabIndex={0} onClick={() => navigateTo('/exercise-details')} style={{cursor: 'pointer'}}>
             <div className='cardContainerLeft'>
                 {exercise.Exercise_Image.length > 0 ? <img src={exercise.Exercise_Image} alt='exercise' className='exerciseCardImg' /> : <img src='https://via.placeholder.com/150' alt='exercise' className='exerciseCardImg' />}
             </div>

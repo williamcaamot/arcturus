@@ -13,7 +13,7 @@ const WorkoutDetails = () => {
         <div className='workoutDetailsPage'>
             <div className='workoutDetailsHeader'>
                 <div className='workoutDetailsHeaderTitle'>
-                    <div role='button' tabIndex={0} onClick={() => navigateTo('/Workouts')} style={{ cursor: 'pointer' }}>
+                    <div role='button' tabIndex={0} onClick={() => navigateTo('/workouts')} style={{ cursor: 'pointer' }}>
                         <svg xmlns='http://www.w3.org/2000/svg' width='48' height='42' viewBox='0 0 48 42' fill='none'>
                             <path
                                 d='M10.5 19.6875H40.5C40.8978 19.6875 41.2794 19.8258 41.5607 20.0719C41.842 20.3181 42 20.6519 42 21C42 21.3481 41.842 21.6819 41.5607 21.9281C41.2794 22.1742 40.8978 22.3125 40.5 22.3125H10.5C10.1022 22.3125 9.72064 22.1742 9.43934 21.9281C9.15804 21.6819 9 21.3481 9 21C9 20.6519 9.15804 20.3181 9.43934 20.0719C9.72064 19.8258 10.1022 19.6875 10.5 19.6875Z'
