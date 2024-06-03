@@ -1,22 +1,20 @@
-import { useNavigate } from "react-router-dom";
-
+import {useNavigate} from "react-router-dom";
 
 
 const SignUpButton = () => {
 
-      const navigate = useNavigate();
 
-      const navigateToLogIn = () => {
-          navigate("/logIn");
-      };
-      
+    const navigateToLogIn = () => {
+        navigate("/logIn");
+    };
+
     return (
         <>
-            <form>
-                <button type="submit" className={"signInBoxes loginBtn"} onClick={navigateToLogIn}>
-                    <p>LOG IN/SIGN UP</p>
-                </button>
-            </form>
+            <button className={"signInBoxes loginBtn"} onClick={() => {
+                alert("This is not yet available! Please sign in with Google!")
+            }}>
+                <p>LOG IN/SIGN UP</p>
+            </button>
         </>
     );
 };
