@@ -19,7 +19,7 @@
     justify-content: center;
     width: 100%;
     height: 100%;
-    margin-top: 8vh;
+    margin-top: 1vh;
 }
 
 .headerBox h1 {
@@ -47,7 +47,7 @@
     justify-content: center;
     width: 100%;
     height: 100%;
-    margin-top: 8vh;
+    margin-top: 4vh;
 }
 
 .inputBoxes input{
@@ -135,7 +135,7 @@
     justify-content: center;
     width: 284px;
     height: 60px;
-    margin-top: 8vh;
+    margin-top: 4vh;
     border-radius: 30px;
     background: var(--Black, #000000);
     color: var(--White, #ffffff);

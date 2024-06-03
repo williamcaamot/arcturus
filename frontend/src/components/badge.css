@@ -1,0 +1,11 @@
+.badgeContainer {
+    display: flex;
+    white-space: nowrap;
+    justify-content: center;
+    align-items: center;
+    max-width: fit-content;
+    padding: 5px 10px;
+    border-radius: 20px;
+    background-color: #246656;
+    color: white;
+}

@@ -1,23 +1,27 @@
 import "./styles/signIn.css";
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
+//import { useNavigate } from 'react-router-dom';
 import flexrHeader from '../../../public/images/flexrHeader.png';
 import flexrLogo from '../../../public/images/Flexr-logo-green-black.png';
-import appleLogo from '../../../public/images/appleLogo3.png';
-import facebookLogo from '../../../public/images/facebookLogo.png';
-import googleLogo from '../../../public/images/googleLogo.png';
-import userIcon from '../../../public/images/userIcon2.png';
+//import appleLogo from '../../../public/images/appleLogo3.png';
+//import facebookLogo from '../../../public/images/facebookLogo.png';
+//import googleLogo from '../../../public/images/googleLogo.png';
+//import userIcon from '../../../public/images/userIcon2.png';
 import GoogleSigninButton from "./GoogleSigninButton.tsx";
+import SignoutButton from "./SignoutButton.tsx";
+import FacebookSigninButton from "./FacebookSigninButton.tsx";
+import SignUpButton from "./SignUpButton.tsx";
 
 
 const SignIn: React.FC = () => {
-
+    /*
     const navigate = useNavigate();
 
     const navigateToLogIn = () => {
         navigate('/logIn');
     
     }
+    */
 
     return (
         <div className="signInContainer">
@@ -44,7 +48,7 @@ const SignIn: React.FC = () => {
                 <p>Continue with Facebook</p>
             </button>
             */}
-
+            <FacebookSigninButton/>
             <GoogleSigninButton/>
 
             {/*
@@ -53,6 +57,12 @@ const SignIn: React.FC = () => {
                 <p>Register new user</p>
             </button>
             */}
+
+            <SignUpButton/>
+            <br />
+            <SignoutButton/>
+
+            
 
         </div>
     );

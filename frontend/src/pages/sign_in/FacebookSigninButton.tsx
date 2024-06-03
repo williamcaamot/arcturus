@@ -1,7 +1,8 @@
 import {useEffect, useState} from "react";
-import googleLogo from "../../../public/images/googleLogo.png";
+import facebookLogo from "../../../public/images/facebookLogo.png";
 
-const GoogleSigninButton = () => {
+
+const FacebookSigninButton = () => {
     const [csrfToken, setCsrfToken] = useState()
 
     async function fetchCsrfToken(){
@@ -15,17 +16,18 @@ const GoogleSigninButton = () => {
     }, []);
 
     return <>
-        <form action={"/api/v1/auth/signin/google"} method={"POST"}>
+        <form action={"/api/v1/auth/signin/facebook"} method={"POST"}>
             <input type="hidden" name="csrfToken"
                    value={csrfToken} />
 
-                <button type="submit" className={"signInBoxes googleBtn"}>
-                    <img src={googleLogo} alt="Google logo"  className="logo"/>
-                    <p>Continue with Google</p>
-                </button>
+            <button type="submit" className={"signInBoxes facebookBtn"}>
+                <img src={facebookLogo} alt="Facebook logo"  className="logo"/>
+                <p>Continue with Facebook</p>
+            </button>
         </form>
     </>
 
 };
 
-export default GoogleSigninButton;
+
+export default FacebookSigninButton;
