@@ -23,6 +23,7 @@ const Router = () => {
                 <Route path="/statistics" element={<Statistics />} />
                 <Route path="/workouts" element={<WorkoutsIndex />} />
                 <Route path="/exercise-details" element={<ExerciseDetails />} />
+                <Route path="/exercise-details/:id" element={<ExerciseDetails />} />
                 <Route path="/workout-details" element={<WorkoutDetails />} />
                 <Route path="/my-profile" element={<Profile />} />
                 <Route path="*" element={<NotFoundPage />} />

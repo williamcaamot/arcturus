@@ -17,11 +17,16 @@ const WorkoutService = (() => {
         return await axios.get(`${workoutEndpoint}/exercises?limit=20&offset=20`);
     }
 
+    const getExerciseById = async (id: string) => {
+        return await axios.get(`${workoutEndpoint}/exercises/${id}`);
+    }
+
 
     return {
         getWorkouts,
         getWorkout,
-        getExercises
+        getExercises,
+        getExerciseById
     };
 
     })();

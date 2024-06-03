@@ -1,9 +1,25 @@
+import { useEffect, useState } from 'react';
 import Badge from '../../../components/Badge';
 import Navigation from '../../../components/navigation/Navigation';
 import './styles/exerciseDetails.css';
-import {useNavigate} from "react-router-dom";
+import {useNavigate, useParams} from "react-router-dom";
+import { Exercise } from './Exercises';
+import WorkoutService from '../../../services/WorkoutService';
 
 const ExerciseDetails = () => {
+    const { id } = useParams();
+
+    const [exercise, setExercise] = useState<Exercise>();
+
+    async function fetchExerciseById(){
+        const exerciseData = await WorkoutService.getExerciseById(id ? id : '');
+        setExercise(exerciseData.data);
+    }
+    
+    useEffect(() => {
+        fetchExerciseById();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, []);
 
     const navigate = useNavigate();
 
@@ -27,7 +43,7 @@ const ExerciseDetails = () => {
                             />
                         </svg>
                     </div>
-                    <h1>Flat bench press</h1>
+                    <h1>{exercise?.Exercise_Name}</h1>
                 </div>
                 <svg xmlns='http://www.w3.org/2000/svg' width='132' height='4' viewBox='0 0 132 4' fill='none' className='line'>
                     <path d='M2.98218 2H129.018' stroke='#FF6D4D' stroke-width='4' stroke-linecap='round' />
@@ -35,7 +51,7 @@ const ExerciseDetails = () => {
             </div>
             <div className='exerciseDetailsInnerCont'>
                 <div>
-                    <img src='https://via.placeholder.com/400' alt='exercise' className='exerciseDetailsImg' />
+                {exercise && exercise.Exercise_Image.length > 0 ? <img src={exercise.Exercise_Image} alt='exercise' className='exerciseCardImg' /> : <img src='https://via.placeholder.com/150' alt='exercise' className='exerciseCardImg' />}
                 </div>
                 <div className='exerciseDetailsInnerBottom'>
                     <div className='exerciseDetailsInnerDetails'>
@@ -57,10 +73,9 @@ const ExerciseDetails = () => {
                         </span>
                     </div>
                     <div className='exerciseDetailsInnerTags'>
-                        <Badge label='Strength' />
-                        <Badge label='Advanced' />
-                        <Badge label='Back' backgroundColor='#53B39E' textColor='black' />
-                        <Badge label='Chest' backgroundColor='#FF6D4D' />
+                        {exercise && exercise.muscle_gp && <Badge label={exercise.muscle_gp} backgroundColor='#53B39E' textColor='black'/>}
+                    {exercise && exercise.Equipment && <Badge label={exercise.Equipment} />}
+                    {exercise && exercise.Description && <Badge label={exercise.Description} backgroundColor='#FF6D4D'/>}
                     </div>
                 </div>
             </div>

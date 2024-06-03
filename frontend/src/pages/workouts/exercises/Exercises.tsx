@@ -5,7 +5,7 @@ import WorkoutService from '../../../services/WorkoutService';
 import {useNavigate} from "react-router-dom";
 
 export interface Exercise {
-    id: string;
+    _id: string;
     Exercise_Name: string;
     Description_URL: string;
     Exercise_Image: string;
@@ -21,13 +21,13 @@ export const ExerciseCard = ({exercise } : {exercise: Exercise }) => {
 
     const navigate = useNavigate();
 
-    const navigateTo = (path: string) => {
-        navigate(path)
-      };
+    const navigateTo = (path: string, id: string) => {
+        navigate(`${path}/${id}`);
+    };
 
 
     return (
-        <div className='exerciseCardContainer' role='button' tabIndex={0} onClick={() => navigateTo('/exercise-details')} style={{cursor: 'pointer'}}>
+        <div className='exerciseCardContainer' role='button' tabIndex={0} onClick={() => navigateTo('/exercise-details', exercise._id)} style={{cursor: 'pointer'}}>
             <div className='cardContainerLeft'>
                 {exercise.Exercise_Image.length > 0 ? <img src={exercise.Exercise_Image} alt='exercise' className='exerciseCardImg' /> : <img src='https://via.placeholder.com/150' alt='exercise' className='exerciseCardImg' />}
             </div>
@@ -75,7 +75,6 @@ const Exercises = () => {
         fetchExercises();
     }, []);
 
-    console.log(exercises)
     return (
         <div className='exerciseContainer'>
             {exercises.map((e) => (
