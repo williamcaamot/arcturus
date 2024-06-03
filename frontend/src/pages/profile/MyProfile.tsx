@@ -201,8 +201,10 @@ const Statistics = () => {
                     </button>
 
                     </div>
+
                 </div>
                 <SignoutButton/>
+
             </div>
             <Navigation/>
         </div>

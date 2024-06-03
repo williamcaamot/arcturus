@@ -1,11 +1,12 @@
 import './styles/workoutDetails.css';
 import { ExerciseCard } from '../exercises/Exercises';
 import Navigation from '../../../components/navigation/Navigation';
+import {useNavigate} from "react-router-dom";
 
 const WorkoutDetails = () => {
-    
+    const navigate = useNavigate();
     const navigateTo = (path: string) => {
-        window.location.href = path;
+        navigate(path)
     };
 
     return (

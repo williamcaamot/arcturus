@@ -1,5 +1,5 @@
 import "./styles/signIn.css";
-import React, {useContext} from 'react';
+import React, {useContext, useEffect} from 'react';
 //import { useNavigate } from 'react-router-dom';
 import flexrHeader from '../../../public/images/flexrHeader.png';
 import flexrLogo from '../../../public/images/Flexr-logo-green-black.png';
@@ -19,9 +19,13 @@ const SignIn: React.FC = () => {
 
     const {user} = useContext(UserContext);
     const navigate = useNavigate();
-    if(user){
-        navigate("/my-profile");
-    }
+
+
+    useEffect(() => {
+        if(user){
+            navigate("/my-profile")
+        }
+    }, []);
 
     return (
         <div className="signInContainer">

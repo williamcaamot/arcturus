@@ -1,10 +1,13 @@
 import './styles/workouts.css';
 import Badge from '../../../components/Badge';
+import {useNavigate} from "react-router-dom";
 
 const WorkoutCard = () => {
 
+    const navigate = useNavigate();
+
     const navigateTo = (path: string) => {
-        window.location.href = path;
+        navigate(path);
     };
 
     return (

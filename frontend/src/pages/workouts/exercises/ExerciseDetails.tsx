@@ -1,10 +1,14 @@
 import Badge from '../../../components/Badge';
 import Navigation from '../../../components/navigation/Navigation';
 import './styles/exerciseDetails.css';
+import {useNavigate} from "react-router-dom";
 
 const ExerciseDetails = () => {
+
+    const navigate = useNavigate();
+
     const navigateTo = (path: string) => {
-        window.location.href = path;
+        navigate(path)
     };
 
     return (

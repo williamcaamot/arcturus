@@ -3,40 +3,46 @@ import navProfile from "../../../public/images/navProfile.png";
 import navHome from "../../../public/images/navHome.png";
 import navStats from "../../../public/images/navStats.png";
 import navWorkouts from "../../../public/images/navWorkouts.png";
+import {useNavigate} from "react-router-dom";
 
 
 const Navigation = () => {
+    const navigate = useNavigate();
     const navigateTo = (path: string) => {
-      window.location.href = path;
+        navigate(path)
     };
-  
+
     return (
-      <div className="navigation">
-        <div className='left-Buttons'>
-          <button className="nav-button" onClick={() => navigateTo('/landing-page')}>
-            <img src={navHome} alt="Home"  />
-          </button>
-    
-          <button className="nav-button" onClick={() => navigateTo('/statistics')}>
-            <img src={navStats} alt="Stats" />
-          </button>
-        </div>
+        <>
+            <div style={{}} className={"navigationSpacer"}></div>
+            <div className="navigation">
 
-          <button className="nav-circle-button" onClick={() => navigateTo('/')}>
-            Start Workout/signIn
-          </button>
-        
-        <div className='right-Buttons'>
-          <button className="nav-button" onClick={() => navigateTo('/workouts')}>
-            <img src={navWorkouts} alt="Workouts" />
-          </button>
+                <div className='left-Buttons'>
+                    <button className="nav-button" onClick={() => navigateTo('/landing-page')}>
+                        <img src={navHome} alt="Home"/>
+                    </button>
 
-          <button className="nav-button" onClick={() => navigateTo('/my-profile')}>
-            <img src={navProfile} alt="Profile" />
-          </button> 
-        </div>
-      </div>
+                    <button className="nav-button" onClick={() => navigateTo('/statistics')}>
+                        <img src={navStats} alt="Stats"/>
+                    </button>
+                </div>
+
+                <button className="nav-circle-button" onClick={() => navigateTo('/')}>
+                    Start Workout
+                </button>
+
+                <div className='right-Buttons'>
+                    <button className="nav-button" onClick={() => navigateTo('/workouts')}>
+                        <img src={navWorkouts} alt="Workouts"/>
+                    </button>
+
+                    <button className="nav-button" onClick={() => navigateTo('/my-profile')}>
+                        <img src={navProfile} alt="Profile"/>
+                    </button>
+                </div>
+            </div>
+        </>
     );
-  };
-  
+};
+
 export default Navigation;

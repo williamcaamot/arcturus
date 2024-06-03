@@ -2,6 +2,7 @@ import './styles/exercise.css';
 import Badge from '../../../components/Badge';
 import { useEffect, useState } from 'react';
 import WorkoutService from '../../../services/WorkoutService';
+import {useNavigate} from "react-router-dom";
 
 export interface Exercise {
     id: string;
@@ -18,8 +19,10 @@ export interface Exercise {
 
 export const ExerciseCard = ({exercise } : {exercise: Exercise }) => {
 
+    const navigate = useNavigate();
+
     const navigateTo = (path: string) => {
-        window.location.href = path;
+        navigate(path)
       };
 
 
