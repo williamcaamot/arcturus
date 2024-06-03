@@ -73,7 +73,7 @@ const ExerciseDetails = () => {
                         </span>
                     </div>
                     <div className='exerciseDetailsInnerTags'>
-                        {exercise && exercise.muscle_gp && <Badge label={exercise.muscle_gp} backgroundColor='#53B39E' textColor='black'/>}
+                    {exercise && exercise.muscle_gp && <Badge label={exercise.muscle_gp} backgroundColor='#53B39E' textColor='black'/>}
                     {exercise && exercise.Equipment && <Badge label={exercise.Equipment} />}
                     {exercise && exercise.Description && <Badge label={exercise.Description} backgroundColor='#FF6D4D'/>}
                     </div>

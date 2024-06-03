@@ -4,7 +4,7 @@ import {useNavigate} from "react-router-dom";
 import { Exercise } from '../exercises/Exercises';
 
 export interface Workout {
-    exerciseId: string;
+    _id: string;
     workoutName: string;
     Workout_Image: string;
     exercises: Array<Exercise>;
