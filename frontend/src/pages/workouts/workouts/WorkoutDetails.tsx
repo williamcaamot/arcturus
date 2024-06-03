@@ -1,5 +1,5 @@
 import './styles/workoutDetails.css';
-import { ExerciseCard } from '../exercises/Exercises';
+import {ExerciseCard} from "../exercises/ExerciseCard.tsx";
 import Navigation from '../../../components/navigation/Navigation';
 import {useNavigate} from "react-router-dom";
 

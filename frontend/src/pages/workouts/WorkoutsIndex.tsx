@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import {useState} from 'react';
 import './styles/workoutIndex.css';
 import Workouts from './workouts/Workouts';
 import Exercises from './exercises/Exercises';
@@ -12,18 +12,31 @@ const WorkoutsIndex = () => {
     return (
         <div className='workoutsIndexContainer'>
             <div className='workoutsHeader'>
-                <h1>Workouts</h1>
-                <svg xmlns='http://www.w3.org/2000/svg' width='132' height='4' viewBox='0 0 132 4' fill='none' className='line'>
+                <div>
+                    {activeTab === "WORKOUTS" ? <h1>MY WORKOUTS</h1>: <h1>EXERCISES</h1>}
+
+                    {/*<svg xmlns='http://www.w3.org/2000/svg' width='132' height='4' viewBox='0 0 132 4' fill='none' className='line'>
                     <path d='M2.98218 2H129.018' stroke='#FF6D4D' stroke-width='4' stroke-linecap='round' />
-                </svg>
+                </svg>*/}
+                </div>
+                <div>
+                    {
+                    activeTab === "WORKOUTS" && <span className={"koulen"}>ADD +</span>
+                    }
+
+                </div>
             </div>
             <div className='workoutTabs'>
-                <button className={activeTab === 'WORKOUTS' ? 'tabButtonActive' : "tabButton"} onClick={() => setActiveTab('WORKOUTS')}>Workouts</button>
-                <button className={activeTab === 'EXERCISES' ? 'tabButtonActive' : "tabButton"} onClick={() => setActiveTab('EXERCISES')}>Exercises</button>
+                <button className={activeTab === 'WORKOUTS' ? 'tabButtonActive' : "tabButton"}
+                        onClick={() => setActiveTab('WORKOUTS')}>Workouts
+                </button>
+                <button className={activeTab === 'EXERCISES' ? 'tabButtonActive' : "tabButton"}
+                        onClick={() => setActiveTab('EXERCISES')}>Exercises
+                </button>
             </div>
 
-            {activeTab === 'WORKOUTS' && <Workouts />}
-            {activeTab === 'EXERCISES' && <Exercises />}
+            {activeTab === 'WORKOUTS' && <Workouts/>}
+            {activeTab === 'EXERCISES' && <Exercises/>}
             <Navigation/>
         </div>
     );
