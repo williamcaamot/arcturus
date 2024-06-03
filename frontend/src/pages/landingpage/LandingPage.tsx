@@ -1,3 +1,4 @@
+import { useNavigate } from 'react-router-dom';
 import Navigation from '../../components/navigation/Navigation';
 import WorkoutService from '../../services/WorkoutService';
 import { Exercise } from '../workouts/exercises/Exercises';
@@ -43,9 +44,15 @@ const LandingPage = () => {
             image: 'https://via.placeholder.com/200',
         },
     ];
-
-
     const [exercises, setExercises] = useState<Exercise[]>([]);
+
+    const navigate = useNavigate();
+
+    const navigateTo = (path: string, id: string) => {
+        navigate(`${path}/${id}`);
+    };
+
+
 
     async function fetchExercises(){
         const exerciseData = await WorkoutService.getExercises();
@@ -142,7 +149,7 @@ const LandingPage = () => {
             <h4 style={{ margin: 0 }}>Explore exercises</h4>    
                 <div className='landingYourWorkoutInnerCont'>
                     {exercises.map((excercise) => (
-                        <div key={excercise._id} className='landingWorkoutCard'>
+                        <div key={excercise._id} className='landingWorkoutCard' role='button' tabIndex={0} onClick={() => navigateTo('/exercise-details', excercise._id)}>
                         {excercise.Exercise_Image.length > 0 ? <img src={excercise.Exercise_Image} alt='exercise' className='landingExerciseCardImg' /> : <img src='https://via.placeholder.com/150' alt='exercise' className='landingExerciseCardImg' />}
                             <span>
                                 <h5 style={{ margin: 0 }}>{excercise.Exercise_Name}</h5>
