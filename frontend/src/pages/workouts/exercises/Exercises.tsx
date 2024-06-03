@@ -1,6 +1,6 @@
 import './styles/exercise.css';
 import Badge from '../../../components/Badge';
-import { useEffect, useState } from 'react';
+import {useEffect, useState} from 'react';
 import WorkoutService from '../../../services/WorkoutService';
 import {useNavigate} from "react-router-dom";
 
@@ -17,19 +17,22 @@ export interface Exercise {
     Description: string;
 }
 
-export const ExerciseCard = ({exercise } : {exercise: Exercise }) => {
+export const ExerciseCard = ({exercise}: { exercise: Exercise }) => {
 
     const navigate = useNavigate();
 
     const navigateTo = (path: string) => {
         navigate(path)
-      };
+    };
 
 
     return (
-        <div className='exerciseCardContainer' role='button' tabIndex={0} onClick={() => navigateTo('/ExerciseDetails')} style={{cursor: 'pointer'}}>
+        <div className='exerciseCardContainer' role='button' tabIndex={0} onClick={() => navigateTo('/ExerciseDetails')}
+             style={{cursor: 'pointer'}}>
             <div className='cardContainerLeft'>
-                {exercise.Exercise_Image.length > 0 ? <img src={exercise.Exercise_Image} alt='exercise' className='exerciseCardImg' /> : <img src='https://via.placeholder.com/150' alt='exercise' className='exerciseCardImg' />}
+                {exercise.Exercise_Image.length > 0 ?
+                    <img src={exercise.Exercise_Image} alt='exercise' className='exerciseCardImg'/> :
+                    <img src='https://via.placeholder.com/150' alt='exercise' className='exerciseCardImg'/>}
             </div>
             <div className='exerciseCardContainerRight'>
                 <div className='exerciseCardTitle'>
@@ -46,7 +49,8 @@ export const ExerciseCard = ({exercise } : {exercise: Exercise }) => {
                             </g>
                             <defs>
                                 <clipPath id='clip0_420_1728'>
-                                    <rect width='16.7879' height='16.7879' fill='white' transform='translate(0.321289 0.518188)' />
+                                    <rect width='16.7879' height='16.7879' fill='white'
+                                          transform='translate(0.321289 0.518188)'/>
                                 </clipPath>
                             </defs>
                         </svg>
@@ -54,9 +58,9 @@ export const ExerciseCard = ({exercise } : {exercise: Exercise }) => {
                     </span>
                 </div>
                 <div className='exerciseCardTags'>
-                    {exercise.muscle_gp && <Badge label={exercise.muscle_gp} />}
-                    {exercise.Equipment && <Badge label={exercise.Equipment} />}
-                    {exercise.Description && <Badge label={exercise.Description} />}
+                    {exercise.muscle_gp && <Badge label={exercise.muscle_gp}/>}
+                    {exercise.Equipment && <Badge label={exercise.Equipment}/>}
+                    {exercise.Description && <Badge label={exercise.Description}/>}
                 </div>
             </div>
         </div>
@@ -66,7 +70,7 @@ export const ExerciseCard = ({exercise } : {exercise: Exercise }) => {
 const Exercises = () => {
     const [exercises, setExercises] = useState<Exercise[]>([]);
 
-    async function fetchExercises(){
+    async function fetchExercises() {
         const exerciseData = await WorkoutService.getExercises();
         setExercises(exerciseData.data);
     }
@@ -77,11 +81,20 @@ const Exercises = () => {
 
     console.log(exercises)
     return (
-        <div className='exerciseContainer'>
-            {exercises.map((e) => (
-                <ExerciseCard exercise={e}/>
-            ))}
-        </div>
+        <>
+            <div className={"exerciseSearchContainer"}>
+
+                <input type={"text"}/>
+
+
+
+            </div>
+            <div className='exerciseContainer'>
+                {exercises.map((e) => (
+                    <ExerciseCard exercise={e}/>
+                ))}
+            </div>
+        </>
     );
 };
 
