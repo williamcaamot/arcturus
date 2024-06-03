@@ -37,13 +37,13 @@ const WorkoutDetails = () => {
                 </div>
             </div>
             <div className='workoutDetailsContainer'>
+                {/* <ExerciseCard />
                 <ExerciseCard />
                 <ExerciseCard />
                 <ExerciseCard />
                 <ExerciseCard />
                 <ExerciseCard />
-                <ExerciseCard />
-                <ExerciseCard />
+                <ExerciseCard /> */}
             </div>
             <Navigation />
         </div>

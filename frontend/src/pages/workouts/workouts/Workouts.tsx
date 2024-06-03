@@ -1,8 +1,24 @@
 import './styles/workouts.css';
 import Badge from '../../../components/Badge';
 import {useNavigate} from "react-router-dom";
+import { Exercise } from '../exercises/Exercises';
 
-const WorkoutCard = () => {
+export interface Workout {
+    exerciseId: string;
+    workoutName: string;
+    Workout_Image: string;
+    exercises: Array<Exercise>;
+    minSets: number;
+    minReps: number;
+    maxSets: number;
+    maxReps: number;
+    Description: string;
+    exceriseType: string;
+    difficulty: string;
+}
+
+
+const WorkoutCard = ({workout } : {workout: Workout }) => {
 
     const navigate = useNavigate();
 
@@ -14,10 +30,12 @@ const WorkoutCard = () => {
         <div className='workoutCardContainer' role='button' tabIndex={0} onClick={() => navigateTo('/workout-details')} style={{cursor: 'pointer'}}>
             <div className='cardContainerLeft'>
                 <img src='https://via.placeholder.com/150' alt='workout' className='workoutCardImg' />
+                {/* <img src={workout.Workout_Image} alt='workout' className='workoutCardImg' /> */}
             </div>
             <div className='workoutCardContainerRight'>
                 <div className='workoutCardTitle'>
-                    <h3>Upper body workout</h3>
+                    <h3>Workout</h3>
+                    {/* <h3>{workout.workoutName}</h3> */}
                 </div>
                 <div className='workoutCardDetails'>
                     <span>
@@ -35,6 +53,7 @@ const WorkoutCard = () => {
                             </defs>
                         </svg>
                         <p>14 total sets</p>
+                        {/* <p>{workout.maxSets}</p> */}
                     </span>
                     <span>
                         <svg xmlns='http://www.w3.org/2000/svg' width='15' height='14' viewBox='0 0 15 14' fill='none'>
@@ -53,6 +72,7 @@ const WorkoutCard = () => {
                             </defs>
                         </svg>
                         <p>120 total reps</p>
+                        {/* <p>{workout.maxReps}</p> */}
                     </span>
                     <span>
                         <svg xmlns='http://www.w3.org/2000/svg' width='16' height='17' viewBox='0 0 16 17' fill='none'>
@@ -73,7 +93,9 @@ const WorkoutCard = () => {
                 </div>
                 <div className='workoutCardTags'>
                     <Badge label='Strength' />
+                    {/* <Badge label={workout.exceriseType} /> */}
                     <Badge label='Advanced' />
+                    {/* <Badge label={workout.difficulty} /> */}
                 </div>
             </div>
         </div>
@@ -94,5 +116,30 @@ const Workouts = () => {
         </div>
     );
 };
+
+
+  /*  Waiting for a finished workoutservice  */
+
+/* const Workouts = () => {
+    const [workouts, setWorkouts] = useState<Workout[]>([]); 
+
+    async function fetchWorkouts(){
+        const workoutData = await WorkoutService.getWorkouts(); 
+        setWorkouts(workoutData.data);
+    }
+
+    useEffect(() => {
+        fetchWorkouts();
+    }, []);
+
+    return (
+        <div className='workoutsContainer'>
+            {workouts.map((w) => (
+                <WorkoutCard workout={w}/> 
+            ))}
+        </div>
+    );
+};
+ */
 
 export default Workouts;
