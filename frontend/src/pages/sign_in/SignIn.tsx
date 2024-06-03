@@ -25,7 +25,7 @@ const SignIn: React.FC = () => {
         if(user){
             navigate("/my-profile")
         }
-    }, []);
+    }, [user]);
 
     return (
         <div className="signInContainer">
