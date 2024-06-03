@@ -10,7 +10,7 @@ import {workoutAPI} from "./api/workoutAPI.js";
 import bodyParser from "body-parser";
 import {ExpressAuth} from "@auth/express";
 import {authConfig} from "./auth/auth.config.js";
-import {authenticatedUser, currentSession} from "./middleware/middleware.js";
+import {authenticatedUser, currentSession, userinfoMiddleware} from "./middleware/middleware.js";
 
 
 const __filename = fileURLToPath(import.meta.url);
@@ -25,10 +25,11 @@ app.use(bodyParser.json({limit: '1mb'}))
 
 const db = mongoClient.db("flexr");
 app.set('trust proxy', true)
-app.use(currentSession)
-
 
 app.use("/api/v1/auth/*", ExpressAuth(authConfig))
+
+app.use(currentSession)
+app.use(userinfoMiddleware(db))
 
 app.use("/api/v1/user", userAPI(db))
 app.use("/api/v1/workouts", workoutAPI(db))

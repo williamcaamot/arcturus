@@ -24,9 +24,16 @@ const Statistics = () => {
          setUser(data.user)
      }
 
+     async function fetchWorkouts(){
+        const {data} = await axios.get("/api/v1/workouts");
+     }
+
      useEffect(() => {
+         fetchWorkouts()
          fetchUser();
      }, []);
+
+
 
 
     return (
