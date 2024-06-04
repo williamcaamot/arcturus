@@ -122,3 +122,11 @@ h1 {
     border-radius: 10px;
     cursor: pointer;
 }
+
+@media (min-width: 600px) {
+    .workoutsIndexContainer {
+         max-width: 600px;
+         max-height: 1000px;
+         margin: 0 auto;
+    }
+ } 
