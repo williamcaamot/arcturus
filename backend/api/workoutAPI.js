@@ -7,19 +7,31 @@ export function workoutAPI(db) {
 
 
     router.post("", async (req, res) => {
-        try {
-            if (!req.session) {
-                res.sendStatus(401);
-                return
-            }
-
-
-            res.sendStatus(200);
-        } catch (e) {
-            console.log(e)
-            res.sendStatus(500);
+        if (!req.session || !req.session.user) {
+            res.sendStatus(401);  // Unauthorized
+            return;
         }
-    })
+        const { workoutName, exercises } = req.body;
+        if (!workoutName || !Array.isArray(exercises) || exercises.length === 0) {
+            res.status(400).send("Invalid input");  // Bad Request for invalid input
+            return;
+        }
+
+        try {
+            const workoutCollection = db.collection("workouts");
+            const newWorkout = {
+                workoutName,
+                exercises,
+            };
+
+            const result = await workoutCollection.insertOne(newWorkout);
+            res.status(201).json({ workoutId: result.insertedId, message: "Workout created successfully" });  // Return the ObjectId of the new workout
+        } catch (e) {
+            console.log(e);
+            res.sendStatus(500);  // Internal Server Error
+        }
+    });
+
 
     router.get("", async (req, res) => {
         try {
