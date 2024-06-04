@@ -42,9 +42,11 @@ export function workoutAPI(db) {
                 return
             }
             const workoutCollection = db.collection("workouts");
-            const result = await workoutCollection.find({created_by: req.user._id}).toArray()
+            //const result = await workoutCollection.find({created_by: 1}).toArray()
+            const result = await workoutCollection.find({created_by: user._id}).toArray()
             console.log(result)
             res.json(result);
+
         } catch (e) {
             console.log(e);
             res.sendStatus(500);
@@ -81,9 +83,44 @@ export function workoutAPI(db) {
                 res.sendStatus(401);
                 return
             }
+            const collection = db.collection("workouts");
+
+            let limit = parseInt(req.query.limit) || 50;
+            let offset = parseInt(req.query.offset) || 0;
+
+            const searchTerm = req.params.term;
+            console.log(searchTerm)
 
 
-            res.sendStatus(200);
+            let cursor = await collection.aggregate([
+                {
+                    $search: {
+                        index: "workout_search_index",
+                        autocomplete: {
+                            query: `${searchTerm}`,
+                            path: "workoutName",
+                            fuzzy: {
+                                maxEdits: 2,
+                                prefixLength: 2
+                            }
+                        }
+                    }
+                },{
+                    $facet: {
+                        "totalCount": [
+                            { $count: "count" }
+                        ],
+                        "results": [
+                            { $skip: offset },
+                            { $limit: limit }
+                        ]
+                    }
+                }
+            ]);
+
+            const result = await cursor.toArray();
+
+            res.json(result[0]);
         } catch (e) {
             console.log(e);
             res.sendStatus(500);
