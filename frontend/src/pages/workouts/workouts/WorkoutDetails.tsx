@@ -47,9 +47,9 @@ const WorkoutDetails = () => {
                                 />
                             </svg>
                         </div>
-                            <h1>Flat bench press</h1>
+                            <h1>My Workout</h1>
                             {/* <h1>{workout?.Workout_Name}</h1> */}
-                            <div className='workoutDetailsContainer'>
+                          {/*   <div className='workoutDetailsContainer'>
                                 {workout?.exercises.map((exercise, index) => (
                                 <div key={index}>
                                 <h2>{exercise.Exercise_Name}</h2>
@@ -59,7 +59,7 @@ const WorkoutDetails = () => {
                                 {exercise && exercise.Description && <Badge label={exercise.Description} backgroundColor='#FF6D4D'/>}
                             </div>
                             ))}
-                        </div>
+                        </div> */}
                     <div className='workoutDetailsHeaderBtnCont'>
                         <div role='button' tabIndex={0} onClick={() => alert("Coming soon")} className='startWorkoutDetailsBtn' style={{color: 'white'}}>
                             Start
@@ -70,13 +70,13 @@ const WorkoutDetails = () => {
                     </div>
                 </div>
                 <div className='workoutDetailsContainer'>
-                    {/* <ExerciseCard />
+                 {/*    <ExerciseCard />
                     <ExerciseCard />
                     <ExerciseCard />
                     <ExerciseCard />
                     <ExerciseCard />
                     <ExerciseCard />
-                    <ExerciseCard /> */}
+                    <ExerciseCard />  */}
                 </div>
                 <Navigation />
             </div>
