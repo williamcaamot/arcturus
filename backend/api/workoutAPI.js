@@ -1,13 +1,100 @@
 import express from "express";
+import {ObjectId} from "mongodb";
 
 export function workoutAPI(db) {
     const router = express.Router();
     // CRUD Order (Create, Read, Update, Delete)
 
 
-
     router.post("", async (req, res) => {
+        if (!req.session || !req.session.user) {
+            res.sendStatus(401);  // Unauthorized
+            return;
+        }
+        const { workoutName, exercises } = req.body;
+        if (!workoutName || !Array.isArray(exercises) || exercises.length === 0) {
+            res.status(400).send("Invalid input");  // Bad Request for invalid input
+            return;
+        }
+
         try {
+            const workoutCollection = db.collection("workouts");
+            const newWorkout = {
+                workoutName,
+                exercises,
+            };
+
+            const result = await workoutCollection.insertOne(newWorkout);
+            res.status(201).json({ workoutId: result.insertedId, message: "Workout created successfully" });  // Return the ObjectId of the new workout
+        } catch (e) {
+            console.log(e);
+            res.sendStatus(500);  // Internal Server Error
+        }
+    });
+
+
+    router.get("", async (req, res) => {
+        try {
+            if (!req.user) {
+                res.sendStatus(401);
+                return
+            }
+            const workoutCollection = db.collection("workouts");
+            const result = await workoutCollection.find({created_by: req.user._id}).toArray()
+            console.log(result)
+            res.json(result);
+        } catch (e) {
+            console.log(e);
+            res.sendStatus(500);
+        }
+    })
+
+
+    router.get("/:id", async (req, res) => {
+        try {
+            if (!req.user) {
+                res.sendStatus(401);
+                return
+            }
+
+
+            const collection = await db.collection("workouts");
+            const id = new ObjectId(req.params.id);
+
+            const result = await collection.findOne({_id: id});
+
+            console.log(result)
+
+
+            res.sendStatus(200);
+        } catch (e) {
+            console.log(e);
+            res.sendStatus(500);
+        }
+    })
+
+    router.get("/search/:term", async (req, res) => {
+        try { // Is this necessary? And if so, should we only return objects associated with signed in user?
+            if (!req.session) {
+                res.sendStatus(401);
+                return
+            }
+
+
+            res.sendStatus(200);
+        } catch (e) {
+            console.log(e);
+            res.sendStatus(500);
+        }
+    })
+
+
+    router.put("", async (req, res) => {
+        try {
+            if (!req.session) {
+                res.sendStatus(401);
+                return
+            }
             res.sendStatus(200);
         } catch (e) {
             console.log(e)
@@ -15,55 +102,19 @@ export function workoutAPI(db) {
         }
     })
 
-    router.get("", async(req, res) => {
-        try{
+    router.delete("", async (req, res) => {
+        try {
+            if (!req.session) {
+                res.sendStatus(401);
+                return
+            }
+
+
             res.sendStatus(200);
-        }catch (e) {
+        } catch (e) {
             console.log(e);
             res.sendStatus(500);
         }
     })
-
-
-    router.get("/:id", async(req, res) => {
-        try{
-            res.sendStatus(200);
-        }catch (e) {
-            console.log(e);
-            res.sendStatus(500);
-        }
-    })
-
-    router.get("/search/:term", async(req, res) => {
-        try{ // Is this necessary? And if so, should we only return objects associated with signed in user?
-            res.sendStatus(200);
-        }catch (e) {
-            console.log(e);
-            res.sendStatus(500);
-        }
-    })
-
-
-
-    router.put("", async(req, res) => {
-        try{
-            res.sendStatus(200);
-        }catch(e){
-            console.log(e)
-            res.sendStatus(500);
-        }
-    })
-
-    router.delete("", async(req, res) => {
-        try{
-            res.sendStatus(200);
-        }catch(e){
-            console.log(e);
-            res.sendStatus(500);
-        }
-    })
-
-
-
     return router;
 }

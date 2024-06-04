@@ -20,6 +20,7 @@
 .exerciseDetailsHeaderTitle {
     display: flex;
     align-items: center;
+    line-height: 3em;
     gap: 8px;
 }
 

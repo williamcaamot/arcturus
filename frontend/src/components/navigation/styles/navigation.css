@@ -1,3 +1,4 @@
+
 .navigation {
   display: flex;
   position: fixed;
@@ -10,6 +11,16 @@
   padding: 2.5vh 0; 
   box-sizing: border-box;
   z-index: 9999;
+}
+
+.navigationSpacer{
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 80%;
+  margin: 0;
+  height: 100px;
+  padding: 2.5vh 0;
 }
   
   .navigation img {
@@ -42,8 +53,8 @@
     left: calc(50% - 62.5px);
     z-index: 1;
     background: var(--Dark-Green, #246656);
-    width: 125px; 
-    height: 125px; 
+    width: 100px;
+    height: 100px;
   }
 
 

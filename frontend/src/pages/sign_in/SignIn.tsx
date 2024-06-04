@@ -1,23 +1,31 @@
 import "./styles/signIn.css";
-import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import React, {useContext, useEffect} from 'react';
+//import { useNavigate } from 'react-router-dom';
 import flexrHeader from '../../../public/images/flexrHeader.png';
 import flexrLogo from '../../../public/images/Flexr-logo-green-black.png';
-import appleLogo from '../../../public/images/appleLogo3.png';
-import facebookLogo from '../../../public/images/facebookLogo.png';
-import googleLogo from '../../../public/images/googleLogo.png';
-import userIcon from '../../../public/images/userIcon2.png';
+//import appleLogo from '../../../public/images/appleLogo3.png';
+//import facebookLogo from '../../../public/images/facebookLogo.png';
+//import googleLogo from '../../../public/images/googleLogo.png';
+//import userIcon from '../../../public/images/userIcon2.png';
 import GoogleSigninButton from "./GoogleSigninButton.tsx";
+import SignoutButton from "./SignoutButton.tsx";
+import FacebookSigninButton from "./FacebookSigninButton.tsx";
+import SignUpButton from "./SignUpButton.tsx";
+import {UserContext} from "../../App.tsx";
+import {useNavigate} from "react-router-dom";
 
 
 const SignIn: React.FC = () => {
 
+    const {user} = useContext(UserContext);
     const navigate = useNavigate();
 
-    const navigateToLogIn = () => {
-        navigate('/logIn');
-    
-    }
+
+    useEffect(() => {
+        if(user){
+            navigate("/my-profile")
+        }
+    }, [user]);
 
     return (
         <div className="signInContainer">
@@ -44,8 +52,9 @@ const SignIn: React.FC = () => {
                 <p>Continue with Facebook</p>
             </button>
             */}
-
             <GoogleSigninButton/>
+            <FacebookSigninButton/>
+            <SignUpButton/>
 
             {/*
             <button className="signInBoxes newUserBtn" onClick={navigateToLogIn}>
@@ -53,6 +62,11 @@ const SignIn: React.FC = () => {
                 <p>Register new user</p>
             </button>
             */}
+
+
+            <br />
+
+            
 
         </div>
     );

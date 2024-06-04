@@ -1,17 +1,37 @@
+import { useEffect, useState } from 'react';
 import Badge from '../../../components/Badge';
 import Navigation from '../../../components/navigation/Navigation';
 import './styles/exerciseDetails.css';
+import {useNavigate, useParams} from "react-router-dom";
+import { Exercise } from './Exercises';
+import WorkoutService from '../../../services/WorkoutService';
 
 const ExerciseDetails = () => {
+    const { id } = useParams();
+
+    const [exercise, setExercise] = useState<Exercise>();
+
+    async function fetchExerciseById(){
+        const exerciseData = await WorkoutService.getExerciseById(id ? id : '');
+        setExercise(exerciseData.data);
+    }
+    
+    useEffect(() => {
+        fetchExerciseById();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, []);
+
+    const navigate = useNavigate();
+
     const navigateTo = (path: string) => {
-        window.location.href = path;
+        navigate(path)
     };
 
     return (
         <div className='exerciseDetailsContainer'>
             <div className='exerciseDetailsHeader'>
                 <div className='exerciseDetailsHeaderTitle'>
-                    <div role='button' tabIndex={0} onClick={() => navigateTo('/Workouts')} style={{cursor: 'pointer'}}>
+                    <div role='button' tabIndex={0} onClick={() => navigateTo('/workouts')} style={{cursor: 'pointer'}}>
                         <svg xmlns='http://www.w3.org/2000/svg' width='48' height='42' viewBox='0 0 48 42' fill='none'>
                             <path
                                 d='M10.5 19.6875H40.5C40.8978 19.6875 41.2794 19.8258 41.5607 20.0719C41.842 20.3181 42 20.6519 42 21C42 21.3481 41.842 21.6819 41.5607 21.9281C41.2794 22.1742 40.8978 22.3125 40.5 22.3125H10.5C10.1022 22.3125 9.72064 22.1742 9.43934 21.9281C9.15804 21.6819 9 21.3481 9 21C9 20.6519 9.15804 20.3181 9.43934 20.0719C9.72064 19.8258 10.1022 19.6875 10.5 19.6875Z'
@@ -23,7 +43,7 @@ const ExerciseDetails = () => {
                             />
                         </svg>
                     </div>
-                    <h1>Flat bench press</h1>
+                    <h1>{exercise?.Exercise_Name}</h1>
                 </div>
                 <svg xmlns='http://www.w3.org/2000/svg' width='132' height='4' viewBox='0 0 132 4' fill='none' className='line'>
                     <path d='M2.98218 2H129.018' stroke='#FF6D4D' stroke-width='4' stroke-linecap='round' />
@@ -31,7 +51,7 @@ const ExerciseDetails = () => {
             </div>
             <div className='exerciseDetailsInnerCont'>
                 <div>
-                    <img src='https://via.placeholder.com/400' alt='exercise' className='exerciseDetailsImg' />
+                {exercise && exercise.Exercise_Image.length > 0 ? <img src={exercise.Exercise_Image} alt='exercise' className='exerciseCardImg' /> : <img src='https://via.placeholder.com/150' alt='exercise' className='exerciseCardImg' />}
                 </div>
                 <div className='exerciseDetailsInnerBottom'>
                     <div className='exerciseDetailsInnerDetails'>
@@ -53,10 +73,9 @@ const ExerciseDetails = () => {
                         </span>
                     </div>
                     <div className='exerciseDetailsInnerTags'>
-                        <Badge label='Strength' />
-                        <Badge label='Advanced' />
-                        <Badge label='Back' backgroundColor='#53B39E' textColor='black' />
-                        <Badge label='Chest' backgroundColor='#FF6D4D' />
+                    {exercise && exercise.muscle_gp && <Badge label={exercise.muscle_gp} backgroundColor='#53B39E' textColor='black'/>}
+                    {exercise && exercise.Equipment && <Badge label={exercise.Equipment} />}
+                    {exercise && exercise.Description && <Badge label={exercise.Description} backgroundColor='#FF6D4D'/>}
                     </div>
                 </div>
             </div>

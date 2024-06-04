@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from "react";
+import {useEffect, useState} from "react";
 import googleLogo from "../../../public/images/googleLogo.png";
 
 const GoogleSigninButton = () => {
@@ -27,6 +27,5 @@ const GoogleSigninButton = () => {
     </>
 
 };
-
 
 export default GoogleSigninButton;

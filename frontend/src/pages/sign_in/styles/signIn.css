@@ -113,7 +113,18 @@ p {
     border: 1px solid #E6E6E5;
 }
 
-.signInBoxes.newUserBtn {
+.signInBoxes.signOutBtn{
+    background-color: var(--Dark-Green, #FF6D4D);
+    color: #FFF;
+    text-align: center;
+    font-family: Roboto;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+.signInBoxes.loginBtn {
     background-color: var(--Dark-Green, #246656);
     color: #FFF;
     text-align: center;

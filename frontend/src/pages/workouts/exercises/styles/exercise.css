@@ -4,9 +4,10 @@
     align-items: center;
     justify-content: center;
     width: 100%;
-    height: 100%;
-    padding: 15px 0px;
+    height: auto;
+    padding-top: 10px;
     gap: 15px;
+
 }
 
 .exerciseCardContainer {
@@ -16,13 +17,14 @@
     background-color: #F2F2F2;
     align-items: center;
     gap: 15px;
+    padding: 5px;
 }
 
 .exerciseCardContainerRight {
     display: flex;
     flex-direction: column;
     width: 100%;
-    padding: 10px;
+    padding-left: 0px;
     gap: 19px;
 }
 
@@ -33,7 +35,11 @@
 }
 
 .exerciseCardTitle > h3 {
-    margin: 0;
+    margin: 0px;
+    line-height: 25px;
+    font-family: Koulen;
+    font-weight: 100;
+    font-size: 1.7em;
 }
 
 .exerciseCardDetails {
@@ -58,7 +64,71 @@
 
 .exerciseCardTags {
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
     gap: 10px;
+}
 
+.cardContainerLeft > img {
+    width: 100px;
+}
+
+.exerciseSearchContainer {
+    margin: 0;
+    padding-top: 15px;
+    padding-bottom: 0px;
+}
+
+.exerciseSearchContainer input {
+    padding: 10px;
+    width: 95%;
+    border: 1px solid #ccc; /* Medium gray border */
+    border-radius: 4px; /* Slightly rounded corners */
+    background-color: #F2F2F2; /* Light gray input background */
+    color: #333; /* Dark gray text */
+    font-size: 20px; /* Increased font size for better readability */
+    outline: none; /* Remove default focus outline */
+    transition: border-color 0.3s ease; /* Smooth transition for border color */
+    font-family: Koulen;
+    margin: 0;
+}
+
+.exerciseSearchContainer input:focus {
+    border-color: #999; /* Darker gray border on focus */
+}
+
+
+.exerciceCardSkeleton {
+    margin-top: 20px;
+    margin-bottom: 10px;
+    background-color: #e0e0e0;
+    border-radius: 15px;
+    width: 100%;
+    height: 110px; /* Adjust the height as needed */
+    position: relative;
+    overflow: hidden;
+}
+
+.exerciceCardSkeleton::before {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    left: -150px;
+    height: 100%;
+    width: 150px;
+    background: linear-gradient(to right, transparent 0%, #d0d0d0 50%, transparent 100%);
+    animation: loading 1.5s infinite;
+}
+
+@keyframes loading {
+    0% {
+        left: -150px;
+    }
+    50% {
+        left: 100%;
+    }
+    100% {
+        left: 100%;
+    }
 }

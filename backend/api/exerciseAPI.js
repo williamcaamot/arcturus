@@ -42,6 +42,7 @@ export function exerciseAPI(db){
             let offset = parseInt(req.query.offset) || 0;
 
             const searchTerm = req.params.term;
+            console.log(searchTerm)
 
 
             let cursor = await collection.aggregate([
@@ -72,12 +73,13 @@ export function exerciseAPI(db){
 
             const result = await cursor.toArray();
 
-            res.json(result);
+            res.json(result[0]);
         }catch (e) {
             console.log(e)
             res.sendStatus(500);
         }
     })
+
 
 
     return router;

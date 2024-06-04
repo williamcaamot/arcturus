@@ -25,7 +25,7 @@
 .logInHeader h1 {
     color: var(--Dark-Green, #246656);
     text-align: center;
-    font-family: Koulen;
+    font-family: Koulen, sans-serif;
     font-size: 55px;
     font-style: normal;
     font-weight: 600;
