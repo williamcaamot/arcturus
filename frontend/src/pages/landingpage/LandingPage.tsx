@@ -1,6 +1,9 @@
+import { useNavigate } from 'react-router-dom';
 import Navigation from '../../components/navigation/Navigation';
+import WorkoutService from '../../services/WorkoutService';
+import { Exercise } from '../workouts/exercises/Exercises';
 import './styles/landingPage.css';
-import {useEffect} from "react";
+import {useEffect, useState} from "react";
 
 const LandingPage = () => {
     const workouts = [
@@ -41,55 +44,41 @@ const LandingPage = () => {
             image: 'https://via.placeholder.com/200',
         },
     ];
+    const [exercises, setExercises] = useState<Exercise[]>([]);
 
-    const exercises = [
-        {
-            id: 1,
-            title: 'Exercise 1',
-            image: 'https://via.placeholder.com/200',
-        },
-        {
-            id: 2,
-            title: 'Exercise 2',
-            image: 'https://via.placeholder.com/200',
-        },
-        {
-            id: 3,
-            title: 'Exercise 3',
-            image: 'https://via.placeholder.com/200',
-        },
-        {
-            id: 4,
-            title: 'Exercise 4',
-            image: 'https://via.placeholder.com/200',
-        },
-        {
-            id: 5,
-            title: 'Exercise 5',
-            image: 'https://via.placeholder.com/200',
-        },
-        {
-            id: 6,
-            title: 'Exercise 6',
-            image: 'https://via.placeholder.com/200',
-        },
-    ];
+    const navigate = useNavigate();
+
+    const navigateTo = (path: string, id: string) => {
+        navigate(`${path}/${id}`);
+    };
 
 
-    async function tryFetch(){
-        try{
-            const res = await fetch("/api/v1/user");
-            const data = await res.json();
-            console.log(data);
-        }catch (e) {
 
-        }
-
+    async function fetchExercises(){
+        const exerciseData = await WorkoutService.getExercises();
+        setExercises(exerciseData.data);
     }
 
     useEffect(() => {
-        tryFetch()
+        fetchExercises();
     }, []);
+
+    // async function tryFetch(){
+    //     try{
+    //         const res = await fetch("/api/v1/user");
+    //         const data = await res.json();
+    //         console.log(data);
+    //     }catch (e) {
+
+    //     }
+
+    // }
+
+    // useEffect(() => {
+    //     tryFetch()
+    // }, []);
+
+
 
 
     return (
@@ -120,7 +109,7 @@ const LandingPage = () => {
                 </div>
             </div>
             <div className='landingAvgStatsCont'>
-                <h4 style={{ margin: 0 }}>Avgerage stats</h4>
+                <h4 style={{ margin: 0 }}>Average stats</h4>
                 <div className='landingAvgStatsInnerCont'>
                     <div className='avgStatsLeft'>
                         <span>
@@ -138,7 +127,7 @@ const LandingPage = () => {
                     </div>
                     <hr className='dividerDiv'></hr>
                     <div className='avgStatsRight'>
-                        <h3 style={{ margin: 0 }}>44 day streak</h3>
+                        <h3 style={{ margin: 0 }}>44 day streak 🔥</h3>
                     </div>
                 </div>
             </div>
@@ -159,11 +148,11 @@ const LandingPage = () => {
             <div className='landingExercisesCont'>
             <h4 style={{ margin: 0 }}>Explore exercises</h4>    
                 <div className='landingYourWorkoutInnerCont'>
-                    {exercises.map((excersise) => (
-                        <div key={excersise.id} className='landingWorkoutCard'>
-                            <img src={excersise.image} alt={excersise.title} className='landingWorkoutCardImg' />
+                    {exercises.map((excercise) => (
+                        <div key={excercise._id} className='landingWorkoutCard' role='button' tabIndex={0} onClick={() => navigateTo('/exercise-details', excercise._id)}>
+                        {excercise.Exercise_Image.length > 0 ? <img src={excercise.Exercise_Image} alt='exercise' className='landingExerciseCardImg' /> : <img src='https://via.placeholder.com/150' alt='exercise' className='landingExerciseCardImg' />}
                             <span>
-                                <h5 style={{ margin: 0 }}>{excersise.title}</h5>
+                                <h5 style={{ margin: 0 }}>{excercise.Exercise_Name}</h5>
                             </span>
                         </div>
                     ))}

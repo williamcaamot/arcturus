@@ -6,7 +6,7 @@ const WorkoutService = (() => {
 
 
     const getWorkouts = async () => {
-        return await axios.get(`${workoutEndpoint}/user`);
+        return await axios.get(`${workoutEndpoint}/workouts`);
     };
 
     const getWorkout = async (id: string) => {
@@ -14,14 +14,19 @@ const WorkoutService = (() => {
     };
 
     const getExercises = async () => {
-        return await axios.get(`${workoutEndpoint}/exercises?limit=20&offset=20`);
+        return await axios.get(`${workoutEndpoint}/exercises`);
+    }
+
+    const getExerciseById = async (id: string) => {
+        return await axios.get(`${workoutEndpoint}/exercises/${id}`);
     }
 
 
     return {
         getWorkouts,
         getWorkout,
-        getExercises
+        getExercises,
+        getExerciseById
     };
 
     })();
