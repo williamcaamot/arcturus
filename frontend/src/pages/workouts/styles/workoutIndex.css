@@ -72,14 +72,15 @@ display: flex;
 }
 
 .tabButtonLeft{
+    font-family: Akshar, sans-serif;
+    font-weight: 300;
     display: flex;
     justify-content: center;
     align-items: center;
     width: 35%;
     height: 100%;
-    padding: 0.5rem;
-    font-size: 1em;
-    font-weight: 600;
+    padding: 0.3rem;
+    font-size: 1.2em;
     color: #000;
     background-color: #f0f0f0;
     border: none;
@@ -87,14 +88,15 @@ display: flex;
     cursor: pointer;
 }
 .tabButtonRight{
+    font-family: Akshar, sans-serif;
+    font-weight: 300;
     display: flex;
     justify-content: center;
     align-items: center;
     width: 35%;
     height: 100%;
-    padding: 0.5rem;
-    font-size: 1em;
-    font-weight: 600;
+    padding: 0.3rem;
+    font-size: 1.2em;
     color: #000;
     background-color: #f0f0f0;
     border: none;
