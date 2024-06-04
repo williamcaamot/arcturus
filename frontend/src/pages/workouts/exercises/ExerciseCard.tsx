@@ -10,9 +10,10 @@ export const ExerciseCard = ({exercise}: { exercise: Exercise }) => {
         navigate(path)
     };
 
+    console.log(exercise)
 
     return (
-        <div className='exerciseCardContainer' role='button' tabIndex={0} onClick={() => navigateTo('/ExerciseDetails')}
+        <div className='exerciseCardContainer' role='button' tabIndex={0} onClick={() => navigateTo(`/exercise-details/${exercise._id}`)}
              style={{cursor: 'pointer'}}>
             <div className='cardContainerLeft'>
                 {exercise.Exercise_Image && exercise.Exercise_Image.length > 0 ?
