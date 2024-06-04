@@ -1,7 +1,6 @@
 import './styles/exercise.css';
 import {useEffect, useState} from 'react';
 import {ExerciseCard} from "./ExerciseCard.tsx";
-import useOnScreen from "../../../hooks/useOnScreen.ts";
 
 
 export interface Exercise {
@@ -23,6 +22,27 @@ const Exercises = () => {
     const [isLoading, setIsLoading] = useState<boolean>(true)
     const [offset, setOffset] = useState<number>(0);
     const [hasMore, setHasMore] = useState<boolean>(true)
+
+
+    const [tempSearch, setTempSearch] = useState("");
+    const [timeoutId, setTimeoutId] = useState<number | null>(null);
+
+
+    useEffect(() => {
+        if (timeoutId) {
+            clearTimeout(timeoutId);
+        }
+        const id = setTimeout(() => {
+            setTempSearch(searchTerm);
+        }, 200);
+        setTimeoutId(id);
+    }, [searchTerm]);
+
+    useEffect(() => {
+        if (searchTerm.includes(tempSearch)) {
+            fetchExercises(searchTerm);
+        }
+    }, [tempSearch]);
 
 
     async function fetchExercises(term: string) {
@@ -94,9 +114,8 @@ const Exercises = () => {
     }
 
     useEffect(() => {
-        console.log("running effect")
         fetchExercises(searchTerm);
-    }, [searchTerm]);
+    }, []);
 
 
     return (
