@@ -35,13 +35,13 @@ export function workoutAPI(db) {
 
     router.get("", async (req, res) => {
         try {
-            if (req.user) {
-                //res.sendStatus(401);
-                //return
+            if (!req.user) {
+                res.sendStatus(401);
+                return
             }
             const workoutCollection = db.collection("workouts");
-            const result = await workoutCollection.find({created_by: 1}).toArray()
-            //const result = await workoutCollection.find({created_by: user._id}).toArray()
+            //const result = await workoutCollection.find({created_by: 1}).toArray()
+            const result = await workoutCollection.find({created_by: user._id}).toArray()
             console.log(result)
             res.json(result);
 
@@ -77,10 +77,10 @@ export function workoutAPI(db) {
 
     router.get("/search/:term", async (req, res) => {
         try { // Is this necessary? And if so, should we only return objects associated with signed in user?
-            //if (!req.session) {
-            //    res.sendStatus(401);
-            //    return
-            //}
+            if (!req.session) {
+                res.sendStatus(401);
+                return
+            }
             const collection = db.collection("workouts");
 
             let limit = parseInt(req.query.limit) || 50;
@@ -119,8 +119,6 @@ export function workoutAPI(db) {
             const result = await cursor.toArray();
 
             res.json(result[0]);
-
-            //res.sendStatus(200);
         } catch (e) {
             console.log(e);
             res.sendStatus(500);
