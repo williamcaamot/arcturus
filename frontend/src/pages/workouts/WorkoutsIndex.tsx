@@ -19,9 +19,9 @@ const WorkoutsIndex = () => {
                     <path d='M2.98218 2H129.018' stroke='#FF6D4D' stroke-width='4' stroke-linecap='round' />
                 </svg>*/}
                 </div>
-                <div>
+                <div style={{paddingLeft: "10px"}}>
                     {
-                    activeTab === "WORKOUTS" && <span className={"koulen"}>ADD +</span>
+                    activeTab === "WORKOUTS" && <span className={"addWorkoutButton"}>ADD +</span>
                     }
 
                 </div>
@@ -29,11 +29,11 @@ const WorkoutsIndex = () => {
 
             <div className='workoutTabsV2'>
                 <button className={activeTab === 'WORKOUTS' ? 'tabButtonLeft' : "tabButtonLeft"}
-                        style={activeTab === "WORKOUTS" ? {backgroundColor: "#FF6D4D"} : undefined}
+                        style={activeTab === "WORKOUTS" ? {backgroundColor: "#FF6D4D", color:"black"} : undefined}
                         onClick={() => setActiveTab('WORKOUTS')}>Workouts
                 </button>
                 <button className={activeTab === 'EXERCISES' ? 'tabButtonRight' : "tabButtonRight"}
-                        style={activeTab === "EXERCISES" ? {backgroundColor: "#FF6D4D"} : undefined}
+                        style={activeTab === "EXERCISES" ? {backgroundColor: "#FF6D4D", color:"black"} : undefined}
                         onClick={() => setActiveTab('EXERCISES')}>Exercises
                 </button>
             </div>
@@ -45,6 +45,10 @@ const WorkoutsIndex = () => {
 
             {activeTab === 'WORKOUTS' && <Workouts/>}
             {activeTab === 'EXERCISES' && <Exercises/>}
+
+
+
+
             <Navigation/>
         </div>
     );

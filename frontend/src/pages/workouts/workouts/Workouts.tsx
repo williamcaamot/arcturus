@@ -11,9 +11,10 @@ const WorkoutCard = () => {
     };
 
     return (
-        <div className='workoutCardContainer' role='button' tabIndex={0} onClick={() => navigateTo('/WorkoutDetails')} style={{cursor: 'pointer'}}>
+        <div className='workoutCardContainer' role='button' tabIndex={0} onClick={() => navigateTo('/WorkoutDetails')}
+             style={{cursor: 'pointer'}}>
             <div className='cardContainerLeft'>
-                <img src='https://via.placeholder.com/150' alt='workout' className='workoutCardImg' />
+                <img src='https://via.placeholder.com/150' alt='workout' className='workoutCardImg'/>
             </div>
             <div className='workoutCardContainerRight'>
                 <div className='workoutCardTitle'>
@@ -30,7 +31,8 @@ const WorkoutCard = () => {
                             </g>
                             <defs>
                                 <clipPath id='clip0_420_1728'>
-                                    <rect width='16.7879' height='16.7879' fill='white' transform='translate(0.321289 0.518188)' />
+                                    <rect width='16.7879' height='16.7879' fill='white'
+                                          transform='translate(0.321289 0.518188)'/>
                                 </clipPath>
                             </defs>
                         </svg>
@@ -48,7 +50,8 @@ const WorkoutCard = () => {
                             </g>
                             <defs>
                                 <clipPath id='clip0_420_1726'>
-                                    <rect width='13.4303' height='13.4303' fill='white' transform='translate(0.81543 0.0363617)' />
+                                    <rect width='13.4303' height='13.4303' fill='white'
+                                          transform='translate(0.81543 0.0363617)'/>
                                 </clipPath>
                             </defs>
                         </svg>
@@ -64,7 +67,8 @@ const WorkoutCard = () => {
                             </g>
                             <defs>
                                 <clipPath id='clip0_420_1732'>
-                                    <rect width='15.9485' height='15.9485' fill='white' transform='translate(0 0.357574)' />
+                                    <rect width='15.9485' height='15.9485' fill='white'
+                                          transform='translate(0 0.357574)'/>
                                 </clipPath>
                             </defs>
                         </svg>
@@ -72,8 +76,8 @@ const WorkoutCard = () => {
                     </span>
                 </div>
                 <div className='workoutCardTags'>
-                    <Badge label='Strength' />
-                    <Badge label='Advanced' />
+                    <Badge label='Strength'/>
+                    <Badge label='Advanced'/>
                 </div>
             </div>
         </div>
@@ -84,13 +88,13 @@ const Workouts = () => {
 
     return (
         <div className='workoutsContainer'>
-            <WorkoutCard />
-            <WorkoutCard />
-            <WorkoutCard />
-            <WorkoutCard />
-            <WorkoutCard />
-            <WorkoutCard />
-            <WorkoutCard />
+            <WorkoutCard/>
+            <WorkoutCard/>
+            <WorkoutCard/>
+            <WorkoutCard/>
+            <WorkoutCard/>
+            <WorkoutCard/>
+            <WorkoutCard/>
         </div>
     );
 };
