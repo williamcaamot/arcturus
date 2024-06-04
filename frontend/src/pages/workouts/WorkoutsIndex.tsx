@@ -26,14 +26,22 @@ const WorkoutsIndex = () => {
 
                 </div>
             </div>
-            <div className='workoutTabs'>
-                <button className={activeTab === 'WORKOUTS' ? 'tabButtonActive' : "tabButton"}
+
+            <div className='workoutTabsV2'>
+                <button className={activeTab === 'WORKOUTS' ? 'tabButtonLeft' : "tabButtonLeft"}
+                        style={activeTab === "WORKOUTS" ? {backgroundColor: "#FF6D4D"} : undefined}
                         onClick={() => setActiveTab('WORKOUTS')}>Workouts
                 </button>
-                <button className={activeTab === 'EXERCISES' ? 'tabButtonActive' : "tabButton"}
+                <button className={activeTab === 'EXERCISES' ? 'tabButtonRight' : "tabButtonRight"}
+                        style={activeTab === "EXERCISES" ? {backgroundColor: "#FF6D4D"} : undefined}
                         onClick={() => setActiveTab('EXERCISES')}>Exercises
                 </button>
             </div>
+
+
+
+
+
 
             {activeTab === 'WORKOUTS' && <Workouts/>}
             {activeTab === 'EXERCISES' && <Exercises/>}
