@@ -8,22 +8,40 @@
     margin-top: 5vh;
 }
 
+.workoutNameAndButtons{
+    display: flex;
+    gap: 80px;
+    align-items: center;
+    width: 100%;
+}
+
+.workoutNameAndButtons h1 {
+    font-size: 2em;
+}
+
+.imageAndDetailsContainer {
+    display: flex;
+    gap: 15px;
+}
 
 .workoutDetailsCard {
     background-color: #F2F2F2;
-    display: flex; 
-    flex-direction: row;
+    display: flex;
+    flex-direction: column;
     align-items: flex-start;
     border-radius: 15px;
-    
-    gap: 15px;
-    padding: 10px;
+    padding-bottom: 10px;
     width: 100%;
-
 }
 
-.workoutDetailsCard img{
-   width: 13vh;
+
+.contentContainer {
+    display: flex;
+    gap: 15px;
+}
+
+.workoutDetailsCard img {
+    width: 12vh;
 }
 
 .setAndRepsContainer {
@@ -40,12 +58,20 @@
     margin-top: 2vh;
 }
 
+.exerciseDetailsHeader{
+    display: flex;
+    align-items: center;
+    justify-content:flex-start;
+    margin-left: 2vh;
+    
+}
 
 .workoutDetailsHeader {
     display: flex;
     align-items: center;
     justify-content: space-between;
     margin-top: 4vh;
+    
 }
 .workoutDetailsHeader > svg {
     padding-bottom: 35px;
@@ -53,13 +79,15 @@
 }
 .workoutDetailsHeaderTitle {
     display: flex;
-    align-items: center;
+    flex-direction: column;
     gap: 8px;
+    margin-left: 4vw;
 }
 
 .workoutDetailsHeaderBtnCont {
     display: flex;
-    gap: 6px;
+    flex-direction: column;
+    gap: 10px;
 }
 
 .startWorkoutDetailsBtn {

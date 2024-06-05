@@ -57,63 +57,69 @@ const WorkoutDetails = () => {
                             />
                         </svg>
                     </div>
-                    
-                    <div className="workoutDetailsHeaderBtnCont">
-                        <div
-                            role="button"
-                            tabIndex={0}
-                            onClick={() => alert("Coming soon")}
-                            className="startWorkoutDetailsBtn"
-                            style={{ color: "white" }}
-                        >
-                            Start
-                        </div>
-                        <div
-                            role="button"
-                            tabIndex={0}
-                            onClick={() => alert("Coming soon")}
-                            className="editWorkoutDetailsBtn"
-                        >
-                            Edit
+                    <div className="workoutNameAndButtons">
+                        <h1>{workout && workout.workoutName}</h1>
+                        <div className="workoutDetailsHeaderBtnCont">
+                            <div
+                                role="button"
+                                tabIndex={0}
+                                onClick={() => alert("Coming soon")}
+                                className="startWorkoutDetailsBtn"
+                                style={{ color: "white" }}
+                            >
+                                Start
+                            </div>
+                            <div
+                                role="button"
+                                tabIndex={0}
+                                onClick={() => alert("Coming soon")}
+                                className="editWorkoutDetailsBtn"
+                            >
+                                Edit
+                            </div>
                         </div>
                     </div>
                 </div>
             
             </div>
             <div className="workoutDetailsContainer">
-    <h2>{workout && workout.workoutName}</h2>
-    <img src={workout?.picture} alt="" />
-    {workout?.exercises?.map((exercise, index) => (
-        <div className="workoutDetailsCard" key={index}>
-            <img
-                        src="https://via.placeholder.com/150"
-                        alt="workout"
-                        className="workoutCardImg"
-                    />
-            <div className="exercisesInWorkoutDetails">
-                <div className="setAndRepsContainer">
-                    <p>Min Reps:</p>
-                    {exercise && exercise.minReps && (
-                        <Badge
-                            label={exercise.minReps.toString()}
-                            backgroundColor="#53B39E"
-                            textColor="black"
+                
+                {workout?.exercises?.map((exercise, index) => (
+                    <div className="workoutDetailsCard" key={index}>
+                    <div className="exerciseDetailsHeader">
+                        <h3>Name of exercise{/* {exercise.exerciseName} */}</h3>
+                    </div>
+                    <div className="contentContainer">
+                        <img
+                            src="https://via.placeholder.com/150"
+                            alt="workout"
+                            className="workoutCardImg"
                         />
-                    )}
-                </div>
-                <div className="setAndRepsContainer">
-                    <p>Max Reps:</p>
-                    {exercise && exercise.maxReps && (
-                        <Badge
-                            label={exercise.maxReps.toString()}
-                            backgroundColor="#FF6D4D"
-                        />
-                    )}
-                </div>
+                        <div className="exercisesInWorkoutDetails">
+                            <div className="setAndRepsContainer">
+                                <p>Min Reps:</p>
+                                {exercise && exercise.minReps && (
+                                    <Badge
+                                        label={exercise.minReps.toString()}
+                                        backgroundColor="#53B39E"
+                                        textColor="black"
+                                    />
+                                )}
+                            </div>
+                            <div className="setAndRepsContainer">
+                                <p>Max Reps:</p>
+                                {exercise && exercise.maxReps && (
+                                    <Badge
+                                        label={exercise.maxReps.toString()}
+                                        backgroundColor="#FF6D4D"
+                                    />
+                                )}
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                ))}
             </div>
-        </div>
-    ))}
-</div>
             <Navigation />
         </div>
     );
