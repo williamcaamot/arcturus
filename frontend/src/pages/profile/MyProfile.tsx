@@ -42,16 +42,16 @@ const Statistics = () => {
         <div className="profileContainer">
             <div className="profileHeader">
                 <div className="headerContent">
-                    <h1>MY PROFILE {user && <span>{user.name}</span>}</h1>
+                    <h1>MY PROFILE</h1>
                     <svg
                         xmlns="http://www.w3.org/2000/svg"
-                        width="225"
+                        width="400"
                         height="4"
-                        viewBox="0 0 225 4"
+                        viewBox="0 0 400 4"
                         fill="none"
                     >
                         <path
-                            d="M2 2H223"
+                            d="M1 2H399"
                             stroke="#FF6D4D"
                             strokeWidth="4"
                             strokeLinecap="round"
@@ -79,7 +79,7 @@ const Statistics = () => {
             </div>
             <div className="centerContent">
                 <div className="profileHighlights">
-                    <h3>MY HIGHLIGHTS</h3>
+                    <h3 style={{fontFamily:"koulen", fontWeight:"100", fontSize: "2em"}}>MY HIGHLIGHTS</h3>
                     <div className="highlightCircle">
                         <div className="highlightBox">
                             <svg
