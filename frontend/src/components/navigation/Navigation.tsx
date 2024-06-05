@@ -1,9 +1,10 @@
 import './styles/navigation.css';
-import navProfile from "../../../public/images/navProfile.png";
-import navHome from "../../../public/images/navHome.png";
-import navStats from "../../../public/images/navStats.png";
-import navWorkouts from "../../../public/images/navWorkouts.png";
 import {useNavigate} from "react-router-dom";
+import HomeIcon from "../icons/HomeIcon.tsx";
+import StatsIcon from "../icons/StatsIcon.tsx";
+import WorkoutIcon from "../icons/WorkoutIcon.tsx";
+import ProfileIcon from "../icons/ProfileIcon.tsx";
+import {useEffect, useState} from "react";
 
 
 const Navigation = () => {
@@ -12,6 +13,22 @@ const Navigation = () => {
         navigate(path)
     };
 
+    const [currentUrl, setCurrentUrl] = useState('');
+
+    useEffect(() => {
+
+        const url = window.location.href;
+
+        const urlModified = url.split("/");
+        console.log(urlModified)
+
+        setCurrentUrl(urlModified[3]);
+
+        // You can also perform other actions with the URL here
+        console.log('Current Page:', currentUrl);
+    }, []); // Empty dependency array means this effect runs once after the initial render
+
+
     return (
         <>
             <div style={{}} className={"navigationSpacer"}></div>
@@ -19,25 +36,27 @@ const Navigation = () => {
 
                 <div className='left-Buttons'>
                     <button className="nav-button" onClick={() => navigateTo('/landing-page')}>
-                        <img src={navHome} alt="Home"/>
+                        <HomeIcon color={currentUrl === "landing-page" ? "#FF6D4D" : "white"}/>
                     </button>
 
                     <button className="nav-button" onClick={() => navigateTo('/statistics')}>
-                        <img src={navStats} alt="Stats"/>
+                        <StatsIcon color={currentUrl === "statistics" ? "#FF6D4D" : "white"}/>
                     </button>
                 </div>
 
-                <button className="nav-circle-button" onClick={() => navigateTo('/')}>
+                <button className="nav-circle-button" onClick={() => {
+                    alert("Workout tracking coming soon!")
+                }}>
                     Start Workout
                 </button>
 
                 <div className='right-Buttons'>
                     <button className="nav-button" onClick={() => navigateTo('/workouts')}>
-                        <img src={navWorkouts} alt="Workouts"/>
+                        <WorkoutIcon color={currentUrl === "workouts" ? "#FF6D4D" : "white"}/>
                     </button>
 
                     <button className="nav-button" onClick={() => navigateTo('/my-profile')}>
-                        <img src={navProfile} alt="Profile"/>
+                        <ProfileIcon color={currentUrl === "my-profile" ? "#FF6D4D" : "white"}/>
                     </button>
                 </div>
             </div>
