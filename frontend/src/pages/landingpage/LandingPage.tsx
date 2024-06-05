@@ -3,9 +3,13 @@ import Navigation from '../../components/navigation/Navigation';
 import WorkoutService from '../../services/WorkoutService';
 import { Exercise } from '../workouts/exercises/Exercises';
 import './styles/landingPage.css';
-import {useEffect, useState} from "react";
+import {useContext, useEffect, useState} from "react";
+import {UserContext} from "../../App.tsx";
 
 const LandingPage = () => {
+
+    const {user} = useContext(UserContext);
+
     const workouts = [
         {
             id: 1,
@@ -84,12 +88,22 @@ const LandingPage = () => {
     return (
         <div className='landingContainer'>
             <div className='landingWelcomeCont'>
-                <img src='https://www.w3schools.com/howto/img_avatar.png' alt='Avatar' className='landingWelcomeProfilePicture' />
-                <h2 style={{ margin: 0 }}>Welcome Darwin</h2>
+                {user &&
+                user.image ? <img
+                    src={user.image}
+                    alt="Avatar"
+                    className="landingWelcomeProfilePicture"
+                /> : <img
+                    src="https://www.w3schools.com/howto/img_avatar.png"
+                    alt="Avatar"
+                    className="landingWelcomeProfilePicture"
+                />
+                }
+                <h2 style={{ margin:"0", fontFamily:"koulen", fontWeight:"200" }}>LET'S GO {user && user.name.split(" ")[0]}!</h2>
             </div>
             <div className='landingStatsCont'>
                 <img src='/images/statsCircle.png' alt='statsPlaceholder' className='tmpStatsImg' />
-                <div className='landingPeriodCheckCont'>
+                <div className='landingPeriodCheckCont' style={{fontFamily:"akshar"}}>
                     <div>
                         <input type='checkbox' id='lastWeek' className='landingSearchBar' />
                         <label htmlFor='lastWeek'>Last week</label>
@@ -108,51 +122,51 @@ const LandingPage = () => {
                     </div>
                 </div>
             </div>
-            <div className='landingAvgStatsCont'>
-                <h4 style={{ margin: 0 }}>Average stats</h4>
+            <div style={{fontFamily:"Akshar", fontWeight:"200"}} className='landingAvgStatsCont'>
+                <h4 style={{fontSize:"1.2em", margin: 0, fontWeight:"500", letterSpacing:"0.5px" }}>AVERAGE STATS</h4>
                 <div className='landingAvgStatsInnerCont'>
                     <div className='avgStatsLeft'>
                         <span>
-                            <p style={{ margin: 0 }}>Duration</p>
-                            <p style={{ margin: 0 }}>67min</p>
+                            <p style={{ margin: 0 }}>DURATION: </p>
+                            <p style={{ margin: 0 }}>67 MIN</p>
                         </span>
                         <span>
-                            <p style={{ margin: 0 }}>Exercises</p>
+                            <p style={{ margin: 0 }}>EXERCISES: </p>
                             <p style={{ margin: 0 }}>6</p>
                         </span>
                         <span>
-                            <p style={{ margin: 0 }}>Weight lifted</p>
-                            <p style={{ margin: 0 }}>6897kg</p>
+                            <p style={{ margin: 0 }}>WEIGHT LIFTED: </p>
+                            <p style={{ margin: 0 }}>6 897 KG</p>
                         </span>
                     </div>
                     <hr className='dividerDiv'></hr>
                     <div className='avgStatsRight'>
-                        <h3 style={{ margin: 0 }}>44 day streak 🔥</h3>
+                        <h3 style={{ margin: "0", fontWeight:"400" }}>44 DAY STREAK 🔥</h3>
                     </div>
                 </div>
             </div>
-            <div className='landingYourWorkoutCont'>
-                <h4 style={{ margin: 0 }}>Your workouts</h4>
+            <div style={{fontFamily:"Akshar"}} className='landingYourWorkoutCont'>
+                <h4 style={{fontSize:"1.2em", margin: 0, fontWeight:"500", letterSpacing:"0.5px" }}>YOUR WORKOUTS</h4>
                 <div className='landingYourWorkoutInnerCont'>
                     {workouts.map((workout) => (
                         <div key={workout.id} className='landingWorkoutCard'>
                             <img src={workout.image} alt={workout.title} className='landingWorkoutCardImg' />
                             <span>
-                                <h5 style={{ margin: 0 }}>{workout.title}</h5>
+                                <h5 style={{ margin: 0, fontWeight:"500", letterSpacing:"0.5px" }}>{workout.title}</h5>
                                 <p style={{ margin: 0 }}>Exercises: {workout.excersises}</p>
                             </span>
                         </div>
                     ))}
                 </div>
             </div>
-            <div className='landingExercisesCont'>
-            <h4 style={{ margin: 0 }}>Explore exercises</h4>    
+            <div style={{fontFamily:"Akshar"}} className='landingExercisesCont'>
+                <h4 style={{fontSize:"1.2em", margin: 0, fontWeight:"500", letterSpacing:"0.5px" }}>EXPLORE EXERCISES</h4>
                 <div className='landingYourWorkoutInnerCont'>
                     {exercises.map((excercise) => (
                         <div key={excercise._id} className='landingWorkoutCard' role='button' tabIndex={0} onClick={() => navigateTo('/exercise-details', excercise._id)}>
                         {excercise.Exercise_Image.length > 0 ? <img src={excercise.Exercise_Image} alt='exercise' className='landingExerciseCardImg' /> : <img src='https://via.placeholder.com/150' alt='exercise' className='landingExerciseCardImg' />}
                             <span>
-                                <h5 style={{ margin: 0 }}>{excercise.Exercise_Name}</h5>
+                                <h5 style={{ margin: 0, fontWeight:"500", letterSpacing:"0.5px" }}>{excercise.Exercise_Name}</h5>
                             </span>
                         </div>
                     ))}
