@@ -1,0 +1,98 @@
+.createWorkoutsContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    padding: 15px 0px;
+    gap: 15px;
+}
+
+  @media (min-width: 600px) {
+   .createWorkoutContainer {
+        max-width: 600px;
+        max-height: 1000px;
+        margin: 0 auto;
+   }
+} 
+
+.createWorkoutHeader {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 20px;
+    gap: 15px;
+    width: 100%;
+}
+
+.createWorkoutHeaderInner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.createWorkoutHeaderTitle{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    white-space: nowrap; 
+    overflow: hidden;
+    text-overflow: ellipsis; 
+}
+
+.line {
+    height: 0.5vw;
+    width: auto;
+}
+
+.nameInput {
+    font-size: 1.5em;
+    font-family: Koulen, sans-serif;
+    white-space: nowrap; 
+    text-overflow: ellipsis; 
+}
+
+
+.headerBtn {
+    padding: 5px 15px;
+    border-radius: 50px;
+    border: none;
+    color: white;
+    font-size: 13px;
+    cursor: pointer;
+}
+
+.floatingBtnContainer {
+    position: fixed;
+    bottom: 100px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.floatingBtn {
+    padding: 10px 20px;
+    border-radius: 50px;
+    border: none;
+    font-size: 13px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.plussBtn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    color: white;
+    font-size: 2.5em;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    border: none;
+    margin-right: 15px;
+}

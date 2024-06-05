@@ -1,8 +1,7 @@
 import './styles/workouts.css';
 
-import Badge from '../../../components/Badge';
-import { useEffect, useState } from "react";
 import { WorkoutCard } from "./WorkoutCard";
+import { useState, useEffect } from 'react';
 
 
 

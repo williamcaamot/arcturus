@@ -4,7 +4,7 @@ import {ExerciseCard} from "./ExerciseCard.tsx";
 
 
 export interface Exercise {
-    id: string;
+    _id: string;
     Exercise_Name: string;
     Description_URL: string;
     Exercise_Image: string;
