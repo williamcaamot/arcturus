@@ -42,7 +42,6 @@ export function exerciseAPI(db){
             let offset = parseInt(req.query.offset) || 0;
 
             const searchTerm = req.params.term;
-            console.log(searchTerm)
 
 
             let cursor = await collection.aggregate([

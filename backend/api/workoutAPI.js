@@ -44,7 +44,6 @@ export function workoutAPI(db) {
             const workoutCollection = db.collection("workouts");
             const result = await workoutCollection.find({}).toArray()
             //const result = await workoutCollection.find({created_by: req.user._id}).toArray()
-            console.log(result)
             res.json(result);
 
         } catch (e) {
@@ -67,8 +66,6 @@ export function workoutAPI(db) {
 
             const result = await collection.findOne({_id: id});
 
-            console.log(result)
-
 
             res.sendStatus(200);
         } catch (e) {
@@ -89,7 +86,6 @@ export function workoutAPI(db) {
             let offset = parseInt(req.query.offset) || 0;
 
             const searchTerm = req.params.term;
-            console.log(searchTerm)
 
 
             let cursor = await collection.aggregate([
