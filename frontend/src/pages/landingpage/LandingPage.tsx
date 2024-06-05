@@ -99,7 +99,7 @@ const LandingPage = () => {
                     className="landingWelcomeProfilePicture"
                 />
                 }
-                <h2 style={{ margin:"0", fontFamily:"koulen", fontWeight:"200" }}>LET'S GO {user && user.name.split(" ")[0]}!</h2>
+                <h2 style={{ margin:"0", fontFamily:"koulen", fontWeight:"200" }}>LET'S GO, {user && user.name.split(" ")[0]}!</h2>
             </div>
             <div className='landingStatsCont'>
                 <img src='/images/statsCircle.png' alt='statsPlaceholder' className='tmpStatsImg' />
