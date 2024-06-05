@@ -62,6 +62,36 @@
     gap: 10px;
 
 }
+
+.cardContainerLeft > img {
+    width: 100px;
+}
+
+.workoutSearchContainer {
+    margin: 0;
+    padding-top: 15px;
+    padding-bottom: 0px;
+}
+
+.workoutSearchContainer input {
+    padding: 10px;
+    width: 95%;
+    border: 1px solid #ccc; /* Medium gray border */
+    border-radius: 4px; /* Slightly rounded corners */
+    background-color: #F2F2F2; /* Light gray input background */
+    color: #333; /* Dark gray text */
+    font-size: 20px; /* Increased font size for better readability */
+    outline: none; /* Remove default focus outline */
+    transition: border-color 0.3s ease; /* Smooth transition for border color */
+    font-family: Koulen;
+    margin: 0;
+}
+
+.workoutSearchContainer input:focus {
+    border-color: #999; /* Darker gray border on focus */
+}
+
+
   @media (min-width: 600px) {
    .workoutsContainer {
         max-width: 600px;
