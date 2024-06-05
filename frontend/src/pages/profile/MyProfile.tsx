@@ -122,7 +122,7 @@ const Statistics = () => {
                             </svg>
                             <img src={kgsLiftedIcon} alt="kgsLiftedIcon"/>
 
-                            <h4>KGS LIFTED</h4>
+                            <h4>KG LIFTED</h4>
                             <p>2,467 kg</p>
                         </div>
                         <div className="highlightBox">
@@ -144,7 +144,7 @@ const Statistics = () => {
                             </svg>
                             <img src={calsBurnedIcon} alt="calsBurnedIcon"/>
 
-                            <h4>CALS BURNED</h4>
+                            <h4>KCAL BURNED</h4>
                             <p>4,987 cal</p>
                         </div>
                     </div>
