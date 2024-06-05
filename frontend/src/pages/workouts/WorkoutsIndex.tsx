@@ -3,29 +3,34 @@ import './styles/workoutIndex.css';
 import Workouts from './workouts/Workouts';
 import Exercises from './exercises/Exercises';
 import Navigation from '../../components/navigation/Navigation';
+import { useNavigate } from 'react-router-dom';
 
 type Tab = 'WORKOUTS' | 'EXERCISES';
 
 const WorkoutsIndex = () => {
 
-    async function createWorkout() {
-        try {
-            const res = await fetch("/api/v1/workouts", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify({workoutName: "test", exercises: [{}, {}]}),
+    const navigate = useNavigate();
 
-            });
-            const data = await res.json();
-            console.log(data);
-        } catch (e) {
-            console.log(e)
-        }
+    const navigateTo = (path: string) => {
+        navigate(path);
+    };
 
+    // async function createWorkout() {
+    //     try {
+    //         const res = await fetch("/api/v1/workouts", {
+    //             method: "POST",
+    //             headers: {
+    //                 "Content-Type": "application/json",
+    //             },
+    //             body: JSON.stringify({workoutName: "ARNOLD FAVS", exercises: [{}, {}]}),
 
-    }
+    //         });
+    //         const data = await res.json();
+    //         console.log(data);
+    //     } catch (e) {
+    //         console.log(e)
+    //     }
+    // }
 
 
     const [activeTab, setActiveTab] = useState<Tab>('WORKOUTS');
@@ -42,9 +47,10 @@ const WorkoutsIndex = () => {
                 </div>
                 <div style={{paddingLeft: "10px"}}>
                     {
-                        activeTab === "WORKOUTS" && <span className={"addWorkoutButton"} onClick={() => {
-                            createWorkout()
-                        }}>ADD +</span>
+                        activeTab === "WORKOUTS" && <span className={"addWorkoutButton"} 
+                        //onClick={() => {createWorkout()}}
+                        onClick={() => navigateTo('/create-workout')}
+                        >ADD +</span>
                     }
 
                 </div>

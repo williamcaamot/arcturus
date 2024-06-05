@@ -2,6 +2,8 @@ import './styles/workouts.css';
 import Badge from '../../../components/Badge';
 import {useNavigate} from "react-router-dom";
 import { Exercise } from '../exercises/Exercises';
+import { useState, useEffect } from 'react';
+import WorkoutService from '../../../services/WorkoutService';
 
 export interface Workout {
     _id: string;
@@ -102,29 +104,30 @@ const WorkoutCard = ({workout } : {workout: Workout }) => {
     );
 };
 
-const Workouts = () => {
+// const Workouts = () => {
 
-    return (
-        <div className='workoutsContainer'>
-            <WorkoutCard />
-            <WorkoutCard />
-            <WorkoutCard />
-            <WorkoutCard />
-            <WorkoutCard />
-            <WorkoutCard />
-            <WorkoutCard />
-        </div>
-    );
-};
+//     return (
+//         <div className='workoutsContainer'>
+//             <WorkoutCard />
+//             <WorkoutCard />
+//             <WorkoutCard />
+//             <WorkoutCard />
+//             <WorkoutCard />
+//             <WorkoutCard />
+//             <WorkoutCard />
+//         </div>
+//     );
+// };
 
 
   /*  Waiting for a finished workoutservice  */
 
-/* const Workouts = () => {
+ const Workouts = () => {
     const [workouts, setWorkouts] = useState<Workout[]>([]); 
 
     async function fetchWorkouts(){
         const workoutData = await WorkoutService.getWorkouts(); 
+        console.log(workoutData.data)
         setWorkouts(workoutData.data);
     }
 
@@ -140,6 +143,6 @@ const Workouts = () => {
         </div>
     );
 };
- */
+
 
 export default Workouts;
