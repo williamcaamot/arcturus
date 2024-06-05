@@ -23,12 +23,15 @@ export async function currentSession(req, res, next,) {
 export function userinfoMiddleware(db) {
     return async (req, res, next) => {
         try {
+            const userCollection = await db.collection("users");
+            const userStatsCollection = await db.collection("userStats");
             if (req.session) {
-                const userCollection = await db.collection("users");
-
                 const user = await userCollection.findOne({email: req.session.user.email});
+                console.log(user)
                 req.user = user;
+
             }
+            
         } catch (e) {
             console.log(e)
         }

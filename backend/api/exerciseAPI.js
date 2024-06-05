@@ -72,12 +72,13 @@ export function exerciseAPI(db){
 
             const result = await cursor.toArray();
 
-            res.json(result);
+            res.json(result[0]);
         }catch (e) {
             console.log(e)
             res.sendStatus(500);
         }
     })
+
 
 
     return router;

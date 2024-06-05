@@ -14,17 +14,23 @@ const WorkoutDetails = () => {
 
     async function fetchWorkoutById() {
         const workoutData = await WorkoutService.getWorkout(id ? id : "");
+    async function fetchWorkoutById() {
+        const workoutData = await WorkoutService.getWorkout(id ? id : "");
         setWorkout(workoutData.data);
     }
 
+
     useEffect(() => {
         fetchWorkoutById();
+        // eslint-disable-next-line react-hooks/exhaustive-deps
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
     const navigate = useNavigate();
 
+
     const navigateTo = (path: string) => {
+        navigate(path);
         navigate(path);
     };
 
@@ -108,10 +114,18 @@ const WorkoutDetails = () => {
                             onClick={() => alert("Coming soon")}
                             className="editWorkoutDetailsBtn"
                         >
+                        <div
+                            role="button"
+                            tabIndex={0}
+                            onClick={() => alert("Coming soon")}
+                            className="editWorkoutDetailsBtn"
+                        >
                             Edit
                         </div>
                     </div>
                 </div>
+                <div className="workoutDetailsContainer">
+                    {/*    <ExerciseCard />
                 <div className="workoutDetailsContainer">
                     {/*    <ExerciseCard />
                     <ExerciseCard />
@@ -119,6 +133,7 @@ const WorkoutDetails = () => {
                     <ExerciseCard />
                     <ExerciseCard />
                     <ExerciseCard />
+                    <ExerciseCard />  */}
                     <ExerciseCard />  */}
                 </div>
                 <Navigation />

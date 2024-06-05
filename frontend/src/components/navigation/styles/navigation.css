@@ -1,3 +1,4 @@
+
 .navigation {
   display: flex;
   position: fixed;
@@ -49,11 +50,11 @@
     font-weight: 400;
     position: absolute; 
     bottom: 0; 
-    left: calc(50% - 62.5px);
+    left: calc(52.5% - 62.5px);
     z-index: 1;
     background: var(--Dark-Green, #246656);
-    width: 125px; 
-    height: 125px; 
+    width: 100px;
+    height: 100px;
   }
 
 

@@ -67,10 +67,12 @@
     color: var(--Text, #180202);
     text-align: center;
     font-family: Koulen;
-    font-size: 2em;
+    font-size: 4em;
     font-style: normal;
-    font-weight: 600;
-    line-height: 120%; 
+    font-weight: 400;
+    padding-top:40px;
+    padding-bottom: 30px;
+    letter-spacing: 3px;
     white-space: nowrap;
 }
 
@@ -153,7 +155,8 @@
     height: 155px;
     flex-shrink: 0;
     border-radius: 10px;
-    margin-bottom: 20px;
+    padding-bottom: 75px ;
+
     
 }
 

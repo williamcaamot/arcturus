@@ -9,18 +9,47 @@
     gap: 15px;
 }
 
+
+.exerciseDetailsCard {
+    display: flex; 
+    flex-direction: column;
+    border-radius: 15px;
+    align-items: center;
+    gap: 15px;
+}
+
 .exerciseDetailsHeader {
     display: flex;
     align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    width: 90%;
+
 }
 .exerciseDetailsHeader > svg {
-    padding-bottom: 35px;
     padding-left: 10px;
 }
-.exerciseDetailsHeaderTitle {
+.exerciseDetailsHeaderTitle{
     display: flex;
+    flex-direction: row;
     align-items: center;
-    gap: 8px;
+    justify-content: center;
+    white-space: nowrap; 
+    overflow: hidden;
+    text-overflow: ellipsis; 
+    
+}
+
+.line {
+    height: 0.5vw;
+    width: auto;
+}
+
+.nameHeader {
+    font-size: 2.5em;
+    font-family: Koulen, sans-serif;
+    white-space: nowrap; 
+    text-overflow: ellipsis; 
 }
 
 .exerciseDetailsInnerCont {
@@ -31,6 +60,8 @@
     background-color: #F2F2F2;
     align-items: center;
     gap: 15px;
+    margin-top: 5vh;
+
 }
 
 .exerciseDetailsInnerDetails {
@@ -59,6 +90,16 @@
 .exerciseDetailsInnerTags {
     display: flex;
     align-items: center;
-    gap: 10px;
+    justify-content: center;
+    margin-top: 1vh;
+    gap: 30px;
     width: 100%;
+    font-size: 1.7em;
 }
+
+@media (min-width: 600px) {
+    .exerciseDetailsContainer {
+         max-width: 600px;
+         max-height: 1000px;
+         margin: 0 auto;
+    }}

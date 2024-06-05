@@ -9,6 +9,7 @@ import WorkoutsIndex from "../pages/workouts/WorkoutsIndex";
 import PersonalInfo from "../pages/sign_in/fill_personal_info/FillPersonalInfo";
 import ExerciseDetails from "../pages/workouts/exercises/ExerciseDetails";
 import WorkoutDetails from "../pages/workouts/workouts/WorkoutDetails";
+import CreateWorkout from "../pages/workouts/workouts/CreateWorkout";
 
 
 
@@ -22,9 +23,10 @@ const Router = () => {
                 <Route path="/fill-personal-info" element={<PersonalInfo />} />
                 <Route path="/statistics" element={<Statistics />} />
                 <Route path="/workouts" element={<WorkoutsIndex />} />
+                <Route path="/workout-details" element={<WorkoutDetails />} />
+                <Route path="/create-workout" element={<CreateWorkout />} />
                 <Route path="/exercise-details" element={<ExerciseDetails />} />
                 <Route path="/exercise-details/:id" element={<ExerciseDetails />} />
-                <Route path="/workout-details" element={<WorkoutDetails />} />
                 <Route path="/my-profile" element={<Profile />} />
                 <Route path="*" element={<NotFoundPage />} />
             </Routes>
