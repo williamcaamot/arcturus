@@ -1,18 +1,51 @@
 .workoutDetailsContainer {
     display: flex;
     flex-direction: column;
+    padding: 15px;
+    border-radius: 15px;
     align-items: center;
-    justify-content: center;
-    width: 100%;
-    height: 100%;
-    padding: 15px 0px;
     gap: 15px;
+    margin-top: 5vh;
 }
+
+
+.workoutDetailsCard {
+    background-color: #F2F2F2;
+    display: flex; 
+    flex-direction: row;
+    align-items: flex-start;
+    border-radius: 15px;
+    
+    gap: 15px;
+    padding: 10px;
+    width: 100%;
+
+}
+
+.workoutDetailsCard img{
+   width: 13vh;
+}
+
+.setAndRepsContainer {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.exercisesInWorkoutDetails{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+    margin-top: 2vh;
+}
+
 
 .workoutDetailsHeader {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    margin-top: 4vh;
 }
 .workoutDetailsHeader > svg {
     padding-bottom: 35px;
@@ -59,3 +92,11 @@
 .editWorkoutDetailsBtn:hover {
     background-color: #d7d7d7fc;
 }
+
+
+@media (min-width: 600px) {
+    .workoutDetailsPage {
+         max-width: 600px;
+         max-height: 1000px;
+         margin: 0 auto;
+    }}

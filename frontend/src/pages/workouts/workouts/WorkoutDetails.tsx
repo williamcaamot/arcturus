@@ -81,28 +81,40 @@ const WorkoutDetails = () => {
             
             </div>
             <div className="workoutDetailsContainer">
-                        <h2>Hello</h2>
-                        <h1>{workout && workout.workoutName}</h1>
-                            <img src={workout?.picture} alt="" />
-                            {workout?.exercises?.map((exercise, index) => (
-                            <div key={index}>
-                                {exercise && exercise.minReps && (
-                                    <Badge
-                                        label={exercise.minReps.toString()}
-                                        backgroundColor="#53B39E"
-                                        textColor="black"
-                                    />
-                                )}
-                                {exercise && exercise.maxReps && (
-                                    <Badge
-                                        label={exercise.maxReps.toString()}
-                                        backgroundColor="#FF6D4D"
-                                    />
-                                )}
-                            </div>
-                        ))}
-                    </div>
-                <Navigation />
+    <h2>{workout && workout.workoutName}</h2>
+    <img src={workout?.picture} alt="" />
+    {workout?.exercises?.map((exercise, index) => (
+        <div className="workoutDetailsCard" key={index}>
+            <img
+                        src="https://via.placeholder.com/150"
+                        alt="workout"
+                        className="workoutCardImg"
+                    />
+            <div className="exercisesInWorkoutDetails">
+                <div className="setAndRepsContainer">
+                    <p>Min Reps:</p>
+                    {exercise && exercise.minReps && (
+                        <Badge
+                            label={exercise.minReps.toString()}
+                            backgroundColor="#53B39E"
+                            textColor="black"
+                        />
+                    )}
+                </div>
+                <div className="setAndRepsContainer">
+                    <p>Max Reps:</p>
+                    {exercise && exercise.maxReps && (
+                        <Badge
+                            label={exercise.maxReps.toString()}
+                            backgroundColor="#FF6D4D"
+                        />
+                    )}
+                </div>
+            </div>
+        </div>
+    ))}
+</div>
+            <Navigation />
         </div>
     );
 };
