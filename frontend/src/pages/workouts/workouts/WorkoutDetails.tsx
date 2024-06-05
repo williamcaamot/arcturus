@@ -1,38 +1,33 @@
 import { useEffect, useState } from "react";
-import "./styles/workoutDetails.css";
-import { ExerciseCard } from "../exercises/ExerciseCard.tsx";
+import Badge from "../../../components/Badge";
 import Navigation from "../../../components/navigation/Navigation";
+import "./styles/workoutDetails.css";
 import { useNavigate, useParams } from "react-router-dom";
 import { Workout } from "./Workouts";
 import WorkoutService from "../../../services/WorkoutService";
-import Badge from "../../../components/Badge";
 
 const WorkoutDetails = () => {
     const { id } = useParams();
 
     const [workout, setWorkout] = useState<Workout>();
 
-    async function fetchWorkoutById() {
-        const workoutData = await WorkoutService.getWorkout(id ? id : "");
-    async function fetchWorkoutById() {
-        const workoutData = await WorkoutService.getWorkout(id ? id : "");
+    async function fetchWorkoutById(){
+        const workoutData = await WorkoutService.getWorkoutById(id ? id : '');
         setWorkout(workoutData.data);
     }
-
-
+    
     useEffect(() => {
         fetchWorkoutById();
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-        // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
     const navigate = useNavigate();
 
-
     const navigateTo = (path: string) => {
-        navigate(path);
-        navigate(path);
+        navigate(path)
     };
+    
+    console.log(workout?.workoutName, workout?.picture, workout?.exercises);
 
     return (
         <div className="workoutDetailsPage">
@@ -62,42 +57,7 @@ const WorkoutDetails = () => {
                             />
                         </svg>
                     </div>
-                    <h1>My Workout</h1>
-                    {/*  <h1>{workout && workout.workoutName}</h1> */}
-                    <div className="workoutDetailsContainer">
-                        {workout?.exercises.map((exercise, index) => (
-                            <div key={index}>
-                                <h2>{workout.workoutName}</h2>
-                                <img src={workout.picture} alt="" />
-                                {exercise && exercise.minReps && (
-                                    <Badge
-                                        label={exercise.minReps.toString()}
-                                        backgroundColor="#53B39E"
-                                        textColor="black"
-                                    />
-                                )}
-                                {exercise && exercise.maxReps && (
-                                    <Badge
-                                        label={exercise.maxReps.toString()}
-                                        backgroundColor="#FF6D4D"
-                                    />
-                                )}
-                                {exercise && exercise.minSets && (
-                                    <Badge
-                                        label={exercise.minSets.toString()}
-                                        backgroundColor="#53B39E"
-                                        textColor="black"
-                                    />
-                                )}
-                                {exercise && exercise.minReps && (
-                                    <Badge
-                                        label={exercise.minReps.toString()}
-                                        backgroundColor="#FF6D4D"
-                                    />
-                                )}
-                            </div>
-                        ))}
-                    </div>
+                    
                     <div className="workoutDetailsHeaderBtnCont">
                         <div
                             role="button"
@@ -114,30 +74,35 @@ const WorkoutDetails = () => {
                             onClick={() => alert("Coming soon")}
                             className="editWorkoutDetailsBtn"
                         >
-                        <div
-                            role="button"
-                            tabIndex={0}
-                            onClick={() => alert("Coming soon")}
-                            className="editWorkoutDetailsBtn"
-                        >
                             Edit
                         </div>
                     </div>
                 </div>
-                <div className="workoutDetailsContainer">
-                    {/*    <ExerciseCard />
-                <div className="workoutDetailsContainer">
-                    {/*    <ExerciseCard />
-                    <ExerciseCard />
-                    <ExerciseCard />
-                    <ExerciseCard />
-                    <ExerciseCard />
-                    <ExerciseCard />
-                    <ExerciseCard />  */}
-                    <ExerciseCard />  */}
-                </div>
-                <Navigation />
+            
             </div>
+            <div className="workoutDetailsContainer">
+                        <h2>Hello</h2>
+                        <h1>{workout && workout.workoutName}</h1>
+                            <img src={workout?.picture} alt="" />
+                            {workout?.exercises?.map((exercise, index) => (
+                            <div key={index}>
+                                {exercise && exercise.minReps && (
+                                    <Badge
+                                        label={exercise.minReps.toString()}
+                                        backgroundColor="#53B39E"
+                                        textColor="black"
+                                    />
+                                )}
+                                {exercise && exercise.maxReps && (
+                                    <Badge
+                                        label={exercise.maxReps.toString()}
+                                        backgroundColor="#FF6D4D"
+                                    />
+                                )}
+                            </div>
+                        ))}
+                    </div>
+                <Navigation />
         </div>
     );
 };

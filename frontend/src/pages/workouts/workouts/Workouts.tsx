@@ -1,17 +1,7 @@
 import './styles/workouts.css';
-
-import { WorkoutCard } from "./WorkoutCard";
 import { useState, useEffect } from 'react';
+import { WorkoutCard } from "./WorkoutCard";
 
-
-
-export interface Exercise {
-    exerciseId: string;
-    minSets: number;
-    maxSets: number;
-    minReps: number;
-    maxReps: number;
-}
 
 export interface Workout {
     _id: string;
@@ -21,6 +11,13 @@ export interface Workout {
     created_by: string;
 }
 
+export interface Exercise {
+    exerciseId: string;
+    minSets: number;
+    maxSets: number;
+    minReps: number;
+    maxReps: number;
+}
 
 const Workout = () => {
     
@@ -30,11 +27,25 @@ const Workout = () => {
     const [offset, setOffset] = useState<number>(0);
     const [hasMore, setHasMore] = useState<boolean>(true);
 
-   /*  const navigate = useNavigate();
+    const [tempSearch, setTempSearch] = useState("");
+    const [timeoutId, setTimeoutId] = useState<number | null>(null);
 
-    const navigateTo = (path: string) => {
-        navigate(path);
-    }; */
+    useEffect(() => {
+        if (timeoutId) {
+            clearTimeout(timeoutId);
+        }
+        const id = setTimeout(() => {
+            setTempSearch(searchTerm);
+        }, 200);
+        setTimeoutId(id);
+    }, [searchTerm]);
+
+    useEffect(() => {
+        if (searchTerm.includes(tempSearch)) {
+            fetchWorkouts(searchTerm);
+        }
+    }, [tempSearch]);
+
 
 
         async function fetchWorkouts(term: string) {

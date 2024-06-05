@@ -24,6 +24,7 @@ const Router = () => {
                 <Route path="/statistics" element={<Statistics />} />
                 <Route path="/workouts" element={<WorkoutsIndex />} />
                 <Route path="/workout-details" element={<WorkoutDetails />} />
+                <Route path="/workout-details/:id" element={<WorkoutDetails />} />
                 <Route path="/create-workout" element={<CreateWorkout />} />
                 <Route path="/exercise-details" element={<ExerciseDetails />} />
                 <Route path="/exercise-details/:id" element={<ExerciseDetails />} />

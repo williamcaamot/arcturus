@@ -16,7 +16,12 @@ export const WorkoutCard = ({ workout }: { workout: Workout }) => {
             className="workoutCardContainer"
             role="button"
             tabIndex={0}
-            onClick={() => navigateTo(`/workout-details/${workout._id}`)}
+            
+            onClick={() => {
+                console.log(`Navigating to workout details for workout with ID: ${workout._id}`);
+                console.log(workout);
+                navigateTo(`/workout-details/${workout._id}`)
+            }}
             style={{ cursor: "pointer" }}
         >
             <div className="cardContainerLeft">

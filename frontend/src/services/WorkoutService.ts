@@ -9,7 +9,7 @@ const WorkoutService = (() => {
         return await axios.get(`${workoutEndpoint}/workouts`);
     };
 
-    const getWorkout = async (id: string) => {
+    const getWorkoutById = async (id: string) => {
         return await axios.get(`${workoutEndpoint}/workouts/${id}`);
     };
 
@@ -24,7 +24,7 @@ const WorkoutService = (() => {
 
     return {
         getWorkouts,
-        getWorkout,
+        getWorkoutById,
         getExercises,
         getExerciseById
     };
