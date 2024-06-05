@@ -67,7 +67,7 @@ export function workoutAPI(db) {
             const result = await collection.findOne({_id: id});
 
 
-            res.sendStatus(200);
+            res.json(result);
         } catch (e) {
             console.log(e);
             res.sendStatus(500);
