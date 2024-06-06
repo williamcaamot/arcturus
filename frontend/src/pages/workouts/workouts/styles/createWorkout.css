@@ -9,13 +9,7 @@
     gap: 15px;
 }
 
-  @media (min-width: 600px) {
-   .createWorkoutContainer {
-        max-width: 600px;
-        max-height: 1000px;
-        margin: 0 auto;
-   }
-} 
+
 
 .createWorkoutHeader {
     display: flex;
@@ -113,3 +107,11 @@
     border: none;
     margin-right: 15px;
 }
+
+@media (min-width: 600px) {
+    .createWorkoutContainer {
+         max-width: 600px;
+         max-height: 1000px;
+         margin: 0 auto;
+    }
+ } 

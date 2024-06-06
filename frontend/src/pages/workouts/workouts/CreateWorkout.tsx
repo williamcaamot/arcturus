@@ -108,13 +108,11 @@ const CreateWorkout = () => {
                             type='text'
                             className='nameInput'
                             placeholder='Image link (optional)'
-                            style={{ border: 'none', width: '100%' }}
                             onChange={(e) => setWorkoutImgUrl(e.target.value)}></input>
                         <input
                             type='text'
                             className='nameInput'
                             placeholder='Description (optional)'
-                            style={{ border: 'none', width: '100%' }}
                             onChange={(e) => setWorkoutDescription(e.target.value)}></input>
                     </div>
                     <div style={{ display: 'flex', flexDirection: 'column', gap: '10px', fontFamily:"akshar", fontWeight:"200" }}>
