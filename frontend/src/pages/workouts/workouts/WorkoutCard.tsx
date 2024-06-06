@@ -1,5 +1,6 @@
 import {useNavigate} from "react-router-dom";
 import {Workout} from "./Workouts.tsx";
+import exercises from "../exercises/Exercises.tsx";
 
 export const WorkoutCard = ({workout}: { workout: Workout }) => {
     const navigate = useNavigate();
@@ -45,7 +46,7 @@ export const WorkoutCard = ({workout}: { workout: Workout }) => {
                     <div className="workoutCardDetails">
                     <span>
                         <p style={{fontFamily: "Akshar", fontSize: "1em"}}>
-                            Previously: 3 x 12 x 70kg
+                            Exercises: {workout.exercises.length}
                         </p>
                     </span>
                     </div>

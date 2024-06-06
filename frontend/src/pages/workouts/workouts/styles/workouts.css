@@ -33,7 +33,11 @@
 }
 
 .workoutCardTitle > h3 {
-    margin: 0;
+    margin: 0px;
+    line-height: 25px;
+    font-family: Koulen;
+    font-weight: 100;
+    font-size: 1.7em;
 }
 
 .workoutCardDetails {
