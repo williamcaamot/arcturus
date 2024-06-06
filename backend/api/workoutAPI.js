@@ -13,7 +13,7 @@ export function workoutAPI(db) {
                 return;
             }
 
-            const {workoutName, exercises} = req.body;
+            const {workoutName, description, image, exercises} = req.body;
             if (!workoutName || !Array.isArray(exercises) || exercises.length === 0) {
                 res.status(400).send("Invalid input");  // Bad Request for invalid input
                 return;
@@ -22,6 +22,8 @@ export function workoutAPI(db) {
             const workoutCollection = db.collection("workouts");
             const newWorkout = {
                 workoutName,
+                description,
+                image,
                 exercises,
                 created_by: req.user._id
             };
@@ -37,13 +39,13 @@ export function workoutAPI(db) {
 
     router.get("", async (req, res) => {
         try {
-            //if (!req.user) {
-            //    res.sendStatus(401);
-            //    return
-            //}
+            if (!req.user) {
+                res.sendStatus(401);
+                return
+            }
             const workoutCollection = db.collection("workouts");
-            const result = await workoutCollection.find({}).toArray()
-            //const result = await workoutCollection.find({created_by: req.user._id}).toArray()
+            //const result = await workoutCollection.find({}).toArray()
+            const result = await workoutCollection.find({created_by: req.user._id}).toArray()
             res.json(result);
 
         } catch (e) {

@@ -28,7 +28,46 @@ const CreateWorkout = () => {
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify({ workoutName: 'ARNOLD FAVS', exercises: [{}, {}] }),
+                body: JSON.stringify({
+                    "workoutName":"workoutname",
+                    "description": "Workout Description",
+                    "image":"https://cdn.muscleandstrength.com/sites/default/files/field/feature-image/workout/deltoid-feature_0.jpg",
+                    "exercises": [{
+                        "_id": "6655cb4dd33532b80da1de14",
+                        "Exercise_Name": "Romanian Deadlift With Dumbbells",
+                        "Description_URL": "https://www.bodybuilding.com/exercises/romanian-deadlift-with-dumbbells",
+                        "Exercise_Image": "",
+                        "Exercise_Image1": "",
+                        "muscle_gp_details": "https://www.bodybuilding.com/exercises/muscle/hamstrings",
+                        "muscle_gp": "Hamstrings",
+                        "equipment_details": "https://www.bodybuilding.com/exercises/equipment/dumbbell",
+                        "Equipment": "Dumbbell",
+                        "Rating": "9.4",
+                        "Description": "Average",
+
+                        "minSets": 3,
+                        "maxSets":4,
+                        "minReps":10,
+                        "maxReps":15
+                    },{
+                        "_id": "6655cb4dd33532b80da1de14",
+                        "Exercise_Name": "Romanian Deadlift With Dumbbells",
+                        "Description_URL": "https://www.bodybuilding.com/exercises/romanian-deadlift-with-dumbbells",
+                        "Exercise_Image": "",
+                        "Exercise_Image1": "",
+                        "muscle_gp_details": "https://www.bodybuilding.com/exercises/muscle/hamstrings",
+                        "muscle_gp": "Hamstrings",
+                        "equipment_details": "https://www.bodybuilding.com/exercises/equipment/dumbbell",
+                        "Equipment": "Dumbbell",
+                        "Rating": "9.4",
+                        "Description": "Average",
+
+                        "minSets": 3,
+                        "maxSets":4,
+                        "minReps":10,
+                        "maxReps":15
+                    }]
+                }),
             });
             const data = await res.json();
             console.log(data);
@@ -71,9 +110,9 @@ const CreateWorkout = () => {
                             <path
                                 d='M2.75 5.5H19.25M2.75 11H19.25M2.75 16.5H19.25'
                                 stroke='#180202'
-                                stroke-width='2.5'
-                                stroke-linecap='round'
-                                stroke-linejoin='round'
+                                strokeWidth='2.5'
+                                strokeLinecap='round'
+                                strokeLinejoin='round'
                             />
                         </svg>
                         </button>

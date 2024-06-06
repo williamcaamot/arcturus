@@ -27,7 +27,6 @@ export function userinfoMiddleware(db) {
             const userStatsCollection = await db.collection("userStats");
             if (req.session) {
                 const user = await userCollection.findOne({email: req.session.user.email});
-                console.log(user)
                 req.user = user;
 
             }
