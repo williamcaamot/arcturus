@@ -1,7 +1,7 @@
-import { useNavigate } from 'react-router-dom';
+import {useNavigate} from 'react-router-dom';
 import Navigation from '../../components/navigation/Navigation';
 import WorkoutService from '../../services/WorkoutService';
-import { Exercise } from '../workouts/exercises/Exercises';
+import {Exercise} from '../workouts/exercises/Exercises';
 import './styles/landingPage.css';
 import {useContext, useEffect, useState} from "react";
 import {UserContext} from "../../App.tsx";
@@ -22,13 +22,12 @@ const LandingPage = () => {
     };
 
 
-
-    async function fetchExercises(){
+    async function fetchExercises() {
         const exerciseData = await WorkoutService.getExercises();
         setExercises(exerciseData.data);
     }
 
-    async function fetchWorkouts(){
+    async function fetchWorkouts() {
         const result = await fetch("/api/v1/workouts");
         const data = await result.json();
         setWorkouts(data);
@@ -39,8 +38,6 @@ const LandingPage = () => {
         fetchExercises();
         fetchWorkouts();
     }, []);
-
-
 
 
     return (
@@ -57,74 +54,92 @@ const LandingPage = () => {
                     className="landingWelcomeProfilePicture"
                 />
                 }
-                <h2 style={{ margin:"0", fontFamily:"koulen", fontWeight:"200" }}>LET'S GO, {user && user.name.split(" ")[0]}!</h2>
+                <h2 style={{margin: "0", fontFamily: "koulen", fontWeight: "200"}}>LET'S
+                    GO, {user && user.name.split(" ")[0]}!</h2>
             </div>
             <div className='landingStatsCont'>
-                <img src='/images/statsCircle.png' alt='statsPlaceholder' className='tmpStatsImg' />
-                <div className='landingPeriodCheckCont' style={{fontFamily:"akshar"}}>
+                <img src='/images/statsCircle.png' alt='statsPlaceholder' className='tmpStatsImg'/>
+                <div className='landingPeriodCheckCont' style={{fontFamily: "akshar"}}>
                     <div>
-                        <input type='checkbox' id='lastWeek' className='landingSearchBar' />
+                        <input type='checkbox' id='lastWeek' className='landingSearchBar'/>
                         <label htmlFor='lastWeek'>Last week</label>
                     </div>
                     <div>
-                        <input type='checkbox' id='lastMonth' className='landingSearchBar' />
+                        <input type='checkbox' id='lastMonth' className='landingSearchBar'/>
                         <label htmlFor='lastMonth'>Last Month</label>
                     </div>
                     <div>
-                        <input type='checkbox' id='last3Months' className='landingSearchBar' />
+                        <input type='checkbox' id='last3Months' className='landingSearchBar'/>
                         <label htmlFor='last3Months'>Last 3 months</label>
                     </div>
                     <div>
-                        <input type='checkbox' id='lastYear' className='landingSearchBar' />
+                        <input type='checkbox' id='lastYear' className='landingSearchBar'/>
                         <label htmlFor='lastYear'>Last year</label>
                     </div>
                 </div>
             </div>
-            <div style={{fontFamily:"Akshar", fontWeight:"200"}} className='landingAvgStatsCont'>
-                <h4 style={{fontSize:"1.2em", margin: 0, fontWeight:"500", letterSpacing:"0.5px" }}>AVERAGE STATS</h4>
+            <div style={{fontFamily: "Akshar", fontWeight: "200"}} className='landingAvgStatsCont'>
+                <h4 style={{fontSize: "1.2em", margin: 0, fontWeight: "500", letterSpacing: "0.5px"}}>AVERAGE STATS</h4>
                 <div className='landingAvgStatsInnerCont'>
                     <div className='avgStatsLeft'>
                         <span>
-                            <p style={{ margin: 0 }}>DURATION: </p>
-                            <p style={{ margin: 0 }}>67 MIN</p>
+                            <p style={{margin: 0}}>DURATION: </p>
+                            <p style={{margin: 0}}>67 MIN</p>
                         </span>
                         <span>
-                            <p style={{ margin: 0 }}>EXERCISES: </p>
-                            <p style={{ margin: 0 }}>6</p>
+                            <p style={{margin: 0}}>EXERCISES: </p>
+                            <p style={{margin: 0}}>6</p>
                         </span>
                         <span>
-                            <p style={{ margin: 0 }}>WEIGHT LIFTED: </p>
-                            <p style={{ margin: 0 }}>6 897 KG</p>
+                            <p style={{margin: 0}}>WEIGHT LIFTED: </p>
+                            <p style={{margin: 0}}>6 897 KG</p>
                         </span>
                     </div>
                     <hr className='dividerDiv'></hr>
                     <div className='avgStatsRight'>
-                        <h3 style={{ margin: "0", fontWeight:"400" }}>44 DAY STREAK 🔥</h3>
+                        <h3 style={{margin: "0", fontWeight: "400"}}>44 DAY STREAK 🔥</h3>
                     </div>
                 </div>
             </div>
-            <div style={{fontFamily:"Akshar"}} className='landingYourWorkoutCont'>
-                <h4 style={{fontSize:"1.2em", margin: 0, fontWeight:"500", letterSpacing:"0.5px" }}>YOUR WORKOUTS</h4>
+            <div style={{fontFamily: "Akshar"}} className='landingYourWorkoutCont'>
+                <h4 style={{fontSize: "1.2em", margin: 0, fontWeight: "500", letterSpacing: "0.5px"}}>YOUR WORKOUTS</h4>
                 <div className='landingYourWorkoutInnerCont'>
-                    {workouts.map((workout) => (
-                        <div key={workout._id} className='landingWorkoutCard'>
-                            <img src={workout.image} alt={workout.workoutName} className='landingWorkoutCardImg' />
-                            <span>
-                                <h5 style={{ margin: 0, fontWeight:"500", letterSpacing:"0.5px", textWrap:"wrap" }}>{workout.workoutName}</h5>
-                                <p style={{ margin: 0 }}>Exercises: {workout.exercises.length}</p>
+                    {workouts.length > 0 ? workouts.map((workout) => (
+                            <div key={workout._id} className='landingWorkoutCard'>
+                                <img src={workout.image} alt={workout.workoutName} className='landingWorkoutCardImg'/>
+                                <span>
+                                <h5 style={{
+                                    margin: 0,
+                                    fontWeight: "500",
+                                    letterSpacing: "0.5px",
+                                    textWrap: "wrap"
+                                }}>{workout.workoutName}</h5>
+                                <p style={{margin: 0}}>Exercises: {workout.exercises.length}</p>
                             </span>
-                        </div>
-                    ))}
+                            </div>
+                        ))
+                        : <h4 style={{paddingLeft:"10px"}}>You have no workouts yet!</h4>
+
+                    }
                 </div>
             </div>
-            <div style={{fontFamily:"Akshar"}} className='landingExercisesCont'>
-                <h4 style={{fontSize:"1.2em", margin: 0, fontWeight:"500", letterSpacing:"0.5px" }}>EXPLORE EXERCISES</h4>
+            <div style={{fontFamily: "Akshar"}} className='landingExercisesCont'>
+                <h4 style={{fontSize: "1.2em", margin: 0, fontWeight: "500", letterSpacing: "0.5px"}}>EXPLORE
+                    EXERCISES</h4>
                 <div className='landingYourWorkoutInnerCont'>
                     {exercises.map((excercise) => (
-                        <div key={excercise._id} className='landingWorkoutCard' role='button' tabIndex={0} onClick={() => navigateTo('/exercise-details', excercise._id)}>
-                        {excercise.Exercise_Image.length > 0 ? <img src={excercise.Exercise_Image} alt='exercise' className='landingExerciseCardImg' /> : <img src='https://via.placeholder.com/150' alt='exercise' className='landingExerciseCardImg' />}
+                        <div key={excercise._id} className='landingWorkoutCard' role='button' tabIndex={0}
+                             onClick={() => navigateTo('/exercise-details', excercise._id)}>
+                            {excercise.Exercise_Image.length > 0 ? <img src={excercise.Exercise_Image} alt='exercise'
+                                                                        className='landingExerciseCardImg'/> :
+                                <img src='https://via.placeholder.com/150' alt='exercise'
+                                     className='landingExerciseCardImg'/>}
                             <span>
-                                <h5 style={{ margin: 0, fontWeight:"500", letterSpacing:"0.5px" }}>{excercise.Exercise_Name}</h5>
+                                <h5 style={{
+                                    margin: 0,
+                                    fontWeight: "500",
+                                    letterSpacing: "0.5px"
+                                }}>{excercise.Exercise_Name}</h5>
                             </span>
                         </div>
                     ))}

@@ -141,7 +141,7 @@ const Workout = () => {
                         <WorkoutCard workout={w} />
                     ))}
                 {workout.length === 0 && !isLoading && (
-                    <h2 style={{ fontFamily: "Koulen" }}>No results!</h2>
+                    <h2 style={{ fontFamily: "Koulen" }}>You have no workouts yet!</h2>
                 )}
             </div>
 
