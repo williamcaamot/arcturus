@@ -69,10 +69,12 @@
     position: fixed;
     bottom: 100px;
     width: 100%;
+    max-width: 600px;
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
+
 
 .floatingBtn {
     padding: 10px 20px;
@@ -86,6 +88,7 @@
 }
 
 .plussBtn {
+    margin-bottom: 5px;
     display: flex;
     justify-content: center;
     align-items: center;

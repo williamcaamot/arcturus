@@ -117,7 +117,7 @@ const CreateWorkout = () => {
                             style={{ border: 'none', width: '100%' }}
                             onChange={(e) => setWorkoutDescription(e.target.value)}></input>
                     </div>
-                    <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
+                    <div style={{ display: 'flex', flexDirection: 'column', gap: '10px', fontFamily:"akshar", fontWeight:"200" }}>
                         {newWorkoutExercises.length === 0 ? (
                             <h3>
                                 No exercises yet! <br></br> Click the pluss sign to add exercises
@@ -167,7 +167,7 @@ const CreateWorkout = () => {
                             </svg>
                         </button>
                         <button className='plussBtn' style={{ backgroundColor: '#FF6D4D' }} onClick={() => setAddExercisePageIsOpen(true)}>
-                            +
+                            <div style={{marginTop:"-5px"}}>+</div>
                         </button>
                     </div>
                 </>
