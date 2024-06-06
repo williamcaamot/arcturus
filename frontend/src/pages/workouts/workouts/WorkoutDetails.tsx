@@ -44,23 +44,17 @@ const WorkoutDetails = () => {
         navigate(path)
     };
 
-    console.log(workout?.workoutName, workout?.picture, workout?.exercises);
+    console.log(workout?.workoutName, workout?.image, workout?.exercises);
 
 
     return (
         <div className="workoutDetailsPage">
             {workout ? (
                 <>
-                    <button
-                        onClick={() => {
-                            deleteWorkout();
-                        }}
-                    >
-                        Delete workout
-                    </button>{" "}
                     <div className="workoutDetailsHeader">
                         <div className="workoutDetailsHeaderTitle">
                             <div
+                                className="backAndDelete"
                                 role="button"
                                 tabIndex={0}
                                 onClick={() => navigateTo("/workouts")}
@@ -82,9 +76,22 @@ const WorkoutDetails = () => {
                                         fill="#180202"
                                     />
                                 </svg>
+                                <div
+                                    role="button"
+                                    tabIndex={0}
+                                    onClick={() => {
+                                        deleteWorkout();
+                                    }}
+                                    className="deleteBtn"
+                                    
+                                >
+                                    Delete workout
+                                </div>{" "}
                             </div>
+
                             <div className="workoutNameAndButtons">
                                 <h1>{workout && workout.workoutName}</h1>
+
                                 <div className="workoutDetailsHeaderBtnCont">
                                     <div
                                         role="button"
