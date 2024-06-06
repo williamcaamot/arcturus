@@ -29,7 +29,7 @@ const CreateWorkout = () => {
                     'Content-Type': 'application/json',
                 },
                 body: JSON.stringify({
-                    "workoutName":"workoutname",
+                    "workoutName":workoutName,
                     "description": "Workout Description",
                     "image":"https://cdn.muscleandstrength.com/sites/default/files/field/feature-image/workout/deltoid-feature_0.jpg",
                     "exercises": [{
