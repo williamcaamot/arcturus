@@ -85,6 +85,8 @@
     display: flex;
     align-items: center;
     gap: 5px;
+    font-family: Akshar;
+    font-size: 1.2em;
 }
 
 .plussBtn {
