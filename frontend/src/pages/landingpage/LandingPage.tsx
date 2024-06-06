@@ -5,49 +5,14 @@ import { Exercise } from '../workouts/exercises/Exercises';
 import './styles/landingPage.css';
 import {useContext, useEffect, useState} from "react";
 import {UserContext} from "../../App.tsx";
+import workouts from "../workouts/workouts/Workouts.tsx";
 
 const LandingPage = () => {
 
+    const [workouts, setWorkouts] = useState([]);
+
     const {user} = useContext(UserContext);
 
-    const workouts = [
-        {
-            id: 1,
-            title: 'Workout 1',
-            excersises: '4',
-            image: 'https://via.placeholder.com/200',
-        },
-        {
-            id: 2,
-            title: 'Workout 2',
-            excersises: '2',
-            image: 'https://via.placeholder.com/200',
-        },
-        {
-            id: 3,
-            title: 'Workout 3',
-            excersises: '7',
-            image: 'https://via.placeholder.com/200',
-        },
-        {
-            id: 4,
-            title: 'Workout 4',
-            excersises: '8',
-            image: 'https://via.placeholder.com/200',
-        },
-        {
-            id: 5,
-            title: 'Workout 5',
-            excersises: '4',
-            image: 'https://via.placeholder.com/200',
-        },
-        {
-            id: 6,
-            title: 'Workout 6',
-            excersises: '8',
-            image: 'https://via.placeholder.com/200',
-        },
-    ];
     const [exercises, setExercises] = useState<Exercise[]>([]);
 
     const navigate = useNavigate();
@@ -63,24 +28,17 @@ const LandingPage = () => {
         setExercises(exerciseData.data);
     }
 
+    async function fetchWorkouts(){
+        const result = await fetch("/api/v1/workouts");
+        const data = await result.json();
+        setWorkouts(data);
+        console.log(data)
+    }
+
     useEffect(() => {
         fetchExercises();
+        fetchWorkouts();
     }, []);
-
-    // async function tryFetch(){
-    //     try{
-    //         const res = await fetch("/api/v1/user");
-    //         const data = await res.json();
-    //         console.log(data);
-    //     }catch (e) {
-
-    //     }
-
-    // }
-
-    // useEffect(() => {
-    //     tryFetch()
-    // }, []);
 
 
 
@@ -149,11 +107,11 @@ const LandingPage = () => {
                 <h4 style={{fontSize:"1.2em", margin: 0, fontWeight:"500", letterSpacing:"0.5px" }}>YOUR WORKOUTS</h4>
                 <div className='landingYourWorkoutInnerCont'>
                     {workouts.map((workout) => (
-                        <div key={workout.id} className='landingWorkoutCard'>
-                            <img src={workout.image} alt={workout.title} className='landingWorkoutCardImg' />
+                        <div key={workout._id} className='landingWorkoutCard'>
+                            <img src={workout.image} alt={workout.workoutName} className='landingWorkoutCardImg' />
                             <span>
-                                <h5 style={{ margin: 0, fontWeight:"500", letterSpacing:"0.5px" }}>{workout.title}</h5>
-                                <p style={{ margin: 0 }}>Exercises: {workout.excersises}</p>
+                                <h5 style={{ margin: 0, fontWeight:"500", letterSpacing:"0.5px", textWrap:"wrap" }}>{workout.workoutName}</h5>
+                                <p style={{ margin: 0 }}>Exercises: {workout.exercises.length}</p>
                             </span>
                         </div>
                     ))}
