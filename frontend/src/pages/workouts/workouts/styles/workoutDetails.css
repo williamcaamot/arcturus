@@ -8,20 +8,42 @@
     margin-top: 5vh;
 }
 
-.workoutNameAndButtons{
-    display: flex;
-    gap: 80px;
+.workoutNameAndButtons {
+    display: grid;
+    grid-template-columns: 1fr auto;
     align-items: center;
     width: 100%;
 }
-
 .workoutNameAndButtons h1 {
     font-size: 2em;
+     white-space: wrap; 
+     margin-right: auto; 
+    min-width: 0;
+    max-width: 70%;
 }
 
 .imageAndDetailsContainer {
     display: flex;
     gap: 15px;
+}
+
+.deleteBtn {
+   display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    padding: 10px 20px;
+    border-radius: 20px;
+    white-space: nowrap;
+    background-color: #FF6D4D;
+    cursor: pointer;
+}
+
+.backAndDelete{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 5vh;
 }
 
 .workoutDetailsCard {
@@ -71,6 +93,7 @@
     align-items: center;
     justify-content: space-between;
     margin-top: 4vh;
+    width: 100%;
     
 }
 .workoutDetailsHeader > svg {
@@ -81,13 +104,13 @@
     display: flex;
     flex-direction: column;
     gap: 8px;
+    width: 100%;
     margin-left: 4vw;
 }
 
 .workoutDetailsHeaderBtnCont {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
+        width: fit-content;
+
 }
 
 .startWorkoutDetailsBtn {
