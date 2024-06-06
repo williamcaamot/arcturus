@@ -1,28 +1,54 @@
-import {useNavigate} from "react-router-dom";
-import Badge from "../../../components/Badge.tsx";
-import {Exercise} from "./Exercises.tsx";
+import { useNavigate } from 'react-router-dom';
+import Badge from '../../../components/Badge.tsx';
+import { Exercise } from './Exercises.tsx';
 
-export const ExerciseCard = ({exercise}: { exercise: Exercise }) => {
-
+export const ExerciseCard = ({
+    exercise,
+    onClickDisabled,
+    deleteBtnActive,
+    onRemoveFromWorkout,
+}: {
+    exercise: Exercise;
+    onClickDisabled?: boolean;
+    deleteBtnActive?: boolean;
+    onRemoveFromWorkout?: (exercise: Exercise) => void;
+}) => {
     const navigate = useNavigate();
 
     const navigateTo = (path: string) => {
-        navigate(path)
+        navigate(path);
     };
 
-    console.log(exercise)
-
     return (
-        <div className='exerciseCardContainer' role='button' tabIndex={0} onClick={() => navigateTo(`/exercise-details/${exercise._id}`)}
-             style={{cursor: 'pointer'}}>
+        <div
+            className='exerciseCardContainer'
+            role='button'
+            tabIndex={0}
+            onClick={() => !onClickDisabled && navigateTo(`/exercise-details/${exercise._id}`)}
+            style={{ cursor: 'pointer' }}>
             <div className='cardContainerLeft'>
-                {exercise.Exercise_Image && exercise.Exercise_Image.length > 0 ?
-                    <img src={exercise.Exercise_Image} alt='exercise' className='exerciseCardImg'/> :
-                    <img src='https://via.placeholder.com/150' alt='exercise' className='exerciseCardImg'/>}
+                {exercise.Exercise_Image && exercise.Exercise_Image.length > 0 ? (
+                    <img src={exercise.Exercise_Image} alt='exercise' className='exerciseCardImg' />
+                ) : (
+                    <img src='https://via.placeholder.com/150' alt='exercise' className='exerciseCardImg' />
+                )}
             </div>
             <div className='exerciseCardContainerRight'>
-                <div className='exerciseCardTitle'>
+                <div className={'exerciseCardTitle'} style={deleteBtnActive ?  {display: "flex", alignItems: "center", justifyContent: "space-between", width: "100%"} : {}}>
                     <h3>{exercise.Exercise_Name}</h3>
+                    {deleteBtnActive && onRemoveFromWorkout &&  (
+                        <button style={{ border: 'none', background: 'none' }} onClick={() => onRemoveFromWorkout(exercise)}>
+                            <svg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20' fill='none'>
+                                <path
+                                    d='M11.6666 9.16667V14.1667M8.33325 9.16667V14.1667M4.99992 5.83333V15.8333C4.99992 16.2754 5.17551 16.6993 5.48807 17.0118C5.80063 17.3244 6.22456 17.5 6.66659 17.5H13.3333C13.7753 17.5 14.1992 17.3244 14.5118 17.0118C14.8243 16.6993 14.9999 16.2754 14.9999 15.8333V5.83333M3.33325 5.83333H16.6666M5.83325 5.83333L7.49992 2.5H12.4999L14.1666 5.83333'
+                                    stroke='#BBBBBB'
+                                    stroke-width='2'
+                                    stroke-linecap='round'
+                                    stroke-linejoin='round'
+                                />
+                            </svg>
+                        </button>
+                    )}
                 </div>
                 <div className='exerciseCardDetails'>
                     <span>
@@ -35,18 +61,17 @@ export const ExerciseCard = ({exercise}: { exercise: Exercise }) => {
                             </g>
                             <defs>
                                 <clipPath id='clip0_420_1728'>
-                                    <rect width='16.7879' height='16.7879' fill='white'
-                                          transform='translate(0.321289 0.518188)'/>
+                                    <rect width='16.7879' height='16.7879' fill='white' transform='translate(0.321289 0.518188)' />
                                 </clipPath>
                             </defs>
                         </svg>
-                        <p style={{fontFamily:"Akshar", fontSize: "1em"}}>Previously: 3 x 12 x 70kg</p>
+                        <p style={{ fontFamily: 'Akshar', fontSize: '1em' }}>Previously: 3 x 12 x 70kg</p>
                     </span>
                 </div>
                 <div className='exerciseCardTags'>
-                    {exercise.muscle_gp && <Badge label={exercise.muscle_gp}/>}
-                    {exercise.Equipment && <Badge label={exercise.Equipment}/>}
-                    {exercise.Description && <Badge label={exercise.Description}/>}
+                    {exercise.muscle_gp && <Badge label={exercise.muscle_gp} />}
+                    {exercise.Equipment && <Badge label={exercise.Equipment} />}
+                    {exercise.Description && <Badge label={exercise.Description} />}
                 </div>
             </div>
         </div>

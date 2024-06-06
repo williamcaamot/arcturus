@@ -34,6 +34,13 @@
     padding: 10px;
 }
 
+.exerciseCardTitleWithDelete {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
 .exerciseCardTitle > h3 {
     margin: 0px;
     line-height: 25px;

@@ -1,5 +1,4 @@
 import { useNavigate } from "react-router-dom";
-import Badge from "../../../components/Badge.tsx";
 import { Workout } from "./Workouts.tsx"; 
 
 export const WorkoutCard = ({ workout }: { workout: Workout }) => {
