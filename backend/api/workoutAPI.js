@@ -77,11 +77,11 @@ export function workoutAPI(db) {
     })
 
     router.get("/search/:term", async (req, res) => {
-        try { // Is this necessary? And if so, should we only return objects associated with signed in user?
-            //if (!req.session) {
-            //    res.sendStatus(401);
-            //    return
-            //}
+        try {
+            if (!req.session) {
+                res.sendStatus(401);
+                return
+            }
             const collection = db.collection("workouts");
 
             let limit = parseInt(req.query.limit) || 50;
@@ -117,7 +117,8 @@ export function workoutAPI(db) {
             ]);
 
             const result = await cursor.toArray();
-
+            const filteredResults = result[0].results.filter(exercise => exercise.created_by.equals(req.user._id));
+            result[0].results = filteredResults;
             res.json(result[0]);
         } catch (e) {
             console.log(e);

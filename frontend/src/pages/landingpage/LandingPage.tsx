@@ -105,7 +105,12 @@ const LandingPage = () => {
                 <h4 style={{fontSize: "1.2em", margin: 0, fontWeight: "500", letterSpacing: "0.5px"}}>YOUR WORKOUTS</h4>
                 <div className='landingYourWorkoutInnerCont'>
                     {workouts.length > 0 ? workouts.map((workout) => (
-                            <div key={workout._id} className='landingWorkoutCard'>
+                            <div key={workout._id} className='landingWorkoutCard'
+                            onClick={() => {
+                                navigateTo(`/workout-details`, workout._id)
+                            }}
+
+                            >
                                 <img src={workout.image} alt={workout.workoutName} className='landingWorkoutCardImg'/>
                                 <span>
                                 <h5 style={{
