@@ -139,13 +139,33 @@ export function workoutAPI(db) {
         }
     })
 
-    router.delete("", async (req, res) => {
+    router.delete("/:id", async (req, res) => {
         try {
-            if (!req.session) {
+            if (!req.user) {
                 res.sendStatus(401);
-                return
+                return;
             }
 
+            const collection = await db.collection("workouts");
+            const id = new ObjectId(req.params.id);
+
+            // Find the workout to be deleted
+            const workout = await collection.findOne({_id: id});
+
+            // Check if the workout exists
+            if (!workout) {
+                res.status(404).send("Workout not found");
+                return;
+            }
+
+            // Check if the authenticated user is the creator of the workout
+            if (workout.created_by !== req.user._id) {
+                res.status(403).send("You are not authorized to delete this workout");
+                return;
+            }
+
+            // Delete the workout
+            await collection.deleteOne({_id: id});
 
             res.sendStatus(200);
         } catch (e) {
@@ -153,5 +173,20 @@ export function workoutAPI(db) {
             res.sendStatus(500);
         }
     })
+
+    // router.delete("", async (req, res) => {
+    //     try {
+    //         if (!req.session) {
+    //             res.sendStatus(401);
+    //             return
+    //         }
+    //
+    //
+    //         res.sendStatus(200);
+    //     } catch (e) {
+    //         console.log(e);
+    //         res.sendStatus(500);
+    //     }
+    // })
     return router;
 }
