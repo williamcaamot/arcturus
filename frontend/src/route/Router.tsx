@@ -10,6 +10,7 @@ import PersonalInfo from "../pages/sign_in/fill_personal_info/FillPersonalInfo";
 import ExerciseDetails from "../pages/workouts/exercises/ExerciseDetails";
 import WorkoutDetails from "../pages/workouts/workouts/WorkoutDetails";
 import CreateWorkout from "../pages/workouts/workouts/CreateWorkout";
+import ExercisesIndex from "../pages/Exercises/ExercisesIndex.tsx";
 
 
 
@@ -23,6 +24,7 @@ const Router = () => {
                 <Route path="/fill-personal-info" element={<PersonalInfo />} />
                 <Route path="/statistics" element={<Statistics />} />
                 <Route path="/workouts" element={<WorkoutsIndex />} />
+                <Route path="/exercises" element={<ExercisesIndex />} />
                 <Route path="/workout-details" element={<WorkoutDetails />} />
                 <Route path="/workout-details/:id" element={<WorkoutDetails />} />
                 <Route path="/create-workout" element={<CreateWorkout />} />

@@ -31,7 +31,7 @@ const ExerciseDetails = () => {
         <div className='exerciseDetailsContainer'>
             <div className='exerciseDetailsCard'>
                 <div className='exerciseDetailsHeader'>
-                    <div role='button' tabIndex={0} onClick={() => navigateTo('/workouts')} style={{cursor: 'pointer'}}>
+                    <div role='button' tabIndex={0} onClick={() => navigateTo('/exercises')} style={{cursor: 'pointer'}}>
                         <div className=''>
                             <svg xmlns='http://www.w3.org/2000/svg' width='48' height='42' viewBox='0 0 48 42' fill='none'>
                                 <path
