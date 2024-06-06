@@ -51,7 +51,7 @@ export const ExerciseCard = ({
                     )}
                 </div>
                 <div className='exerciseCardDetails'>
-                    <span>
+                    {/*<span>
                         <svg xmlns='http://www.w3.org/2000/svg' width='18' height='18' viewBox='0 0 18 18' fill='none'>
                             <g clip-path='url(#clip0_420_1728)'>
                                 <path
@@ -66,7 +66,7 @@ export const ExerciseCard = ({
                             </defs>
                         </svg>
                         <p style={{ fontFamily: 'Akshar', fontSize: '1em' }}>Previously: 3 x 12 x 70kg</p>
-                    </span>
+                    </span>*/}
                 </div>
                 <div className='exerciseCardTags'>
                     {exercise.muscle_gp && <Badge label={exercise.muscle_gp} />}
