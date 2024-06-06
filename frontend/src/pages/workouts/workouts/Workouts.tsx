@@ -7,12 +7,18 @@ export interface Workout {
     _id: string;
     workoutName: string;
     exercises: Array<Exercise>;
-    picture: string;
+    image: string;
     created_by: string;
 }
 
 export interface Exercise {
     exerciseId: string;
+    Exercise_Name: string;
+    Exercise_Image: string;
+    muscle_gp: string;
+    Equipment: string;
+    Rating: number;
+    Description: string;
     minSets: number;
     maxSets: number;
     minReps: number;

@@ -25,9 +25,9 @@ export const WorkoutCard = ({ workout }: { workout: Workout }) => {
             style={{ cursor: "pointer" }}
         >
             <div className="cardContainerLeft">
-                {workout.picture && workout.picture.length > 0 ? (
+                {workout.image && workout.image.length > 0 ? (
                     <img
-                        src={workout.picture}
+                        src={workout.image}
                         alt="workout"
                         className="workoutCardImg"
                     />
