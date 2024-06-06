@@ -54,69 +54,69 @@ const Workout = () => {
 
 
 
-        async function fetchWorkouts(term: string) {
-            try {
-                setIsLoading(true);
-                let result;
-                if (term.length > 1) {
-                    result = await fetch(`/api/v1/workouts/search/${term}`);
-                    const data = await result.json();
-                    if (data.results.length < 50) {
-                        setHasMore(false);
-                    } else {
-                        setHasMore(true);
-                    }
-                    setWorkouts(data.results);
-                    setIsLoading(false);
+    const fetchWorkouts = async (searchTerm: string) => {
+        setIsLoading(true);
+        let result;
+        
+        try {
+            if (searchTerm) {
+                result = await fetch(`/api/v1/workouts?search=${searchTerm}&offset=${offset}`);
+            } else {
+                result = await fetch(`/api/v1/workouts?offset=${offset}`);
+            }
+
+            const data = await result.json();
+            const fetchedWorkouts = data.results;
+
+            if (fetchedWorkouts.length > 10) { // Check if there are more than 10 workouts
+                setHasMore(true);
+                fetchedWorkouts.splice(10); // Keep only the first 10 workouts
+            }
+
+            setWorkouts([...workout, ...fetchedWorkouts]);
+            setIsLoading(false);
+        } catch (e) {
+            setIsLoading(false);
+        }
+    }
+
+    async function loadMore() {
+        try {
+            const term = searchTerm;
+            const newOffset = offset + 10; // Change this to 10 to fetch 10 workouts at a time
+            setIsLoading(true);
+            let result;
+            console.log('loadMore calledsssssssssssss');
+            console.log('term:', term)
+            if (term.length > 1) {
+                result = await fetch(
+                    `/api/v1/workouts/search/${term}?offset=${newOffset}`
+                );
+                const data = await result.json();
+                console.log(data);
+                if (data.results.length < 10) {
+                    setHasMore(false);
                 } else {
-                    result = await fetch(`/api/v1/workouts`);
-                    const data = await result.json();
-                    if (data.length < 50) {
-                        setHasMore(false);
-                    } else {
-                        setHasMore(true);
-                    }
-                    setWorkouts(data);
-                    setIsLoading(false);
+                    setHasMore(true);
                 }
-            } catch (e) {
+                setWorkouts([...workout, ...data.results]);
+                setIsLoading(false);
+            } else {
+                result = await fetch(`/api/v1/workouts?offset=${newOffset}`);
+                const data = await result.json();
+                if (data.length < 10) {
+                    setHasMore(false);
+                } else {
+                    setHasMore(true);
+                }
+                setWorkouts([...workout, ...data]);
                 setIsLoading(false);
             }
+            setOffset(newOffset); // Update the offset state after the API request
+        } catch (e) {
+            setIsLoading(false);
         }
-
-         async function loadMore() {
-             try {
-                 const term = searchTerm;
-                 setOffset(offset + 50);
-                 setIsLoading(true);
-                 let result;
-                 if (term.length > 1) {
-                     result = await fetch(
-                         `/api/v1/exercises/search/${term}?offset=${offset}`
-                     );
-                     const data = await result.json();
-                     if (data.results.length < 50) {
-                         setHasMore(false);
-                     } else {
-                         setHasMore(true);
-                     }
-                     setWorkouts([...workout, ...data.results]);
-                     setIsLoading(false);
-                 } else {
-                     result = await fetch(`/api/v1/exercises?offset=${offset}`);
-                     const data = await result.json();
-                     if (data.length < 50) {
-                         setHasMore(false);
-                     } else {
-                         setHasMore(true);
-                     }
-                     setWorkouts([...workout, ...data]);
-                     setIsLoading(false);
-                 }
-             } catch (e) {
-                 setIsLoading(false);
-             }
-         }
+    }
 
          useEffect(() => {
              fetchWorkouts(searchTerm);
