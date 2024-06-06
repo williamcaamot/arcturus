@@ -159,7 +159,7 @@ export function workoutAPI(db) {
             }
 
             // Check if the authenticated user is the creator of the workout
-            if (workout.created_by !== req.user._id) {
+            if (workout.created_by.toString() !== req.user._id.toString()) {
                 res.status(403).send("You are not authorized to delete this workout");
                 return;
             }

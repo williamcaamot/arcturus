@@ -9,7 +9,7 @@ import Navigation from '../../../components/navigation/Navigation';
 const CreateWorkout = () => {
     const navigate = useNavigate();
     const [exercises, setExercises] = useState<Exercise[]>([]);
-    const [workoutName, setWorkoutName] = useState<string>('');
+    const [workoutName, setWorkoutName] = useState<string>('Default name');
 
     const navigateTo = (path: string) => {
         navigate(path);
