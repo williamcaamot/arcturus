@@ -49,10 +49,20 @@
 }
 
 .nameInput {
-    font-size: 1.5em;
+    padding: 10px;
+    width: 95%;
+    border: 1px solid #ccc; /* Medium gray border */
+    border-radius: 4px; /* Slightly rounded corners */
+    background-color: #F2F2F2; /* Light gray input background */
+    color: #333; /* Dark gray text */
+    outline: none; /* Remove default focus outline */
+    transition: border-color 0.3s ease; /* Smooth transition for border color */
+    margin: 0;
+    margin-bottom: 5px;
+    font-size: 1.2em;
     font-family: Koulen, sans-serif;
-    white-space: nowrap; 
-    text-overflow: ellipsis; 
+    white-space: nowrap;
+    text-overflow: ellipsis;
 }
 
 

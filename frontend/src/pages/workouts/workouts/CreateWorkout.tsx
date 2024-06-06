@@ -70,7 +70,7 @@ const CreateWorkout = () => {
                                 ref={inputRef}
                                 type='text'
                                 className='nameInput'
-                                placeholder='New Workout'
+                                placeholder='New Workout NAME*'
                                 style={{ border: 'none', width: '80%' }}
                                 value={workoutName}
                                 onChange={(e) => setWorkoutName(e.target.value)}></input>
