@@ -19,7 +19,7 @@ const SignoutButton = () => {
     value={csrfToken} />
 
     <button type="submit" className={"signInBoxes signOutBtn"}>
-        <p>Sign Out</p>
+        <p style={{fontFamily:"koulen"}}>Sign Out</p>
     </button>
     </form>
     </>
