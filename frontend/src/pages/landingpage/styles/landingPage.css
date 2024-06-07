@@ -10,10 +10,12 @@
 }
 
 .landingWelcomeCont {
+    justify-content: center;
     display: flex;
-    padding-top: 15px;
+    padding-top: 30px;
     gap: 12px;
     align-items: center;
+
 }
 
 .landingWelcomeProfilePicture {

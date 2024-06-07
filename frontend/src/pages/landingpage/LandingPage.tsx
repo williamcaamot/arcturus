@@ -54,8 +54,8 @@ const LandingPage = () => {
                     className="landingWelcomeProfilePicture"
                 />
                 }
-                <h2 style={{margin: "0", fontFamily: "koulen", fontWeight: "200"}}>LET'S
-                    GO, {user && user.name.split(" ")[0]}!</h2>
+                <h1 style={{fontSize: "2em", margin: "0", fontFamily: "koulen", fontWeight: "200"}}>LET'S
+                    GO, {user && user.name.split(" ")[0]}!</h1>
             </div>
             <div className='landingStatsCont'>
                 <img src='/images/statsCircle.png' alt='statsPlaceholder' className='tmpStatsImg'/>
@@ -132,22 +132,33 @@ const LandingPage = () => {
                 <h4 style={{fontSize: "1.2em", margin: 0, fontWeight: "500", letterSpacing: "0.5px"}}>EXPLORE
                     EXERCISES</h4>
                 <div className='landingYourWorkoutInnerCont'>
-                    {exercises.map((excercise) => (
-                        <div key={excercise._id} className='landingWorkoutCard' role='button' tabIndex={0}
-                             onClick={() => navigateTo('/exercise-details', excercise._id)}>
-                            {excercise.Exercise_Image.length > 0 ? <img src={excercise.Exercise_Image} alt='exercise'
-                                                                        className='landingExerciseCardImg'/> :
-                                <img src='https://via.placeholder.com/150' alt='exercise'
-                                     className='landingExerciseCardImg'/>}
-                            <span>
+                    {exercises.length > 0 ?
+                        exercises.map((excercise) => (
+                                <div key={excercise._id} className='landingWorkoutCard' role='button' tabIndex={0}
+                                     onClick={() => navigateTo('/exercise-details', excercise._id)}>
+                                    {excercise.Exercise_Image.length > 0 ? <img src={excercise.Exercise_Image} alt='exercise'
+                                                                                className='landingExerciseCardImg'/> :
+                                        <img src='https://via.placeholder.com/150' alt='exercise'
+                                             className='landingExerciseCardImg'/>}
+                                    <span>
                                 <h5 style={{
                                     margin: 0,
                                     fontWeight: "500",
                                     letterSpacing: "0.5px"
                                 }}>{excercise.Exercise_Name}</h5>
                             </span>
-                        </div>
-                    ))}
+                                </div>
+                            ))
+                        :
+                        <h4 style={{paddingLeft:"10px"}}>Could not get exercises!</h4>
+
+
+                    }
+
+
+
+
+
                 </div>
             </div>
             <Navigation/>

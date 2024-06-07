@@ -165,7 +165,7 @@ const CreateWorkout = () => {
                             </svg>
                         </button>
                         <button className='plussBtn' style={{ backgroundColor: '#FF6D4D' }} onClick={() => setAddExercisePageIsOpen(true)}>
-                            <div style={{marginTop:"-5px"}}>+</div>
+                            <div style={{marginTop:"2px"}}>+</div>
                         </button>
                     </div>
                 </>

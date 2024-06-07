@@ -1,7 +1,6 @@
 import {useEffect, useState} from 'react';
 import './styles/workoutIndex.css';
 import Workouts from './workouts/Workouts';
-import Exercises from './exercises/Exercises';
 import Navigation from '../../components/navigation/Navigation';
 import {useNavigate} from 'react-router-dom';
 

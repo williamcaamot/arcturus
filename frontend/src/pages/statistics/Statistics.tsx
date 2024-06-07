@@ -1,5 +1,4 @@
 import "./styles/statistics.css";
-import backArrow from '../../../public/images/backArrow.png';
 import Lifter from '../../../public/images/Lifter.png';
 import Runner from '../../../public/images/Runner.png';
 import Dancer from '../../../public/images/dancer.png';
@@ -28,9 +27,11 @@ const Statistics = () => {
             <div className="centerContent">
                 <div className="statsHeader">
                     <h1>MY STATS</h1>
+                    <div style={{marginTop: "-35px"}}>
                     <svg xmlns="http://www.w3.org/2000/svg" width="132" height="4" viewBox="0 0 132 4" fill="none" className="line">
-                        <path d="M2.98218 2H129.018" stroke="#FF6D4D" stroke-width="4" stroke-linecap="round"/>
+                        <path d="M2.98218 2H129.018" stroke="#FF6D4D" strokeWidth="4" strokeLinecap="round"/>
                     </svg>
+                    </div>
                 </div>
                 
                 <div className="statsCircleBox">
