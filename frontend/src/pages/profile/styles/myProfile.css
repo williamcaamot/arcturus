@@ -67,12 +67,11 @@
     color: var(--Text, #180202);
     text-align: center;
     font-family: Koulen;
-    font-size: 2em;
+    font-size: 3em;
     font-style: normal;
-    font-weight: 400;
+    font-weight: 300;
     padding-top:40px;
     padding-bottom: 15px;
-    letter-spacing: 3px;
     white-space: nowrap;
 }
 
