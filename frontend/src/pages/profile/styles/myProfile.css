@@ -11,7 +11,6 @@
     background: var(--Background, #FFF);
     height: auto;
     position: relative; 
-    overflow: auto;
     padding: 0 1em;
     box-sizing: border-box;
 }
@@ -242,7 +241,7 @@ letter-spacing: 0.95px;
     border-radius: 20px;
     border: 3px solid var(--Light-Grey, #E6E6E5);
     background: var(--Background, #FFF);
-    margin-bottom: 60px;
+    margin-bottom: 4vh;
 }
 
 
@@ -307,6 +306,9 @@ letter-spacing: 0.95px;
     display: none;
 }
 
+.signOutBtn {
+  margin-bottom: 30px;
+}
 
 
 /* Media */

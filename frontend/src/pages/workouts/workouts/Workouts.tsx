@@ -44,12 +44,14 @@ const Workout = () => {
             setTempSearch(searchTerm);
         }, 200);
         setTimeoutId(id);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [searchTerm]);
 
     useEffect(() => {
         if (searchTerm.includes(tempSearch)) {
             fetchWorkouts(searchTerm);
         }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [tempSearch]);
 
     async function fetchWorkouts(term: string) {
@@ -120,6 +122,7 @@ const Workout = () => {
 
          useEffect(() => {
              fetchWorkouts(searchTerm);
+         // eslint-disable-next-line react-hooks/exhaustive-deps
          }, []);
 
     return (

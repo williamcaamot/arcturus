@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import Badge from '../../../components/Badge';
 import Navigation from '../../../components/navigation/Navigation';
+import ExercisePlaceholderImg from '../../../../public/images/No-Image-Available.png';
 import './styles/exerciseDetails.css';
 import {useNavigate, useParams} from "react-router-dom";
 import { Exercise } from './Exercises';
@@ -54,8 +55,12 @@ const ExerciseDetails = () => {
                         <path d='M2.98218 2H129.018' stroke='#FF6D4D' stroke-width='4' stroke-linecap='round' />
                     </svg>
                 </div>
-                    <div>
-                    {exercise && exercise.Exercise_Image.length > 0 ? <img src={exercise.Exercise_Image} alt='exercise' className='exerciseCardImg' /> : <img src='https://via.placeholder.com/150' alt='exercise' className='exerciseCardImg' />}
+                    <div className='imageContainer'>
+                        {exercise && exercise.Exercise_Image && exercise.Exercise_Image.length > 0 ? (
+                            <img src={exercise.Exercise_Image} alt='exercise' className='exerciseCardImg' />
+                        ) : (
+                            <img src={ExercisePlaceholderImg} alt='exercise' className='exerciseCardImg' />
+                        )}
                     </div>
                     <div className='exerciseDetailsInnerBottom'>
                         <div className='exerciseDetailsInnerDetails'>
