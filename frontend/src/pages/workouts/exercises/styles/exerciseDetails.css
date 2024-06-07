@@ -1,0 +1,105 @@
+.exerciseDetailsContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    padding: 15px 0px;
+    gap: 15px;
+}
+
+
+.exerciseDetailsCard {
+    display: flex; 
+    flex-direction: column;
+    border-radius: 15px;
+    align-items: center;
+    gap: 15px;
+}
+
+.exerciseDetailsHeader {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    width: 90%;
+
+}
+.exerciseDetailsHeader > svg {
+    padding-left: 10px;
+}
+.exerciseDetailsHeaderTitle{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    white-space: nowrap; 
+    overflow: hidden;
+    text-overflow: ellipsis; 
+    
+}
+
+.line {
+    height: 0.5vw;
+    width: auto;
+}
+
+.nameHeader {
+    font-size: 2.5em;
+    font-family: Koulen, sans-serif;
+    white-space: nowrap; 
+    text-overflow: ellipsis; 
+}
+
+.exerciseDetailsInnerCont {
+    display: flex;
+    flex-direction: column;
+    padding: 15px;
+    border-radius: 15px;
+    background-color: #F2F2F2;
+    align-items: center;
+    gap: 15px;
+    margin-top: 5vh;
+
+}
+
+.exerciseDetailsInnerDetails {
+    width: 100%;
+}
+
+.exerciseDetailsInnerDetails > span {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    width: 100%;
+}
+
+.exerciseDetailsInnerBottom {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+}
+
+.exerciseDetailsInnerCont > div > img {
+    width: 100%;
+}
+
+.exerciseDetailsInnerTags {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 1vh;
+    gap: 30px;
+    width: 100%;
+    font-size: 1.7em;
+}
+
+@media (min-width: 600px) {
+    .exerciseDetailsContainer {
+         max-width: 600px;
+         max-height: 1000px;
+         margin: 0 auto;
+    }}

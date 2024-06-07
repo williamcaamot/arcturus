@@ -1,0 +1,157 @@
+/*Skummelt å targete elementer og ikke ID eller class*/
+
+/* body {           
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    padding: 0;
+    margin: 0;
+  
+} */
+
+/* .container {
+    text-align: center;
+} */
+
+/* h1 {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+p {
+    font-size: 16px;
+} */
+
+.signInHeader {
+    display: flex;
+    text-align: center;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+    margin-top: 8vh;
+
+}
+
+.signInHeader h1 {
+    color: var(--Dark-Green, #246656);
+    text-align: center;
+    font-family: Koulen, sans-serif;
+    font-size: 70px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    margin-bottom: 0;
+    letter-spacing: -6px; 
+}
+
+.signInHeader img {
+    width: 235px;
+    height: 80px;
+    flex-shrink: 0;
+}
+
+.signInContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 18px 18px;
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    background: var(--Background, #FFF);
+}
+
+.signInBoxes{
+    display: flex;
+    width: 345px;
+    height: 56px;
+    padding: 1px 47.5px 1px 48.5px;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+    border-radius: 30px;   
+    border: none;                     
+    background: none; 
+    cursor: pointer;
+}
+.signInBoxes p {
+    font-size: 21px; 
+}
+
+.signInBoxes.appleBtn {
+    background-color: #000;
+    color: var(--Background, #FAFAFA);
+    font-family: Roboto;
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+.signInBoxes.facebookBtn {
+    background: #1877F2;   
+    color: var(--Background, #FAFAFA);
+    font-family: Roboto;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+.signInBoxes.googleBtn {
+    background: #FAFAFA;  
+    color: rgba(0, 0, 0, 0.54);
+    font-family: Roboto;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    border: 1px solid #E6E6E5;
+}
+
+.signInBoxes.signOutBtn{
+    background-color: var(--Dark-Green, #FF6D4D);
+    color: #FFF;
+    text-align: center;
+    font-family: Roboto;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+.signInBoxes.loginBtn {
+    background-color: var(--Dark-Green, #246656);
+    color: #FFF;
+    text-align: center;
+    font-family: Roboto;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+.signInLogo {
+    width: 221px;
+    height: 219px;
+    flex-shrink: 0;
+    margin-bottom: 5vh;
+}
+
+.logo {
+    width: 25px;
+    height: 25px;
+    margin-right: 10px;
+}
+
+@media (min-width: 600px) {
+   .signInContainer {
+        max-width: 600px;
+        max-height: 1000px;
+        margin: 0 auto;
+   }
+}

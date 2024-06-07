@@ -1,0 +1,160 @@
+.personaliaContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    background: var(--Background, #FFF);  
+    margin-bottom: 15vh;
+}
+
+/* Header */
+
+.headerBox {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    margin-top: 1vh;
+}
+
+.headerBox h1 {
+    color: var(--Dark-Green, #246656);
+    text-align: center;
+    font-family: Koulen;
+    font-size: 55px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 100%; /* 60px */
+    letter-spacing: -6px;
+}
+
+.headerBox svg {
+    margin-top: -30px;
+}
+
+
+/* Forms */
+
+.inputBoxes {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    margin-top: 4vh;
+}
+
+.inputBoxes input{
+    width: 284px;
+    height: 35px;
+    flex-shrink: 0;
+    border-radius: 30px;
+    border: 1px solid var(--Medium-Grey, #BBB);
+    background: var(--Background, #FFF);
+    margin-bottom: 20px;
+    color: var(--Medium-Grey, #BBB);
+    font-family: Akshar;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: 1px;    
+}
+
+.inputBox {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    
+
+}
+
+.personaliaLogo {
+    width: 35px;
+    height: 35px;
+    margin-bottom: 20px;
+    margin-right: 20px;
+}
+
+/* Placeholder styling */
+.inputBoxes input::placeholder {
+    padding-left: 20px;
+}
+.inputBoxes input::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+    padding-left: 20px;
+}
+.inputBoxes input::-moz-placeholder { /* Firefox 19+ */
+    padding-left: 20px;
+}
+.inputBoxes input:-ms-input-placeholder { /* IE 10+ */
+    padding-left: 20px;
+}
+.inputBoxes input:-moz-placeholder { /* Firefox 18- */
+    padding-left: 20px;
+}
+
+/* Tags */
+
+.tagBoxes {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    flex-wrap: wrap; 
+    width: 100%; 
+    margin: 0 auto;
+}
+
+.tagBox {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 70px; 
+    width: auto;
+    padding: 0 10px;
+    height: 3vh;
+    margin-top: 2vh;
+    margin-left: 5%;
+    border-radius: 30px;
+    color: var(--White, #ffffff);
+    background: var(--Dark-Green, #246656);
+}
+
+/* Button */
+
+.createProfileBtn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 284px;
+    height: 60px;
+    margin-top: 4vh;
+    border-radius: 30px;
+    background: var(--Black, #000000);
+    color: var(--White, #ffffff);
+    font-family: Akshar;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: 1px;
+    cursor: pointer;
+}
+
+/* Media */
+
+@media (min-width: 600px) {
+    .personaliaContainer {
+        justify-content: center;
+        max-width: 600px;
+        max-height: 1000px;
+        margin: 0 auto;
+    }
+}

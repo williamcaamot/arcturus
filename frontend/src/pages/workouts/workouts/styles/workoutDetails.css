@@ -1,0 +1,153 @@
+.workoutDetailsContainer {
+    display: flex;
+    flex-direction: column;
+    padding: 15px;
+    border-radius: 15px;
+    align-items: center;
+    gap: 15px;
+    margin-top: 5vh;
+}
+
+.workoutNameAndButtons {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    width: 100%;
+}
+.workoutNameAndButtons h1 {
+    font-size: 2em;
+     white-space: wrap; 
+     margin-right: auto; 
+    min-width: 0;
+    max-width: 70%;
+}
+
+.imageAndDetailsContainer {
+    display: flex;
+    gap: 15px;
+}
+
+.deleteBtn {
+   display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    padding: 10px 20px;
+    border-radius: 20px;
+    white-space: nowrap;
+    background-color: #FF6D4D;
+    cursor: pointer;
+}
+
+.backAndDelete{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 5vh;
+}
+
+.workoutDetailsCard {
+    background-color: #F2F2F2;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    border-radius: 15px;
+    padding-bottom: 10px;
+    width: 100%;
+}
+
+
+.contentContainer {
+    display: flex;
+    gap: 15px;
+}
+
+.workoutDetailsCard img {
+    width: 12vh;
+}
+
+.badgesContainer {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.exercisesInWorkoutDetails{
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    width: 100%;
+    margin-top: 2vh;
+}
+
+.exerciseDetailsHeader{
+    display: flex;
+    align-items: center;
+    justify-content:flex-start;
+    margin-left: 2vh;
+    
+}
+
+.workoutDetailsHeader {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 4vh;
+    width: 100%;
+    
+}
+.workoutDetailsHeader > svg {
+    padding-bottom: 35px;
+    padding-left: 10px;
+}
+.workoutDetailsHeaderTitle {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    width: 100%;
+    margin-left: 4vw;
+}
+
+.workoutDetailsHeaderBtnCont {
+        width: fit-content;
+
+}
+
+.startWorkoutDetailsBtn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: fit-content;
+    padding: 10px 20px;
+    border-radius: 20px;
+    white-space: nowrap;
+    background-color: #246656;
+    cursor: pointer;
+}
+.editWorkoutDetailsBtn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: fit-content;
+    padding: 10px 20px;
+    border-radius: 20px;
+    white-space: nowrap;
+    background-color: #E6E6E5;
+    cursor: pointer;
+}
+
+.startWorkoutDetailsBtn:hover {
+    background-color: #1d524f;
+}
+
+.editWorkoutDetailsBtn:hover {
+    background-color: #d7d7d7fc;
+}
+
+
+@media (min-width: 600px) {
+    .workoutDetailsPage {
+         max-width: 600px;
+         max-height: 1000px;
+         margin: 0 auto;
+    }}

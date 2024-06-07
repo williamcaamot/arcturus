@@ -1,0 +1,137 @@
+.statisticsContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2vh;
+    padding: 18px 18px;
+    border-radius: 10px;
+    background: var(--Background, #FFF);
+    height: auto;
+    position: relative; 
+    min-height: 115vh;
+    overflow: auto;
+}
+
+.centerContent {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.statsHeader {
+    display: flex;
+    flex-direction: row;
+    padding: 8px 2.982px 5px 0px;
+    justify-content: center;
+    gap: 22.982px;    
+    margin-top: auto;
+}
+  
+.line {  
+    width: 126.036px;  
+    stroke-width: 4px;
+    stroke: var(--Orange, #FF6D4D);
+    margin-top: 40px;
+}
+
+.statsHeader h1 {
+    display: flex;
+    height: 24px;
+    flex-direction: column;
+    justify-content: center;
+    color: #000;
+    text-align: center;
+    font-family: koulen;
+    font-size: 45px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: 100%;   
+    white-space: nowrap; 
+}
+
+.statsCircleBox {
+    display: flex;
+    gap: 2vh;
+    align-items: center;
+    justify-content: center;
+ 
+    height: auto; 
+    margin-top: 20px;
+}
+
+.statsCircle {
+    width: 300px;
+    height: 300px;
+}
+
+.infoBoxes {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: auto;
+    margin-top: 2vh;
+    margin-bottom: 5vh;
+    overflow: auto; 
+}
+
+.infoBox {
+    display: flex;
+    flex-direction: row; 
+    align-items: center; 
+    width: 90vw; 
+    max-width: 550px;
+    height: 13vh;
+    flex-shrink: 0; 
+    border-radius: 3vh;
+    background: var(--Background-Grey, #F2F2F2);
+    margin: 1.5vh;
+}
+
+.infoBox p {
+    color: #000;
+    text-align: center;
+    font-family: Akshar;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 100%;
+    margin-right: 10px;
+}
+
+.infoBox img {
+    width: 80px;
+    height: 80px;
+    margin: 20px;
+}
+.backBtn {
+    border: none;
+    border: none;
+    position: absolute; 
+    top: 40px; 
+    left: 30px;
+}
+
+.backBtn button {
+    background: none;
+    border-radius: 10px; 
+    border: none;
+
+}
+
+.backBtn img {
+    width: 30px; 
+    height: 38px; 
+    
+
+}
+
+@media (min-width: 600px) {
+    .statisticsContainer {
+        justify-content: center;
+        max-width: 600px;
+        max-height: 1000px;
+        margin: 0 auto;
+    }
+}

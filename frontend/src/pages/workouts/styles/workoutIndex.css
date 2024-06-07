@@ -1,0 +1,132 @@
+.workoutIndexContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+    height: 100%;
+    padding: 5px;
+    box-sizing: border-box;
+}
+
+h1 {
+    font-family: Koulen;
+    font-weight: 300;
+    font-size: 3em;
+    margin: 0;
+}
+
+
+.workoutTabs {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    gap: 10%;
+}
+
+.workoutTabsV2 {
+    display: flex;
+    justify-content: center;
+}
+
+.tabButtonLeft {
+    font-family: Akshar, sans-serif;
+    font-weight: 400;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 35%;
+    height: 100%;
+    padding: 0.3rem;
+    font-size: 1.2em;
+    color: #636262;
+    background-color: #f0f0f0;
+    border: none;
+    border-radius: 15px 0px 0px 15px;
+    cursor: pointer;
+}
+
+.tabButtonRight {
+
+    font-family: Akshar, sans-serif;
+    font-weight: 400;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 35%;
+    height: 100%;
+    padding: 0.3rem;
+    font-size: 1.2em;
+    color: #636262;
+    background-color: #f0f0f0;
+    border: none;
+    border-radius: 0px 15px 15px 0px;
+    cursor: pointer;
+}
+
+
+.tabButtonActiveV2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    padding: 0.5rem;
+    font-size: 1em;
+    font-weight: 600;
+    color: #000;
+    background-color: #f0f0f0;
+    border: none;
+    border-bottom: 2px solid #FF6D4D;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.workoutsHeader {
+    padding-top: 30px;
+    width: 100%;
+    display: flex;
+    padding-left: 5px;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.addWorkoutButton {
+    font-size: 1.2em;
+    background-color: #246656;
+    color: white;
+    font-family: koulen;
+    line-height: 0;
+    margin: 0;
+    padding: 0px 9px 0px 9px;
+    border-radius: 18px;
+}
+
+
+.loadMoreButton {
+    font-family: koulen;
+    display: flex;
+    font-size: 1.2em;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    font-weight: 400;
+    color: white;
+    background-color: #180202;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+@media (min-width: 600px) {
+    .workoutsIndexContainer {
+         max-width: 600px;
+         max-height: 1000px;
+         margin: 0 auto;
+    }
+ } 
