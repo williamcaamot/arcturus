@@ -113,6 +113,7 @@ const CreateWorkout = () => {
                             type='text'
                             className='nameInput'
                             placeholder='Description (optional)'
+                            value={workoutDescription}
                             onChange={(e) => setWorkoutDescription(e.target.value)}></input>
                     </div>
                     <div style={{ display: 'flex', flexDirection: 'column', gap: '10px', fontFamily:"akshar", fontWeight:"200" }}>
