@@ -3,9 +3,8 @@ import './styles/workoutIndex.css';
 import Workouts from './workouts/Workouts';
 import Exercises from './exercises/Exercises';
 import Navigation from '../../components/navigation/Navigation';
-import { useNavigate } from 'react-router-dom';
+import {useNavigate} from 'react-router-dom';
 
-type Tab = 'WORKOUTS' | 'EXERCISES';
 
 const WorkoutsIndex = () => {
 
@@ -30,25 +29,22 @@ const WorkoutsIndex = () => {
         navigate(path);
     };
 
-    const [activeTab, setActiveTab] = useState<Tab>('WORKOUTS');
 
     return (
         <div className='workoutsIndexContainer'>
             <div className='workoutsHeader'>
                 <div>
-                    {activeTab === "WORKOUTS" ? <h1>MY WORKOUTS</h1> : <h1>EXERCISES</h1>}
+                    <h1>MY WORKOUTS</h1>
 
                     {/*<svg xmlns='http://www.w3.org/2000/svg' width='132' height='4' viewBox='0 0 132 4' fill='none' className='line'>
                     <path d='M2.98218 2H129.018' stroke='#FF6D4D' stroke-width='4' stroke-linecap='round' />
                 </svg>*/}
                 </div>
                 <div style={{paddingLeft: "10px"}}>
-                    {
-                        activeTab === "WORKOUTS" && <span className={"addWorkoutButton"} 
-                        //onClick={() => {createWorkout()}}
-                        onClick={() => navigateTo('/create-workout')}
-                        >ADD +</span>
-                    }
+                 <span className={"addWorkoutButton"}
+                     //onClick={() => {createWorkout()}}
+                       onClick={() => navigateTo('/create-workout')}
+                 >ADD +</span>
 
                 </div>
             </div>
@@ -66,7 +62,6 @@ const WorkoutsIndex = () => {
 
 
             <Workouts/>
-
 
 
             <Navigation/>
