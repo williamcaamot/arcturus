@@ -74,7 +74,6 @@ const Exercises = () => {
         } catch (e) {
             setIsLoading(false)
         }
-
     }
 
     async function loadMore() {
