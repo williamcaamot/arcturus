@@ -47,6 +47,10 @@
     white-space: normal;
 }
 
+.exerciseDetailsHeaderTitle svg {
+    margin-top: 5px;
+}
+
 .line {
     height: 0.5vw;
     width: auto;
