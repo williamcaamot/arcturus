@@ -1,6 +1,7 @@
 import { useNavigate } from 'react-router-dom';
 import Badge from '../../../components/Badge.tsx';
 import { Exercise } from './Exercises.tsx';
+import ExercisePlaceholderImg from '../../../../public/images/No-Image-Available.png';
 
 export const ExerciseCard = ({
     exercise,
@@ -30,7 +31,7 @@ export const ExerciseCard = ({
                 {exercise.Exercise_Image && exercise.Exercise_Image.length > 0 ? (
                     <img src={exercise.Exercise_Image} alt='exercise' className='exerciseCardImg' />
                 ) : (
-                    <img src='https://via.placeholder.com/150' alt='exercise' className='exerciseCardImg' />
+                    <img src={ExercisePlaceholderImg} alt='exercise' className='exerciseCardImg' />
                 )}
             </div>
             <div className='exerciseCardContainerRight'>
