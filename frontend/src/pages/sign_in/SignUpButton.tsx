@@ -13,7 +13,7 @@ const SignUpButton = () => {
             <button className={"signInBoxes loginBtn"} onClick={() => {
                 alert("This is not yet available! Please sign in with Google!")
             }}>
-                <p>LOG IN/SIGN UP</p>
+                <p>Log in / Sign up</p>
             </button>
         </>
     );
