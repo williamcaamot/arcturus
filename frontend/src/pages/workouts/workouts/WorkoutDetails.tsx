@@ -3,7 +3,7 @@ import Badge from "../../../components/Badge";
 import Navigation from "../../../components/navigation/Navigation";
 import "./styles/workoutDetails.css";
 import {useNavigate, useParams} from "react-router-dom";
-import workouts, {Workout} from "./Workouts";
+import {Workout} from "./Workouts";
 import WorkoutService from "../../../services/WorkoutService";
 import ExercisePlaceholderImg from '../../../../public/images/No-Image-Available.png';
 
@@ -92,7 +92,7 @@ const WorkoutDetails = () => {
                             </div>
 
                             <div className="workoutNameAndButtons">
-                                <h1>{workout && workout.workoutName}</h1>
+                                <h2>{workout && workout.workoutName}</h2>
 
                                 <div className="workoutDetailsHeaderBtnCont">
                                     <div
@@ -120,7 +120,7 @@ const WorkoutDetails = () => {
                         {workout?.exercises?.map((exercise, index) => (
                             <div className="workoutDetailsCard" key={index}>
                                 <div className="exerciseDetailsHeader">
-                                    <h3> {exercise.Exercise_Name} </h3>
+                                    <h3 style={{margin: 0}}> {exercise.Exercise_Name} </h3>
                                 </div>
                                 <div className="contentContainer">
                                     <img
@@ -128,10 +128,10 @@ const WorkoutDetails = () => {
                                         alt="Exercise Image"
                                         className="workoutCardImg"
                                     />
-                                    <div className="">
-                                        <p>Rating: {exercise.Rating}</p>
-                                        <p>Reps: {exercise.minReps}</p>
-                                        <p>Sets: {exercise.minSets}</p>
+                                    <div className="exDetails">
+                                        <p style={{margin: 0}}>Rating: {exercise.Rating}</p>
+                                        <p style={{margin: 0}}>Reps: {exercise.minReps}</p>
+                                        <p style={{margin: 0}}>Sets: {exercise.minSets}</p>
                                         <div className="exercisesInWorkoutDetails">
                                             <div className="badgesContainer">
                                                 {exercise &&
