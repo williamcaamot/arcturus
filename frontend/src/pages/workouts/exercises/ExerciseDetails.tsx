@@ -54,7 +54,7 @@ const ExerciseDetails = () => {
                         <path d='M2.98218 2H129.018' stroke='#FF6D4D' stroke-width='4' stroke-linecap='round' />
                     </svg>
                 </div>
-                    <div>
+                    <div className='imageContainer'>
                     {exercise && exercise.Exercise_Image.length > 0 ? <img src={exercise.Exercise_Image} alt='exercise' className='exerciseCardImg' /> : <img src='https://via.placeholder.com/150' alt='exercise' className='exerciseCardImg' />}
                     </div>
                     <div className='exerciseDetailsInnerBottom'>
