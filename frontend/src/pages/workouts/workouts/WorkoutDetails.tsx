@@ -130,8 +130,8 @@ const WorkoutDetails = () => {
                                     />
                                     <div className="exDetails">
                                         <p style={{margin: 0}}>Rating: {exercise.Rating}</p>
-                                        <p style={{margin: 0}}>Reps: {exercise.minReps}</p>
-                                        <p style={{margin: 0}}>Sets: {exercise.minSets}</p>
+                                        <p style={{margin: 0}}>Reps: 12{exercise.minReps}</p>
+                                        <p style={{margin: 0}}>Sets: 3{exercise.minSets}</p>
                                         <div className="exercisesInWorkoutDetails">
                                             <div className="badgesContainer">
                                                 {exercise &&
