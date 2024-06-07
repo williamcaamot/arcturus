@@ -1,5 +1,6 @@
 import {useNavigate} from "react-router-dom";
 import {Workout} from "./Workouts.tsx";
+import WorkoutPlaceholderImg from '../../../../public/images/No-Image-Available.png';
 
 export const WorkoutCard = ({workout}: { workout: Workout }) => {
     const navigate = useNavigate();
@@ -32,7 +33,7 @@ export const WorkoutCard = ({workout}: { workout: Workout }) => {
                         />
                     ) : (
                         <img
-                            src="https://via.placeholder.com/150"
+                            src={WorkoutPlaceholderImg}
                             alt="workout"
                             className="workoutCardImg"
                         />

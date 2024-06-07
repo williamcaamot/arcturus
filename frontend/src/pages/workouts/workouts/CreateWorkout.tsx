@@ -9,7 +9,7 @@ import ExercisePickerForWorkout from './ExercisePickForWorkout';
 const CreateWorkout = () => {
     const navigate = useNavigate();
     const [workoutName, setWorkoutName] = useState<string>('');
-    const [workoutImgUrl, setWorkoutImgUrl] = useState<string>('');
+    const [workoutImgUrl, setWorkoutImgUrl] = useState<string>();
     const [workoutDescription, setWorkoutDescription] = useState<string | null>(null);
     const [addExercisePageIsOpen, setAddExercisePageIsOpen] = useState<boolean>(false);
 

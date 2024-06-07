@@ -5,6 +5,8 @@ import "./styles/workoutDetails.css";
 import {useNavigate, useParams} from "react-router-dom";
 import workouts, {Workout} from "./Workouts";
 import WorkoutService from "../../../services/WorkoutService";
+import ExercisePlaceholderImg from '../../../../public/images/No-Image-Available.png';
+
 
 const WorkoutDetails = () => {
     const {id} = useParams();
@@ -27,7 +29,7 @@ const WorkoutDetails = () => {
                 return
             }
             navigate("/workouts")
-            alert(`Successfully deleted workout with naem ${workout?.workoutName}`)
+            alert(`Successfully deleted workout with name ${workout?.workoutName}`)
         } catch (e) {
             console.log(e)
         }
@@ -122,7 +124,7 @@ const WorkoutDetails = () => {
                                 </div>
                                 <div className="contentContainer">
                                     <img
-                                        src={exercise.Exercise_Image}
+                                        src={exercise && exercise.Exercise_Image ? exercise.Exercise_Image : ExercisePlaceholderImg}
                                         alt="Exercise Image"
                                         className="workoutCardImg"
                                     />

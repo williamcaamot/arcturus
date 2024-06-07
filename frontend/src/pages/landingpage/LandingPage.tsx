@@ -5,6 +5,7 @@ import {Exercise} from '../workouts/exercises/Exercises';
 import './styles/landingPage.css';
 import {useContext, useEffect, useState} from "react";
 import {UserContext} from "../../App.tsx";
+import WorkoutPlaceholderImg from '../../../public/images/No-Image-Available.png';
 import workouts from "../workouts/workouts/Workouts.tsx";
 
 const LandingPage = () => {
@@ -111,7 +112,7 @@ const LandingPage = () => {
                             }}
 
                             >
-                                <img src={workout.image} alt={workout.workoutName} className='landingWorkoutCardImg'/>
+                                <img src={workout && workout.image ? workout.image : WorkoutPlaceholderImg} alt={workout.workoutName} className='landingWorkoutCardImg'/>
                                 <span>
                                 <h5 style={{
                                     margin: 0,
@@ -138,7 +139,7 @@ const LandingPage = () => {
                                      onClick={() => navigateTo('/exercise-details', excercise._id)}>
                                     {excercise.Exercise_Image.length > 0 ? <img src={excercise.Exercise_Image} alt='exercise'
                                                                                 className='landingExerciseCardImg'/> :
-                                        <img src='https://via.placeholder.com/150' alt='exercise'
+                                        <img src={WorkoutPlaceholderImg} alt='exercise'
                                              className='landingExerciseCardImg'/>}
                                     <span>
                                 <h5 style={{
