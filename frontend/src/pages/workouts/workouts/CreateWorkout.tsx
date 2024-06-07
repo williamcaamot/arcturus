@@ -9,7 +9,7 @@ import ExercisePickerForWorkout from './ExercisePickForWorkout';
 const CreateWorkout = () => {
     const navigate = useNavigate();
     const [workoutName, setWorkoutName] = useState<string>('');
-    const [workoutImgUrl, setWorkoutImgUrl] = useState<string>('https://via.placeholder.com/150');
+    const [workoutImgUrl, setWorkoutImgUrl] = useState<string>('');
     const [workoutDescription, setWorkoutDescription] = useState<string | null>(null);
     const [addExercisePageIsOpen, setAddExercisePageIsOpen] = useState<boolean>(false);
 
@@ -108,6 +108,7 @@ const CreateWorkout = () => {
                             type='text'
                             className='nameInput'
                             placeholder='Image link (optional)'
+                            value={workoutImgUrl}
                             onChange={(e) => setWorkoutImgUrl(e.target.value)}></input>
                         <input
                             type='text'
