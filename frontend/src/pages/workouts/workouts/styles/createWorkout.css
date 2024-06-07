@@ -108,6 +108,8 @@
     margin-right: 15px;
     min-width: 50px;
     min-height: 50px;
+    max-width: 50px;
+    min-width: 50px;
 }
 
 @media (min-width: 600px) {
