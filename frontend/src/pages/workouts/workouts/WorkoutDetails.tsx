@@ -87,12 +87,12 @@ const WorkoutDetails = () => {
                                     className="deleteBtn"
                                     
                                 >
-                                    Delete workout
+                                    DELETE WORKOUT
                                 </div>{" "}
                             </div>
 
                             <div className="workoutNameAndButtons">
-                                <h2>{workout && workout.workoutName}</h2>
+                                <h2 style={{fontFamily:"koulen"}}>{workout && workout.workoutName}</h2>
 
                                 <div className="workoutDetailsHeaderBtnCont">
                                     <div
@@ -102,7 +102,7 @@ const WorkoutDetails = () => {
                                         className="startWorkoutDetailsBtn"
                                         style={{ color: "white" }}
                                     >
-                                        Start
+                                        START
                                     </div>
                                     <div
                                         role="button"
@@ -110,7 +110,7 @@ const WorkoutDetails = () => {
                                         onClick={() => alert("Coming soon")}
                                         className="editWorkoutDetailsBtn"
                                     >
-                                        Edit
+                                        EDIT
                                     </div>
                                 </div>
                             </div>
@@ -120,15 +120,18 @@ const WorkoutDetails = () => {
                         {workout?.exercises?.map((exercise, index) => (
                             <div className="workoutDetailsCard" key={index}>
                                 <div className="exerciseDetailsHeader">
-                                    <h3 style={{margin: 0}}> {exercise.Exercise_Name} </h3>
+
                                 </div>
                                 <div className="contentContainer">
                                     <img
                                         src={exercise && exercise.Exercise_Image ? exercise.Exercise_Image : ExercisePlaceholderImg}
                                         alt="Exercise Image"
                                         className="workoutCardImg"
+                                        style={{width:"125px", height:"125px", objectFit:"inherit"}}
                                     />
                                     <div className="exDetails">
+                                        <h3 style={{fontFamily:"koulen", fontWeight:"200", margin: 0}}> {exercise.Exercise_Name} </h3>
+
                                         <p style={{margin: 0}}>Rating: {exercise.Rating}</p>
                                         <p style={{margin: 0}}>Reps: 12{exercise.minReps}</p>
                                         <p style={{margin: 0}}>Sets: 3{exercise.minSets}</p>
