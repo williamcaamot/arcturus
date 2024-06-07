@@ -51,7 +51,7 @@ const ExercisesIndex = () => {
                 </button>
                 <button className={'tabButtonRight'}
                         style={currentUrl === "exercises" ? {backgroundColor: "#FF6D4D", color: "black"} : undefined}
-                        onClick={() => navigateTo('exercises')}>Exercises
+                        onClick={() => navigateTo('/exercises')}>Exercises
                 </button>
             </div>
 
