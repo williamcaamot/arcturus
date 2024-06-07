@@ -27,7 +27,7 @@ export interface Exercise {
 
 const Workout = () => {
     
-    const [workout, setWorkouts] = useState<Workout[]>([]);
+    const [workout, setWorkout] = useState<Workout[]>([]);
     const [searchTerm, setSearchTerm] = useState<string>("");
     const [isLoading, setIsLoading] = useState<boolean>(true);
     const [offset, setOffset] = useState<number>(0);
@@ -52,31 +52,33 @@ const Workout = () => {
         }
     }, [tempSearch]);
 
-
-
-    const fetchWorkouts = async (searchTerm: string) => {
-        setIsLoading(true);
-        let result;
-        
+    async function fetchWorkouts(term: string) {
         try {
-            if (searchTerm) {
-                result = await fetch(`/api/v1/workouts?search=${searchTerm}&offset=${offset}`);
+            setIsLoading(true);
+            let result;
+            if (term.length > 1) {
+                result = await fetch(`/api/v1/workouts/search/${term}`)
+                const data = await result.json()
+                if (data.results.length < 50){
+                    (setHasMore(false));
+                } else {
+                    setHasMore(true);
+                }
+                setWorkout(data.results)
+                setIsLoading(false);
             } else {
-                result = await fetch(`/api/v1/workouts?offset=${offset}`);
+                result = await fetch(`/api/v1/workouts`)
+                const data = await result.json()
+                if (data.length < 50){
+                    (setHasMore(false));
+                } else {
+                    setHasMore(true);
+                }
+                setWorkout(data)
+                setIsLoading(false);
             }
-
-            const data = await result.json();
-            const fetchedWorkouts = data.results;
-
-            if (fetchedWorkouts.length > 10) { // Check if there are more than 10 workouts
-                setHasMore(true);
-                fetchedWorkouts.splice(10); // Keep only the first 10 workouts
-            }
-
-            setWorkouts([...workout, ...fetchedWorkouts]);
-            setIsLoading(false);
         } catch (e) {
-            setIsLoading(false);
+            setIsLoading(false)
         }
     }
 
@@ -86,8 +88,6 @@ const Workout = () => {
             const newOffset = offset + 10; // Change this to 10 to fetch 10 workouts at a time
             setIsLoading(true);
             let result;
-            console.log('loadMore calledsssssssssssss');
-            console.log('term:', term)
             if (term.length > 1) {
                 result = await fetch(
                     `/api/v1/workouts/search/${term}?offset=${newOffset}`
@@ -99,7 +99,7 @@ const Workout = () => {
                 } else {
                     setHasMore(true);
                 }
-                setWorkouts([...workout, ...data.results]);
+                setWorkout([...workout, ...data.results]);
                 setIsLoading(false);
             } else {
                 result = await fetch(`/api/v1/workouts?offset=${newOffset}`);
@@ -109,7 +109,7 @@ const Workout = () => {
                 } else {
                     setHasMore(true);
                 }
-                setWorkouts([...workout, ...data]);
+                setWorkout([...workout, ...data]);
                 setIsLoading(false);
             }
             setOffset(newOffset); // Update the offset state after the API request
@@ -138,7 +138,7 @@ const Workout = () => {
             <div className="workoutContainer">
                 {workout.length > 0 &&
                     workout.map((w) => (
-                        <WorkoutCard workout={w} />
+                        <WorkoutCard workout={w} key={w._id}/>
                     ))}
                 {workout.length === 0 && !isLoading && (
                     <h2 style={{ fontFamily: "Koulen" }}>No results! Do you have any workouts yet?</h2>

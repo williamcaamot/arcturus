@@ -1,6 +1,5 @@
 import {useNavigate} from "react-router-dom";
 import {Workout} from "./Workouts.tsx";
-import exercises from "../exercises/Exercises.tsx";
 
 export const WorkoutCard = ({workout}: { workout: Workout }) => {
     const navigate = useNavigate();
@@ -46,7 +45,7 @@ export const WorkoutCard = ({workout}: { workout: Workout }) => {
                     <div className="workoutCardDetails">
                     <span>
                         <p style={{fontFamily: "Akshar", fontSize: "1em"}}>
-                            Exercises: {workout.exercises.length}
+                            Exercises: {workout.exercises && workout.exercises.length}
                         </p>
                     </span>
                     </div>
