@@ -152,13 +152,12 @@
 .exDetails {
     display: flex;
     flex-direction: column;
-    gap: 10px;
     margin-top: 10px;
 }
 
-.exDetails > p {
+.exDetails > span > p {
     font-family: Akshar;
-
+    font-size: 18px;
 }
 
 @media (min-width: 600px) {

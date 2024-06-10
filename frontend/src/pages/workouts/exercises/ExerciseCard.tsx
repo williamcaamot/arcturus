@@ -8,11 +8,15 @@ export const ExerciseCard = ({
     onClickDisabled,
     deleteBtnActive,
     onRemoveFromWorkout,
+    handleSetsChange,
+    handleRepsChange,
 }: {
     exercise: Exercise;
     onClickDisabled?: boolean;
     deleteBtnActive?: boolean;
     onRemoveFromWorkout?: (exercise: Exercise) => void;
+    handleSetsChange?: (e: React.ChangeEvent<HTMLSelectElement>, exercise: Exercise) => void;
+    handleRepsChange?: (e: React.ChangeEvent<HTMLSelectElement>, exercise: Exercise) => void;
 }) => {
     const navigate = useNavigate();
 
@@ -35,9 +39,11 @@ export const ExerciseCard = ({
                 )}
             </div>
             <div className='exerciseCardContainerRight'>
-                <div className={'exerciseCardTitle'} style={deleteBtnActive ?  {display: "flex", alignItems: "center", justifyContent: "space-between", width: "100%"} : {}}>
+                <div
+                    className={'exerciseCardTitle'}
+                    style={deleteBtnActive ? { display: 'flex', alignItems: 'center', justifyContent: 'space-between', width: '100%' } : {}}>
                     <h3>{exercise.Exercise_Name}</h3>
-                    {deleteBtnActive && onRemoveFromWorkout &&  (
+                    {deleteBtnActive && onRemoveFromWorkout && (
                         <button style={{ border: 'none', background: 'none' }} onClick={() => onRemoveFromWorkout(exercise)}>
                             <svg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20' fill='none'>
                                 <path
@@ -51,6 +57,26 @@ export const ExerciseCard = ({
                         </button>
                     )}
                 </div>
+                {deleteBtnActive && onRemoveFromWorkout && (
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }} className='setRepSelect'>
+                        <label htmlFor='setsSelect'>SETS:</label>
+                        <select value={exercise.sets} id='setsSelect' onChange={(e) => handleSetsChange && handleSetsChange(e, exercise)}>
+                            {[...Array(25)].map((_, i) => (
+                                <option key={i} value={i + 1}>
+                                    {i + 1}
+                                </option>
+                            ))}
+                        </select>
+                        <label htmlFor='repsSelect'>REPS:</label>
+                        <select value={exercise.reps} id='repsSelect' onChange={(e) => handleRepsChange && handleRepsChange(e, exercise)}>
+                            {[...Array(25)].map((_, i) => (
+                                <option key={i} value={i + 1}>
+                                    {i + 1}
+                                </option>
+                            ))}
+                        </select>
+                    </div>
+                )}
                 <div className='exerciseCardDetails'>
                     {/*<span>
                         <svg xmlns='http://www.w3.org/2000/svg' width='18' height='18' viewBox='0 0 18 18' fill='none'>
