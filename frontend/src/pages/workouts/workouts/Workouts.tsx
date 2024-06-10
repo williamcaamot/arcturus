@@ -10,6 +10,7 @@ export interface Workout {
     exercises: Array<Exercise>;
     image: string;
     created_by: string;
+    description: string;
 }
 
 // export interface Exercise {

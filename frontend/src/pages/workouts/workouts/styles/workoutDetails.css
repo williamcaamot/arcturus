@@ -4,8 +4,7 @@
     padding: 15px;
     border-radius: 15px;
     align-items: center;
-    gap: 15px;
-    margin-top: 2vh;
+    gap: 15px;  
 }
 
 .workoutNameAndButtons {
@@ -37,7 +36,6 @@
     background-color: #FF6D4D;
     cursor: pointer;
     font-family: Akshar;
-    font-size: 13px;
 }
 
 .backAndDelete{
@@ -106,7 +104,7 @@
     flex-direction: column;
     gap: 8px;
     width: 100%;
-    margin-left: 4vw;
+    margin: 2vw;
 }
 
 .workoutDetailsHeaderBtnCont {
@@ -153,12 +151,40 @@
     display: flex;
     flex-direction: column;
     margin-top: 10px;
+    justify-content: space-between;
 }
 
-.exDetails > span > p {
+.exDetails > span > span > p {
     font-family: Akshar;
     font-size: 18px;
 }
+
+.exDetails > h3 {
+    margin: 0px;
+    line-height: 25px;
+    font-family: Koulen;
+    font-weight: 100;
+    font-size: 1.7em;
+}
+
+.workoutDetailsDescription {
+    display: flex;
+    gap: 4px;
+    margin: 0px;
+    line-height: 25px;
+    font-family: Akshar;
+    font-weight: 100;
+    font-size: 1.1em;
+}
+
+.workoutDetailsDescription > p {
+    margin: 0px;
+    line-height: 25px;
+    font-family: Akshar;
+    font-weight: 400;
+    font-size: 1.1em;
+}
+
 
 @media (min-width: 600px) {
     .workoutDetailsPage {

@@ -74,7 +74,7 @@ const WorkoutDetails = () => {
                                         deleteWorkout();
                                     }}
                                     className='deleteBtn'>
-                                    DELETE WORKOUT
+                                    DELETE
                                 </div>{' '}
                             </div>
 
@@ -94,7 +94,11 @@ const WorkoutDetails = () => {
                                         EDIT
                                     </div>
                                 </div>
+                                {workout && workout.description && (
+                                <div className='workoutDetailsDescription'>{workout.description}</div>
+                                )}
                             </div>
+                            <hr style={{width: "100%", border: "1px solid lightgray"}}></hr>
                         </div>
                     </div>
                     <div className='workoutDetailsContainer'>
@@ -111,14 +115,15 @@ const WorkoutDetails = () => {
                                     <div className='exDetails'>
                                         <h3 style={{ fontFamily: 'koulen', fontWeight: '200', margin: 0 }}> {exercise.Exercise_Name} </h3>
                                         {exercise && exercise.reps && exercise.sets ? (
-                                            <span style={{ display: 'flex', alignItems: 'center', gap: '12px', marginTop: '7px' }}>
+                                            <span style={{ display: 'flex', alignItems: 'center', marginTop: '7px', gap: "12px" }}>
                                                 <span style={{ display: 'flex', alignItems: 'center', gap: '4px' }}>
                                                     <p style={{ margin: 0 }}>SETS:</p>{' '}
-                                                    <p style={{ margin: 0, fontWeight: '600', fontFamily: 'Koulen' }}>{exercise.sets}</p>
+                                                    <p style={{ margin: 0, fontWeight: '600', fontFamily: 'Akshar' }}>{exercise.sets}</p>
                                                 </span>
+                                                <hr style={{height: "14px", border: "1px solid #a9A9A9", margin: 0}}></hr>
                                                 <span style={{ display: 'flex', alignItems: 'center', gap: '4px' }}>
                                                     <p style={{ margin: 0 }}>REPS:</p>{' '}
-                                                    <p style={{ margin: 0, fontWeight: '600', fontFamily: 'Koulen' }}>{exercise.reps}</p>
+                                                    <p style={{ margin: 0, fontWeight: '600', fontFamily: 'Akshar' }}>{exercise.reps}</p>
                                                 </span>
                                             </span>
                                         ) : (
