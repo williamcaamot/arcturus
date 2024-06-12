@@ -46,6 +46,31 @@ const CreateWorkout = () => {
         }
     }
 
+    const handleSetsChange = (e: React.ChangeEvent<HTMLSelectElement>, exercise: Exercise) => {
+        const newSets = e.target.value;
+        setNewWorkoutExercises((prevExercises) =>
+            prevExercises.map((ex) => {
+                if (ex._id === exercise._id) {
+                    return { ...ex, sets: parseInt(newSets) };
+                }
+                return ex;
+            })
+        );
+    };
+    const handleRepsChange = (e: React.ChangeEvent<HTMLSelectElement>, exercise: Exercise) => {
+        const newReps = e.target.value;
+        setNewWorkoutExercises((prevExercises) =>
+            prevExercises.map((ex) => {
+                if (ex._id === exercise._id) {
+                    return { ...ex, reps: parseInt(newReps) };
+                }
+                return ex;
+            })
+        );
+    };
+
+    console.log(newWorkoutExercises)
+
     return (
         <div className='createWorkoutContainer'>
             {addExercisePageIsOpen ? (
@@ -143,6 +168,8 @@ const CreateWorkout = () => {
                                         onRemoveFromWorkout={(ex: Exercise) => {
                                             setNewWorkoutExercises((prevExercises) => prevExercises.filter((e) => e._id !== ex._id));
                                         }}
+                                        handleSetsChange={handleSetsChange}
+                                        handleRepsChange={handleRepsChange}
                                     />
                                 </div>
                             ))

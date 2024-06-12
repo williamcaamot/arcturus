@@ -45,8 +45,8 @@ export const WorkoutCard = ({workout}: { workout: Workout }) => {
                     </div>
                     <div className="workoutCardDetails">
                     <span>
-                        <p style={{fontFamily: "Akshar", fontSize: "1em"}}>
-                            Exercises: {workout.exercises && workout.exercises.length}
+                        <p style={{fontFamily: "Akshar", fontSize: "1.1em"}}>
+                            EXERCISES: {workout.exercises && workout.exercises.length}
                         </p>
                     </span>
                     </div>

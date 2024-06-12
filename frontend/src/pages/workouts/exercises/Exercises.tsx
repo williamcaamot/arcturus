@@ -14,6 +14,8 @@ export interface Exercise {
     Equipment: string;
     Rating: string;
     Description: string;
+    sets: number;
+    reps: number;
 }
 
 const Exercises = () => {

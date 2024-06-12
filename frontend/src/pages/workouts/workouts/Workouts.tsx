@@ -1,6 +1,7 @@
 import './styles/workouts.css';
 import { useState, useEffect } from 'react';
 import { WorkoutCard } from "./WorkoutCard";
+import { Exercise } from '../exercises/Exercises';
 
 
 export interface Workout {
@@ -9,21 +10,22 @@ export interface Workout {
     exercises: Array<Exercise>;
     image: string;
     created_by: string;
+    description: string;
 }
 
-export interface Exercise {
-    exerciseId: string;
-    Exercise_Name: string;
-    Exercise_Image: string;
-    muscle_gp: string;
-    Equipment: string;
-    Rating: number;
-    Description: string;
-    minSets: number;
-    maxSets: number;
-    minReps: number;
-    maxReps: number;
-}
+// export interface Exercise {
+//     exerciseId: string;
+//     Exercise_Name: string;
+//     Exercise_Image: string;
+//     muscle_gp: string;
+//     Equipment: string;
+//     Rating: number;
+//     Description: string;
+//     minSets: number;
+//     maxSets: number;
+//     minReps: number;
+//     maxReps: number;
+// }
 
 const Workout = () => {
     
