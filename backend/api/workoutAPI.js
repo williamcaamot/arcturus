@@ -57,10 +57,10 @@ export function workoutAPI(db) {
 
     router.get("/:id", async (req, res) => {
         try {
-            //if (!req.user) {
-            //    res.sendStatus(401);
-            //    return
-            //}
+            if (!req.user) {
+                res.sendStatus(401);
+                return
+            }
 
 
             const collection = await db.collection("workouts");

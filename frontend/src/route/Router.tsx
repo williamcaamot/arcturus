@@ -12,8 +12,6 @@ import WorkoutDetails from "../pages/workouts/workouts/WorkoutDetails";
 import CreateWorkout from "../pages/workouts/workouts/CreateWorkout";
 import ExercisesIndex from "../pages/Exercises/ExercisesIndex.tsx";
 
-
-
 const Router = () => {
     return (
         <BrowserRouter>
